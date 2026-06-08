@@ -3,8 +3,8 @@ import { ButtonLink } from "@/components/ui/Button";
 import { ArrowRight, Check } from "@/components/ui/icons";
 
 const heroPoints = [
-  "Produktneutral",
-  "Weltweit im Einsatz",
+  "SIMATIC-Spezialist",
+  "WinCC Unified & WinCC OA",
   "Über 13 Jahre Erfahrung",
 ];
 
@@ -38,9 +38,10 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-steel-300 animate-fade-up">
-            Wir entwickeln Automatisierungslösungen für den industriellen
-            Maschinen- und Anlagenbau – von der Beratung über die SPS-Programmierung
-            bis zur Inbetriebnahme. Produktneutral, präzise und international.
+            Spezialisiert auf die Siemens-Welt: SIMATIC STEP 7 Classic und
+            PCS 7, Visualisierung mit WinCC Unified und WinCC OA sowie
+            durchgängige Vernetzung über OPC UA, PROFINET und PROFIBUS. Von der
+            Programmierung bis zur Inbetriebnahme – präzise und weltweit.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3 animate-fade-up">

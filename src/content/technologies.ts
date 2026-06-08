@@ -1,5 +1,6 @@
 /**
- * Supported control & drive systems — from the existing Leistungen page.
+ * Core competencies — control/process engineering, visualization and
+ * industrial communication. Based on the owner's stated key strengths.
  */
 
 export type TechCategory = {
@@ -9,11 +10,20 @@ export type TechCategory = {
 
 export const technologies: TechCategory[] = [
   {
-    vendor: "Siemens Automation & Drives",
-    items: ["SPS S5 / S7", "S7-1200 / S7-1500", "TIA Portal", "SINAMICS"],
+    vendor: "Steuerungs- & Prozessleittechnik",
+    items: [
+      "SIMATIC STEP 7 Classic",
+      "SIMATIC PCS 7",
+      "TIA Portal",
+      "Programmierung in FUP, KOP & AWL",
+    ],
   },
   {
-    vendor: "Visualisierung & Leittechnik",
-    items: ["WinCC OA", "WinCC", "Prozessvisualisierung"],
+    vendor: "Visualisierung & SCADA",
+    items: ["WinCC Unified", "WinCC OA", "WinCC", "Prozessvisualisierung"],
+  },
+  {
+    vendor: "Kommunikation & Schnittstellen",
+    items: ["OPC UA", "Modbus RTU / TCP", "PROFINET", "PROFIBUS"],
   },
 ];
