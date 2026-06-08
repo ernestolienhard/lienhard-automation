@@ -146,3 +146,45 @@ export const Spinner = (p: IconProps) => (
     <path d="M21 12a9 9 0 1 1-6.219-8.56" />
   </Svg>
 );
+
+export const Download = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M12 3v12m0 0 4-4m-4 4-4-4" />
+    <path d="M5 21h14" />
+  </Svg>
+);
+
+export const ExternalLink = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M15 3h6v6" />
+    <path d="M10 14 21 3" />
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+  </Svg>
+);
+
+export const Play = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M6 4.5v15l13-7.5-13-7.5Z" />
+  </Svg>
+);
+
+export const Layers = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="m12 2 9 5-9 5-9-5 9-5Z" />
+    <path d="m3 12 9 5 9-5M3 17l9 5 9-5" />
+  </Svg>
+);
+
+export const Search = (p: IconProps) => (
+  <Svg {...p}>
+    <circle cx="11" cy="11" r="7" />
+    <path d="m21 21-4.3-4.3" />
+  </Svg>
+);
+
+export const RefreshCw = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M21 12a9 9 0 0 1-9 9c-2.5 0-4.8-1-6.4-2.7M3 12a9 9 0 0 1 9-9c2.5 0 4.8 1 6.4 2.7" />
+    <path d="M21 3v5h-5M3 21v-5h5" />
+  </Svg>
+);
