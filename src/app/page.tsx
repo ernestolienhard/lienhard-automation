@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
@@ -10,7 +9,6 @@ import { ProjectCard } from "@/components/cards/ProjectCard";
 import { services, advantages } from "@/content/services";
 import { technologies } from "@/content/technologies";
 import { projects } from "@/content/references";
-import { clients } from "@/content/partners";
 import { siteConfig } from "@/lib/site";
 import {
   ArrowRight,
@@ -47,25 +45,6 @@ export default function HomePage() {
     <>
       {/* 1 — Hero */}
       <Hero />
-
-      {/* Client trust strip */}
-      <div className="border-y border-steel-200 bg-steel-50">
-        <Container className="py-7">
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.16em] text-steel-500">
-            Vertrauen von Industrie- und Pharmaunternehmen
-          </p>
-          <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
-            {clients.map((c) => (
-              <li
-                key={c}
-                className="text-lg font-semibold text-steel-400"
-              >
-                {c}
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </div>
 
       {/* 3 — Services overview */}
       <Section tone="light">

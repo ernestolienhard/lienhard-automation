@@ -14,13 +14,3 @@ export const partners: Partner[] = [
   { name: "TECVIL SARL", location: "Neuve Eglise, Frankreich" },
   { name: "Eckardt Engineering", location: "Mühlhausen, Deutschland" },
 ];
-
-/** Public client references shown on the existing home page. */
-export const clients: string[] = [
-  "Roche",
-  "Merck",
-  "Boehringer Ingelheim",
-  "Schlatter",
-  "Romaco",
-  "Rittmeyer",
-];
