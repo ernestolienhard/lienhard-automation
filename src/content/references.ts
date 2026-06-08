@@ -10,14 +10,12 @@ export type ProjectCategory =
   | "abwasser"
   | "pharma"
   | "stahl"
-  | "druck"
   | "retrofit";
 
 export const categoryLabels: Record<ProjectCategory, string> = {
   abwasser: "Abwasser & ARA",
   pharma: "Pharma & Bioreaktoren",
   stahl: "Stahl- & Industrieanlagen",
-  druck: "Drucksysteme",
   retrofit: "Retrofit & Migration",
 };
 

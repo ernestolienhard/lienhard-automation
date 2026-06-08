@@ -41,19 +41,6 @@ export const services: Service[] = [
       "In- und Auslandinbetriebnahmen",
     ],
   },
-  {
-    slug: "drucksysteme",
-    title: "Drucksysteme",
-    tagline: "Qualität in Reparatur & Inbetriebnahme",
-    description:
-      "Erfahrene Techniker sichern die Qualität bei der Reparatur und Inbetriebnahme von Drucksystemen – präzise, zuverlässig und termingerecht.",
-    features: [
-      "Inbetriebnahme von Drucksystemen",
-      "Reparatur und Instandsetzung",
-      "Qualitätssicherung durch erfahrene Techniker",
-      "Service und Wartung",
-    ],
-  },
 ];
 
 /** Short "why choose us" benefits shown on the home page. */

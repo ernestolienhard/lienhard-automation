@@ -16,7 +16,6 @@ import {
   ArrowRight,
   Cpu,
   Workflow,
-  Printer,
   ShieldCheck,
   Clock,
   Wrench,
@@ -28,7 +27,6 @@ import {
 const serviceIcons: Record<string, React.ReactNode> = {
   "sps-engineering": <Cpu className="h-6 w-6" />,
   projektierung: <Workflow className="h-6 w-6" />,
-  drucksysteme: <Printer className="h-6 w-6" />,
 };
 
 const advantageIcons = [
@@ -76,7 +74,7 @@ export default function HomePage() {
           title="Automatisierung aus einer Hand"
           lead="Beratung, Planung, Projektierung und Umsetzung steuerungstechnischer Prozesse im industriellen Maschinen- und Anlagenbau."
         />
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {services.map((service, i) => (
             <Reveal key={service.slug} delay={i * 0.08}>
               <ServiceCard

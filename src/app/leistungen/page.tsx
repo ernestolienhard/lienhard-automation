@@ -6,19 +6,18 @@ import { ContactCta } from "@/components/sections/ContactCta";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 import { services } from "@/content/services";
 import { technologies } from "@/content/technologies";
-import { Check, Cpu, Workflow, Printer } from "@/components/ui/icons";
+import { Check, Cpu, Workflow } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
   title: "Leistungen",
   description:
-    "SPS-Engineering, Projektierung und Projektsteuerung, Drucksysteme, Inbetriebnahme und Retrofit – produktneutrale Automatisierungslösungen für den industriellen Maschinen- und Anlagenbau.",
+    "SPS-Engineering, Projektierung und Projektsteuerung, Inbetriebnahme und Retrofit – produktneutrale Automatisierungslösungen für den industriellen Maschinen- und Anlagenbau.",
   alternates: { canonical: "/leistungen" },
 };
 
 const serviceIcons: Record<string, React.ReactNode> = {
   "sps-engineering": <Cpu className="h-6 w-6" />,
   projektierung: <Workflow className="h-6 w-6" />,
-  drucksysteme: <Printer className="h-6 w-6" />,
 };
 
 export default function LeistungenPage() {
@@ -42,7 +41,7 @@ export default function LeistungenPage() {
 
       {/* Service detail blocks */}
       <Section tone="light">
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2">
           {services.map((service, i) => (
             <Reveal key={service.slug} delay={i * 0.08}>
               <ServiceCard
