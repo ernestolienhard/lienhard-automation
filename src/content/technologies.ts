@@ -16,6 +16,7 @@ export const technologies: TechCategory[] = [
       "SIMATIC PCS 7",
       "TIA Portal",
       "Programmierung in FUP, KOP & AWL",
+      "Safety / Sicherheitssteuerungen",
     ],
   },
   {

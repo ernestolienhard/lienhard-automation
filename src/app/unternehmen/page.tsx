@@ -42,7 +42,7 @@ const focusAreas = [
   {
     icon: <Globe className="h-5 w-5" />,
     title: "Visualisierung von Abläufen",
-    text: "Prozessvisualisierung und Leittechnik – u. a. mit WinCC OA und WinCC.",
+    text: "Prozessvisualisierung und Leittechnik – besonders stark mit WinCC Unified und WinCC OA.",
   },
   {
     icon: <GraduationCap className="h-5 w-5" />,
@@ -84,9 +84,10 @@ export default function UnternehmenPage() {
             Über Lienhard Automation
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-steel-300">
-            Die Lienhard Automation Group bietet Beratung, Planung, Projektierung
-            und Umsetzung von steuerungstechnischen Prozessen im industriellen
-            Maschinen- und Anlagenbau.
+            Spezialist für Siemens-Automatisierung im industriellen Maschinen-
+            und Anlagenbau: SIMATIC STEP 7 Classic und PCS 7, Visualisierung mit
+            WinCC Unified und WinCC OA sowie durchgängige Vernetzung über OPC UA,
+            PROFINET und PROFIBUS – von der Beratung bis zur Inbetriebnahme.
           </p>
         </Container>
       </section>
@@ -150,15 +151,17 @@ export default function UnternehmenPage() {
               Techniker HF Automation
             </p>
             <p className="mt-5 text-lg leading-relaxed text-steel-600">
-              Mit über 13 Jahren beruflicher Erfahrung in der Montage in
-              verschiedenen technischen Tätigkeitsfeldern sowie im Bereich der
-              Automation führt Ernesto Lienhard das Unternehmen mit technischem
-              Tiefgang und internationalem Blick.
+              Mit über 13 Jahren Erfahrung in Montage, Automation und
+              Inbetriebnahme führt Ernesto Lienhard das Unternehmen mit
+              technischem Tiefgang und internationalem Blick. Seine Stärke liegt
+              in der Siemens-Welt: SIMATIC STEP 7 Classic und PCS 7, programmiert
+              in FUP, KOP und AWL, inklusive Sicherheitssteuerungen (Safety).
             </p>
             <p className="mt-4 leading-relaxed text-steel-600">
-              Dieser Erfahrungsschatz ist die Grundlage für zuverlässige,
-              durchdachte Automatisierungslösungen – von der ersten Beratung bis
-              zur Inbetriebnahme vor Ort.
+              Bei Visualisierung und Leittechnik ist er besonders stark mit
+              WinCC Unified und WinCC OA; die saubere Vernetzung von Anlagen
+              realisiert er über OPC UA, Modbus (RTU/TCP), PROFINET und
+              PROFIBUS – von der ersten Beratung bis zur Inbetriebnahme vor Ort.
             </p>
           </div>
         </div>
