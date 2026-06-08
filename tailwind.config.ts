@@ -50,6 +50,10 @@ const config: Config = {
       maxWidth: {
         container: "80rem",
       },
+      spacing: {
+        13: "3.25rem",
+        18: "4.5rem",
+      },
       borderRadius: {
         xl2: "1.25rem",
       },
