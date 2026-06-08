@@ -2,11 +2,12 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 /**
- * Typographic wordmark used as the logo.
+ * Lienhard wordmark logotype: red "LIENHARD" (condensed display face) over the
+ * "Automation Engineering" descriptor — modelled on the client's logo.
  *
- * ASSET PLACEHOLDER: When the client provides a real logo file, drop it into
- * /public (e.g. /public/logo.svg) and replace the wordmark below with a
- * next/image <Image>. The layout/spacing will stay identical.
+ * For pixel-perfect branding, drop the official vector at /public/logo.svg
+ * (and a light version at /public/logo-light.svg for dark backgrounds) and
+ * swap this for a next/image <Image>. The surrounding layout stays identical.
  */
 export function Logo({
   onDark = false,
@@ -18,33 +19,22 @@ export function Logo({
   return (
     <Link
       href="/"
-      aria-label="Lienhard Automation – zur Startseite"
-      className={cn("group inline-flex items-center gap-2.5", className)}
+      aria-label="Lienhard Automation Engineering – zur Startseite"
+      className={cn(
+        "group inline-flex flex-col leading-none transition-opacity hover:opacity-90",
+        className,
+      )}
     >
+      <span className="font-wordmark text-[26px] font-bold uppercase leading-[0.95] tracking-[0.015em] text-brand-500">
+        Lienhard
+      </span>
       <span
         className={cn(
-          "flex h-9 w-9 items-center justify-center rounded-md bg-accent-600 font-bold text-white transition-colors group-hover:bg-accent-500",
+          "mt-0.5 text-[11px] font-medium tracking-[0.06em]",
+          onDark ? "text-steel-100" : "text-navy-900",
         )}
       >
-        LA
-      </span>
-      <span className="flex flex-col leading-none">
-        <span
-          className={cn(
-            "text-[15px] font-bold tracking-tight",
-            onDark ? "text-white" : "text-navy-900",
-          )}
-        >
-          Lienhard Automation
-        </span>
-        <span
-          className={cn(
-            "text-[11px] font-medium uppercase tracking-[0.18em]",
-            onDark ? "text-accent-300" : "text-accent-600",
-          )}
-        >
-          Engineering · Weltweit
-        </span>
+        Automation Engineering
       </span>
     </Link>
   );

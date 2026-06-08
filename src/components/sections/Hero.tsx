@@ -29,7 +29,7 @@ export function Hero() {
         <div className="max-w-3xl">
           <p className="eyebrow-on-dark animate-fade-up">
             <span className="h-1.5 w-1.5 rounded-full bg-accent-400" />
-            Industrielle Automation · Maschinen- & Anlagenbau
+            Ihr Spezialist für Siemens-Automatisierung
           </p>
 
           <h1 className="mt-5 text-balance text-4xl font-bold leading-[1.05] tracking-tight animate-fade-up sm:text-6xl">

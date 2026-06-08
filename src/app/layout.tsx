@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
 import { Header } from "@/components/layout/Header";
@@ -9,6 +9,14 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-sans",
+});
+
+// Condensed display face used for the "LIENHARD" wordmark.
+const oswald = Oswald({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["600", "700"],
+  variable: "--font-wordmark",
 });
 
 export const metadata: Metadata = {
@@ -87,7 +95,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="de" className={inter.variable}>
+    <html lang="de" className={`${inter.variable} ${oswald.variable}`}>
       <body>
         <a
           href="#main"

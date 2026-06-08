@@ -30,6 +30,15 @@ const config: Config = {
           800: "#173a91",
           900: "#193573",
         },
+        // Lienhard brand red (from the logo)
+        brand: {
+          50: "#fdeceb",
+          100: "#fbd5d2",
+          400: "#ec5249",
+          500: "#e1251b",
+          600: "#c61e15",
+          700: "#a51811",
+        },
         // Neutral steel grays
         steel: {
           50: "#f6f8fb",
@@ -46,6 +55,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        wordmark: ["var(--font-wordmark)", "var(--font-sans)", "sans-serif"],
       },
       maxWidth: {
         container: "80rem",
