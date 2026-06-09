@@ -6,7 +6,7 @@ const de: Dict = {
     unifiedModernisierung: "Unified Modernisierung",
     cybersecurity: "Cybersecurity",
     sinemaRc: "SINEMA RC",
-    unternehmen: "Unternehmen",
+    unternehmen: "Über mich",
     referenzen: "Referenzen",
     kontakt: "Kontakt",
   },

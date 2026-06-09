@@ -356,17 +356,17 @@ export default function LeistungenPage() {
       <Section tone="light">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="eyebrow">Über uns</p>
+            <p className="eyebrow">Über mich</p>
             <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
               Erfahrung, die Anlagen zuverlässig zum Laufen bringt
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-steel-600">
-              Geführt von {siteConfig.contact.person}, Techniker HF Automation,
-              mit über 25 Jahren Erfahrung in Montage, Automation und
-              Inbetriebnahme – davon über 10 Jahre mehrheitlich im Ausland, auf
-              fünf Kontinenten. Als Siemens-Spezialist realisieren wir Projekte
-              in der Schweiz und weltweit – mit einem starken Partnernetzwerk in
-              Europa und Amerika.
+              Ich bin {siteConfig.contact.person}, Techniker HF Automation, mit
+              über 25 Jahren Erfahrung in Montage, Automation und Inbetriebnahme
+              – davon über 10 Jahre mehrheitlich im Ausland, auf fünf
+              Kontinenten. Als Siemens-Spezialist realisiere ich Projekte in der
+              Schweiz und weltweit – mit einem starken Partnernetzwerk in Europa
+              und Amerika.
             </p>
             <dl className="mt-8 grid grid-cols-3 gap-6">
               <div>
@@ -384,7 +384,7 @@ export default function LeistungenPage() {
             </dl>
             <div className="mt-8">
               <ButtonLink href="/unternehmen" variant="secondary">
-                Über uns <ArrowRight className="h-4 w-4" />
+                Über mich <ArrowRight className="h-4 w-4" />
               </ButtonLink>
             </div>
           </div>

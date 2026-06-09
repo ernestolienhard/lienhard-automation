@@ -20,9 +20,9 @@ import {
 } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
-  title: "Unternehmen",
+  title: "Über mich",
   description:
-    "Lienhard Automation GmbH – geführt von Ernesto Lienhard, Techniker HF Automation. Steuerungstechnik, SPS-Software, Visualisierung und ein internationales Partnernetzwerk.",
+    "Über mich – Ernesto Lienhard, Techniker HF Automation. Mein Werdegang, meine Stärken in der Siemens-Welt (STEP 7, TIA Portal, PCS 7, WinCC) sowie ein internationales Partnernetzwerk.",
   alternates: { canonical: "/unternehmen" },
 };
 
@@ -87,9 +87,9 @@ export default function UnternehmenPage() {
     <>
       <section className="border-b border-steel-200 bg-navy-950 text-white">
         <Container className="py-16 sm:py-20">
-          <p className="eyebrow-on-dark">Unternehmen</p>
+          <p className="eyebrow-on-dark">Über mich</p>
           <h1 className="mt-3 max-w-3xl text-balance text-4xl font-bold tracking-tight sm:text-5xl">
-            Über Lienhard Automation
+            Über mich
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-steel-300">
             Ich bin Ihr Spezialist für Siemens-Automatisierung im industriellen
