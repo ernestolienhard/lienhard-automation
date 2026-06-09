@@ -8,7 +8,7 @@ import { referenceHighlights, categoryLabels } from "@/content/references";
 export const metadata: Metadata = {
   title: "Referenzen",
   description:
-    "Über 13 Jahre internationale Projekterfahrung: ARA- und Abwasserprojekte, Pharma- und Bioreaktorsysteme, Stahl- und Industrieanlagen, SPS-Programmierung mit TIA Portal und WinCC OA.",
+    "Über 25 Jahre internationale Projekterfahrung: ARA- und Abwasserprojekte, Pharma- und Bioreaktorsysteme, Stahl- und Industrieanlagen, SPS-Programmierung mit TIA Portal und WinCC OA.",
   alternates: { canonical: "/referenzen" },
 };
 
@@ -22,7 +22,7 @@ export default function ReferenzenPage() {
             Projekte & Referenzen
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-steel-300">
-            Nach über 13 Jahren Projektgeschäft im internationalen Umfeld
+            Nach über 25 Jahren Projektgeschäft im internationalen Umfeld
             blicken wir auf zahlreiche erfolgreiche Projekte und zufriedene
             Kunden zurück – von ARA-Anlagen in der Schweiz bis zu
             Industrieanlagen in Übersee.

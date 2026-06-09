@@ -134,7 +134,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Referenzen"
             title="Ausgewählte Projekte"
-            lead="Über 13 Jahre Projekterfahrung im internationalen Umfeld."
+            lead="Über 25 Jahre Projekterfahrung im internationalen Umfeld."
           />
           <ButtonLink href="/referenzen" variant="ghost" className="shrink-0">
             Alle Referenzen <ArrowRight className="h-4 w-4" />
@@ -159,13 +159,13 @@ export default function HomePage() {
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-steel-600">
               Geführt von {siteConfig.contact.person}, Techniker HF Automation,
-              mit über 13 Jahren Erfahrung in Montage und Automation. Wir
+              mit über 25 Jahren Erfahrung in Montage und Automation. Wir
               realisieren Projekte in der Schweiz und weltweit – mit einem
               starken Partnernetzwerk in Europa und Amerika.
             </p>
             <dl className="mt-8 grid grid-cols-3 gap-6">
               <div>
-                <dt className="text-3xl font-bold text-accent-600">13+</dt>
+                <dt className="text-3xl font-bold text-accent-600">25+</dt>
                 <dd className="mt-1 text-sm text-steel-600">Jahre Erfahrung</dd>
               </div>
               <div>

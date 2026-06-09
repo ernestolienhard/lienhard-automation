@@ -148,7 +148,7 @@ export default function UnternehmenPage() {
               Techniker HF Automation
             </p>
             <p className="mt-5 text-lg leading-relaxed text-steel-600">
-              Mit über 13 Jahren Erfahrung in Montage, Automation und
+              Mit über 25 Jahren Erfahrung in Montage, Automation und
               Inbetriebnahme führt Ernesto Lienhard das Unternehmen mit
               technischem Tiefgang und internationalem Blick. Seine Stärke liegt
               in der Siemens-Welt: SIMATIC STEP 7 Classic, TIA Portal und PCS 7,
@@ -170,7 +170,7 @@ export default function UnternehmenPage() {
         <SectionHeading
           eyebrow="Werdegang"
           title="Der berufliche Weg"
-          lead="Über 13 Jahre Praxis in Automation, Montage und Inbetriebnahme – die Basis für zuverlässige Lösungen."
+          lead="Vom Elektromonteur über die Luftfahrt bis zur industriellen Automation – über 25 Jahre technische Praxis als Basis für zuverlässige Lösungen."
         />
         <ol className="mt-12 max-w-3xl">
           {career.map((station, i) => (
@@ -215,7 +215,7 @@ export default function UnternehmenPage() {
       <Section tone="muted">
         <SectionHeading
           eyebrow="Erfolge & Meilensteine"
-          title="Was in über 13 Jahren entstanden ist"
+          title="Was in über 25 Jahren entstanden ist"
           lead="Ein Auszug aus erfolgreich umgesetzten Projekten im In- und Ausland."
         />
         <div className="mt-12 grid gap-4 sm:grid-cols-2">

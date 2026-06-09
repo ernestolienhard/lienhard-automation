@@ -5,7 +5,7 @@ import { ArrowRight, Check } from "@/components/ui/icons";
 const heroPoints = [
   "SIMATIC-Spezialist",
   "WinCC Unified & WinCC OA",
-  "Über 13 Jahre Erfahrung",
+  "Über 25 Jahre Erfahrung",
 ];
 
 export function Hero() {

@@ -16,16 +16,32 @@ export const career: {
   text: string;
 }[] = [
   {
-    period: "Heute",
-    title: "Gründer & Geschäftsführer",
-    org: "Lienhard Automation GmbH, Zürich",
-    text: "Aufbau und Leitung des eigenen Automatisierungs-Engineerings mit internationalem Partnernetzwerk – von der Beratung bis zur Inbetriebnahme.",
+    period: "Ausbildung",
+    title: "Lehre als Elektromonteur",
+    text: "Solide handwerkliche und elektrotechnische Grundausbildung – das Fundament der gesamten Laufbahn.",
   },
   {
-    period: "13+ Jahre",
-    title: "Automation, Montage & Inbetriebnahme",
+    period: "3 Jahre",
+    title: "Flugzeug-Elektroniker",
+    org: "SR Technics",
+    text: "Anspruchsvolle Elektronik- und Systemarbeit an Flugzeugen – mit höchsten Anforderungen an Präzision, Sicherheit und Zuverlässigkeit.",
+  },
+  {
+    period: "Industrie",
+    title: "Verpackungsmaschinen",
+    org: "SIG Pack",
+    text: "Elektronik und Steuerungstechnik an Hochleistungs-Verpackungsmaschinen – der Einstieg in den industriellen Maschinen- und Anlagenbau.",
+  },
+  {
+    period: "Automation",
+    title: "Zurück in die Welt der Automation",
     org: "national & international",
     text: "Umfangreiche Projekterfahrung in SPS-Engineering, Prozessleittechnik und Inbetriebnahme – in der Schweiz und weltweit.",
+  },
+  {
+    period: "Weiterbildung",
+    title: "Techniker HF Automation",
+    text: "Weiterbildung mit fundierter technischer Basis für durchdachte, zuverlässige Automatisierungslösungen.",
   },
   {
     period: "Spezialisierung",
@@ -34,9 +50,10 @@ export const career: {
     text: "Vertiefte Expertise in Steuerungs-, Leit- und Kommunikationstechnik (OPC UA, Modbus, PROFINET, PROFIBUS) sowie in Sicherheitssteuerungen (Safety).",
   },
   {
-    period: "Ausbildung",
-    title: "Techniker HF Automation",
-    text: "Fundierte technische Ausbildung als Basis für durchdachte, zuverlässige Automatisierungslösungen.",
+    period: "Heute",
+    title: "Gründer & Geschäftsführer",
+    org: "Lienhard Automation GmbH, Zürich",
+    text: "Aufbau und Leitung des eigenen Automatisierungs-Engineerings mit internationalem Partnernetzwerk – von der Beratung bis zur Inbetriebnahme.",
   },
 ];
 
