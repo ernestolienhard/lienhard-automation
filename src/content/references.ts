@@ -123,7 +123,15 @@ export const projects: Project[] = [
     description: "Programmierung der Steuerung der Abwasserwärme-Nutzungsanlage (S7/WinCC OA).",
   },
   {
-    year: "2015–2016",
+    year: "2016",
+    title: "Abwasserwärme-Nutzungsanlage ARA Zermatt",
+    location: "ARA Zermatt VS",
+    category: "abwasser",
+    technologies: ["Siemens S7", "WinCC OA"],
+    description: "Programmierung der Steuerung der Abwasserwärme-Nutzungsanlage (S7/WinCC OA).",
+  },
+  {
+    year: "2015",
     title: "Abwasserwärme-Nutzungsanlage ARA Zermatt",
     location: "ARA Zermatt VS",
     category: "abwasser",
@@ -187,7 +195,16 @@ export const projects: Project[] = [
     description: "Programmierung des Lüftungs- und Heizungssystems der Kläranlage Zermatt.",
   },
   {
-    year: "2014–2015",
+    year: "2015",
+    title: "Sicherheitssteuerung Schlammverbrennung",
+    location: "Werdhölzli, Zürich",
+    category: "abwasser",
+    technologies: ["S7-400 H", "Safety"],
+    description:
+      "Programmierung der fehlersicheren Sicherheitssteuerung auf S7-400 H-System für die Schlammverbrennungsanlage Werdhölzli.",
+  },
+  {
+    year: "2014",
     title: "Sicherheitssteuerung Schlammverbrennung",
     location: "Werdhölzli, Zürich",
     category: "abwasser",
