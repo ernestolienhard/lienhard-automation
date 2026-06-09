@@ -23,7 +23,7 @@ export const siteConfig = {
     country: "Schweiz",
     phone: "+41 79 701 18 21",
     phoneHref: "tel:+41797011821",
-    email: "info@lienhard-automation.com",
+    email: "info@lienhard-automation.ch",
   },
 } as const;
 

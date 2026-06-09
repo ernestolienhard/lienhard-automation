@@ -89,7 +89,7 @@ import { Resend } from "resend";
 if (process.env.RESEND_API_KEY && process.env.CONTACT_NOTIFICATION_TO) {
   const resend = new Resend(process.env.RESEND_API_KEY);
   await resend.emails.send({
-    from: "Website <noreply@lienhard-automation.com>",
+    from: "Website <noreply@lienhard-automation.ch>",
     to: process.env.CONTACT_NOTIFICATION_TO,
     subject: `Neue Kontaktanfrage von ${parsed.data.name}`,
     replyTo: parsed.data.email,
