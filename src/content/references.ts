@@ -48,13 +48,13 @@ export const projects: Project[] = [
       "Software-Entwicklung für ein komplettes Logistikzentrum von DHL Express – Konzepte für Steuerung, Automatisierung sowie anlagen- und applikationsspezifische Software. Verantwortlich für die Fördertechnik mit über 500 Bändern, Sortern und Endstellen; Sortierleistung rund 10'000 Sendungen/Stunde. Realisiert mit Siemens Logistics AG.",
   },
   {
-    year: "2018",
-    title: "Steuerung mehrerer Regenbecken",
-    location: "ARA Reinach ZH",
+    year: "Grossprojekt",
+    title: "ARA Zermatt – grösste Membranfilter-Anlage der Schweiz",
+    location: "Zermatt VS",
     category: "abwasser",
-    technologies: ["TIA Portal", "WinCC OA"],
+    technologies: ["Siemens S7", "HLK", "Prozessleittechnik"],
     description:
-      "Programmierung der Steuerung für mehrere Regenbecken sowie Integration in die übergeordnete Leittechnik.",
+      "Neuprogrammierung der gesamten Kläranlage samt HLK (Heizung, Lüftung, Klima) – die grösste Membranfilter-Anlage der Schweiz, vollständig im Inneren eines Berges realisiert.",
   },
   {
     year: "2018",
