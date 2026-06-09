@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { useLocale, withLocale } from "@/i18n/useLocale";
 
 type Variant = "primary" | "secondary" | "ghost" | "outline-light";
 type Size = "md" | "lg";
@@ -10,10 +13,8 @@ const base =
 const variants: Record<Variant, string> = {
   primary:
     "bg-accent-600 text-white shadow-sm hover:bg-accent-500 active:bg-accent-700",
-  secondary:
-    "bg-navy-900 text-white hover:bg-navy-800 active:bg-navy-950",
-  ghost:
-    "bg-transparent text-navy-900 hover:bg-steel-100",
+  secondary: "bg-navy-900 text-white hover:bg-navy-800 active:bg-navy-950",
+  ghost: "bg-transparent text-navy-900 hover:bg-steel-100",
   "outline-light":
     "border border-white/30 bg-white/5 text-white backdrop-blur hover:bg-white/10",
 };
@@ -30,7 +31,7 @@ type CommonProps = {
   children: React.ReactNode;
 };
 
-/** Link-styled button (internal or external). */
+/** Link-styled button. Internal hrefs are automatically locale-prefixed. */
 export function ButtonLink({
   href,
   variant = "primary",
@@ -41,6 +42,7 @@ export function ButtonLink({
 }: CommonProps & {
   href: string;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+  const locale = useLocale();
   const classes = cn(base, variants[variant], sizes[size], className);
   const isExternal = /^https?:|^mailto:|^tel:/.test(href);
 
@@ -52,7 +54,7 @@ export function ButtonLink({
     );
   }
   return (
-    <Link href={href} className={classes} {...rest}>
+    <Link href={withLocale(locale, href)} className={classes} {...rest}>
       {children}
     </Link>
   );

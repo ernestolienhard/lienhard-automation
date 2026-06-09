@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { useLocale, withLocale } from "@/i18n/useLocale";
 
 /**
  * Lienhard wordmark logotype: red "LIENHARD" (condensed display face) over the
@@ -16,10 +19,11 @@ export function Logo({
   onDark?: boolean;
   className?: string;
 }) {
+  const locale = useLocale();
   return (
     <Link
-      href="/"
-      aria-label="Lienhard Automation Engineering – zur Startseite"
+      href={withLocale(locale, "/")}
+      aria-label="Lienhard Automation Engineering"
       className={cn(
         "group inline-flex flex-col leading-none transition-opacity hover:opacity-90",
         className,

@@ -27,18 +27,19 @@ export const siteConfig = {
   },
 } as const;
 
-export type NavItem = { label: string; href: string };
+/** Nav items reference a translation key (Dict.nav / Dict.legal) plus a path. */
+export type NavItem = { key: string; href: string };
 
 export const mainNav: NavItem[] = [
-  { label: "Leistungen", href: "/leistungen" },
-  { label: "Unified Modernisierung", href: "/unified-modernisierung" },
-  { label: "Cybersecurity", href: "/cybersecurity" },
-  { label: "Unternehmen", href: "/unternehmen" },
-  { label: "Referenzen", href: "/referenzen" },
-  { label: "Kontakt", href: "/kontakt" },
+  { key: "leistungen", href: "/leistungen" },
+  { key: "unifiedModernisierung", href: "/unified-modernisierung" },
+  { key: "cybersecurity", href: "/cybersecurity" },
+  { key: "unternehmen", href: "/unternehmen" },
+  { key: "referenzen", href: "/referenzen" },
+  { key: "kontakt", href: "/kontakt" },
 ];
 
 export const legalNav: NavItem[] = [
-  { label: "Impressum", href: "/impressum" },
-  { label: "Datenschutz", href: "/datenschutz" },
+  { key: "impressum", href: "/impressum" },
+  { key: "datenschutz", href: "/datenschutz" },
 ];

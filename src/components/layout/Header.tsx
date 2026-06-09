@@ -7,12 +7,26 @@ import { mainNav, siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { ButtonLink } from "@/components/ui/Button";
 import { Logo } from "./Logo";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Menu, X, Phone } from "@/components/ui/icons";
+import { isLocale } from "@/i18n/config";
+import { useLocale, withLocale } from "@/i18n/useLocale";
+import type { Dict } from "@/i18n/dictionaries";
 
-export function Header() {
+export function Header({ dict }: { dict: Dict }) {
   const pathname = usePathname();
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // Path without the locale prefix, for active-state comparison.
+  const seg = pathname.split("/")[1];
+  const pathNoLocale = isLocale(seg)
+    ? `/${pathname.split("/").slice(2).join("/")}`.replace(/\/$/, "") || "/"
+    : pathname;
+
+  const isActive = (href: string) =>
+    pathNoLocale === href || pathNoLocale.startsWith(`${href}/`);
 
   // Solid header background once the user scrolls away from the hero.
   useEffect(() => {
@@ -48,14 +62,16 @@ export function Header() {
         <Logo />
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Hauptnavigation">
+        <nav
+          className="hidden items-center gap-1 lg:flex"
+          aria-label="Hauptnavigation"
+        >
           {mainNav.map((item) => {
-            const active =
-              pathname === item.href || pathname.startsWith(`${item.href}/`);
+            const active = isActive(item.href);
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                href={withLocale(locale, item.href)}
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "whitespace-nowrap rounded-md px-2.5 py-2 text-sm font-medium transition-colors",
@@ -64,13 +80,13 @@ export function Header() {
                     : "text-steel-600 hover:text-navy-900",
                 )}
               >
-                {item.label}
+                {dict.nav[item.key as keyof Dict["nav"]]}
               </Link>
             );
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           <a
             href={siteConfig.contact.phoneHref}
             className="hidden items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-steel-600 transition-colors hover:text-navy-900 2xl:inline-flex"
@@ -78,8 +94,9 @@ export function Header() {
             <Phone className="h-4 w-4" />
             {siteConfig.contact.phone}
           </a>
-          <ButtonLink href="/kontakt" className="hidden xl:inline-flex">
-            Projekt anfragen
+          <LanguageSwitcher className="hidden lg:block" />
+          <ButtonLink href="/kontakt" className="ml-1 hidden xl:inline-flex">
+            {dict.cta.projektAnfragen}
           </ButtonLink>
 
           {/* Mobile toggle */}
@@ -97,24 +114,17 @@ export function Header() {
       </div>
 
       {/* Mobile menu */}
-      <div
-        id="mobile-menu"
-        className={cn(
-          "lg:hidden",
-          open ? "block" : "hidden",
-        )}
-      >
+      <div id="mobile-menu" className={cn("lg:hidden", open ? "block" : "hidden")}>
         <nav
           className="space-y-1 border-t border-steel-200 bg-white px-5 pb-6 pt-3 sm:px-8"
           aria-label="Mobile Navigation"
         >
           {mainNav.map((item) => {
-            const active =
-              pathname === item.href || pathname.startsWith(`${item.href}/`);
+            const active = isActive(item.href);
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                href={withLocale(locale, item.href)}
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "block rounded-md px-3 py-3 text-base font-medium",
@@ -123,13 +133,13 @@ export function Header() {
                     : "text-steel-700 hover:bg-steel-100",
                 )}
               >
-                {item.label}
+                {dict.nav[item.key as keyof Dict["nav"]]}
               </Link>
             );
           })}
           <div className="grid gap-2 pt-3">
             <ButtonLink href="/kontakt" size="lg" className="w-full">
-              Projekt anfragen
+              {dict.cta.projektAnfragen}
             </ButtonLink>
             <ButtonLink
               href={siteConfig.contact.phoneHref}
@@ -140,6 +150,9 @@ export function Header() {
               <Phone className="h-4 w-4" />
               {siteConfig.contact.phone}
             </ButtonLink>
+          </div>
+          <div className="mt-4 border-t border-steel-100 pt-4">
+            <LanguageSwitcher />
           </div>
         </nav>
       </div>
