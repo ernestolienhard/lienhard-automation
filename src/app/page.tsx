@@ -159,7 +159,8 @@ export default function HomePage() {
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-steel-600">
               Geführt von {siteConfig.contact.person}, Techniker HF Automation,
-              mit über 25 Jahren Erfahrung in Montage und Automation. Wir
+              mit über 25 Jahren Erfahrung in Montage und Automation – davon über
+              10 Jahre mehrheitlich im Ausland, auf fünf Kontinenten. Wir
               realisieren Projekte in der Schweiz und weltweit – mit einem
               starken Partnernetzwerk in Europa und Amerika.
             </p>
@@ -175,7 +176,7 @@ export default function HomePage() {
                 </dd>
               </div>
               <div>
-                <dt className="text-3xl font-bold text-accent-600">3</dt>
+                <dt className="text-3xl font-bold text-accent-600">5</dt>
                 <dd className="mt-1 text-sm text-steel-600">Kontinente</dd>
               </div>
             </dl>

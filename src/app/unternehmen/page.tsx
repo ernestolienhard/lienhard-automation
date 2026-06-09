@@ -173,6 +173,14 @@ export default function UnternehmenPage() {
               realisiere ich über OPC UA, Modbus (RTU/TCP), PROFINET und
               PROFIBUS – von der ersten Beratung bis zur Inbetriebnahme vor Ort.
             </p>
+            <p className="mt-4 leading-relaxed text-steel-600">
+              Über zehn Jahre habe ich mehrheitlich im Ausland gearbeitet – auf
+              fünf Kontinenten, von Nord- und Südamerika über ganz Europa und
+              Afrika bis nach Asien (u. a. Japan). Diese wertvollen Jahre haben
+              mir technisch wie auch im Umgang mit den unterschiedlichsten
+              Kulturen viel mitgegeben – ein echter Gewinn für jedes
+              internationale Projekt.
+            </p>
           </div>
         </div>
       </Section>

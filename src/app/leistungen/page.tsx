@@ -363,8 +363,9 @@ export default function LeistungenPage() {
             <p className="mt-4 text-lg leading-relaxed text-steel-600">
               Geführt von {siteConfig.contact.person}, Techniker HF Automation,
               mit über 25 Jahren Erfahrung in Montage, Automation und
-              Inbetriebnahme. Als Siemens-Spezialist realisieren wir Projekte in
-              der Schweiz und weltweit – mit einem starken Partnernetzwerk in
+              Inbetriebnahme – davon über 10 Jahre mehrheitlich im Ausland, auf
+              fünf Kontinenten. Als Siemens-Spezialist realisieren wir Projekte
+              in der Schweiz und weltweit – mit einem starken Partnernetzwerk in
               Europa und Amerika.
             </p>
             <dl className="mt-8 grid grid-cols-3 gap-6">
@@ -377,7 +378,7 @@ export default function LeistungenPage() {
                 <dd className="mt-1 text-sm text-steel-600">Partnerunternehmen</dd>
               </div>
               <div>
-                <dt className="text-3xl font-bold text-accent-600">3</dt>
+                <dt className="text-3xl font-bold text-accent-600">5</dt>
                 <dd className="mt-1 text-sm text-steel-600">Kontinente</dd>
               </div>
             </dl>
