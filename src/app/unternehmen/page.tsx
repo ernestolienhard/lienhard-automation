@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { ContactCta } from "@/components/sections/ContactCta";
 import { partners } from "@/content/partners";
+import { career, achievements } from "@/content/profile";
 import { siteConfig } from "@/lib/site";
 import {
   Cpu,
@@ -14,6 +15,7 @@ import {
   GraduationCap,
   Users,
   MapPin,
+  Check,
 } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
@@ -166,6 +168,73 @@ export default function UnternehmenPage() {
               PROFIBUS – von der ersten Beratung bis zur Inbetriebnahme vor Ort.
             </p>
           </div>
+        </div>
+      </Section>
+
+      {/* Werdegang (career timeline) */}
+      <Section tone="light">
+        <SectionHeading
+          eyebrow="Werdegang"
+          title="Der berufliche Weg"
+          lead="Über 13 Jahre Praxis in Automation, Montage und Inbetriebnahme – die Basis für zuverlässige Lösungen."
+        />
+        <ol className="mt-12 max-w-3xl">
+          {career.map((station, i) => (
+            <Reveal key={station.title} delay={(i % 4) * 0.06}>
+              <li className="relative flex gap-6 pb-10 last:pb-0">
+                {/* Connector line */}
+                {i < career.length - 1 ? (
+                  <span
+                    aria-hidden
+                    className="absolute left-[11px] top-7 h-full w-px bg-steel-200"
+                  />
+                ) : null}
+                <span
+                  aria-hidden
+                  className="relative mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-accent-500 bg-white"
+                >
+                  <span className="h-2 w-2 rounded-full bg-accent-500" />
+                </span>
+                <div className="pt-0.5">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-accent-600">
+                    {station.period}
+                  </span>
+                  <h3 className="mt-1 text-lg font-bold text-navy-900">
+                    {station.title}
+                  </h3>
+                  {station.org ? (
+                    <p className="text-sm font-medium text-steel-500">
+                      {station.org}
+                    </p>
+                  ) : null}
+                  <p className="mt-2 text-sm leading-relaxed text-steel-600">
+                    {station.text}
+                  </p>
+                </div>
+              </li>
+            </Reveal>
+          ))}
+        </ol>
+      </Section>
+
+      {/* Erfolge & Meilensteine */}
+      <Section tone="muted">
+        <SectionHeading
+          eyebrow="Erfolge & Meilensteine"
+          title="Was in über 13 Jahren entstanden ist"
+          lead="Ein Auszug aus erfolgreich umgesetzten Projekten im In- und Ausland."
+        />
+        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+          {achievements.map((item, i) => (
+            <Reveal key={item} delay={(i % 2) * 0.06}>
+              <div className="flex h-full items-start gap-3 rounded-xl2 border border-steel-200 bg-white p-5 shadow-card">
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent-50 text-accent-600">
+                  <Check className="h-4 w-4" />
+                </span>
+                <p className="text-sm leading-relaxed text-steel-700">{item}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </Section>
 
