@@ -4,8 +4,8 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { Hero } from "@/components/sections/Hero";
 import { ContactCta } from "@/components/sections/ContactCta";
+import { ReferencesCarousel } from "@/components/sections/ReferencesCarousel";
 import { ServiceCard } from "@/components/cards/ServiceCard";
-import { ProjectCard } from "@/components/cards/ProjectCard";
 import { services, advantages } from "@/content/services";
 import { technologies } from "@/content/technologies";
 import { projects } from "@/content/references";
@@ -37,9 +37,7 @@ const advantageIcons = [
 ];
 
 export default function HomePage() {
-  const previewProjects = projects
-    .filter((p) => p.year !== "International")
-    .slice(0, 3);
+  const featuredProjects = projects.slice(0, 6);
 
   return (
     <>
@@ -140,12 +138,8 @@ export default function HomePage() {
             Alle Referenzen <ArrowRight className="h-4 w-4" />
           </ButtonLink>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {previewProjects.map((project, i) => (
-            <Reveal key={`${project.title}-${i}`} delay={i * 0.08}>
-              <ProjectCard project={project} />
-            </Reveal>
-          ))}
+        <div className="mt-12">
+          <ReferencesCarousel projects={featuredProjects} />
         </div>
       </Section>
 

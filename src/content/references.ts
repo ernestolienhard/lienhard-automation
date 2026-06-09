@@ -7,12 +7,14 @@
  */
 
 export type ProjectCategory =
+  | "infrastruktur"
   | "logistik"
   | "abwasser"
   | "stahl"
   | "retrofit";
 
 export const categoryLabels: Record<ProjectCategory, string> = {
+  infrastruktur: "Infrastruktur & Energie",
   logistik: "Logistik & Sortieranlagen",
   abwasser: "Abwasser & ARA",
   stahl: "Stahl- & Industrieanlagen",
@@ -29,6 +31,15 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    year: "2024–2026",
+    title: "EKZ – Öffentliche Beleuchtung, Kanton Zürich",
+    location: "Kanton Zürich",
+    category: "infrastruktur",
+    technologies: ["WinCC OA", "TIA Portal", "S7-1500", "OPC UA", "OPC UA GDS Push"],
+    description:
+      "Zentrale, sichere Lichtsteuerung für die Elektrizitätswerke des Kantons Zürich (EKZ): rund 3'000 SPS (SIMATIC S7-1500) in über 2'500 Trafostationen, gesteuert mit WinCC OA SCADA und programmiert im TIA Portal. Verschlüsselte OPC-UA-Kommunikation inkl. OPC UA GDS Push für die zentrale Zertifikatsverwaltung. Realisiert mit Siemens.",
+  },
   {
     year: "2019–2021",
     title: "Mix-Mail Verteilzentrum – Schweizerische Post",
@@ -55,6 +66,42 @@ export const projects: Project[] = [
     technologies: ["Siemens S7", "WinCC OA", "HLK", "SCADA"],
     description:
       "Neuprogrammierung der gesamten Kläranlage samt HLK – die grösste Membranbiologieanlage der Schweiz, in einer Kaverne im Berginnern. Steuerung mit über 10 SIMATIC-CPUs (STEP 7) und WinCC OA als SCADA-Leitsystem; Ausbaugrösse 60'000 Einwohner.",
+  },
+  {
+    year: "2026",
+    title: "SBB – Querwagen 360°, Zürich Altstetten",
+    location: "Zürich Altstetten",
+    category: "retrofit",
+    technologies: ["STEP 7", "TIA Portal"],
+    description:
+      "Hochrüstung der bestehenden SPS von STEP 7 auf TIA Portal samt Software-Anpassung für die Querwagen-Verschiebung mit 360-Grad-Funktion. Realisiert mit Siemens.",
+  },
+  {
+    year: "2025–2026",
+    title: "Equinix – Rechenzentrum-Erweiterung",
+    location: "Schweiz",
+    category: "infrastruktur",
+    technologies: ["PCS 7", "Modbus RTU", "Modbus TCP"],
+    description:
+      "Erweiterung eines bestehenden Rechenzentrums um ein neues Stockwerk samt Generatoren-System; Datenverarbeitung via Modbus RTU und TCP. Realisiert mit Siemens.",
+  },
+  {
+    year: "2023",
+    title: "Equinix – PCS 7 Upgrade auf V9.1",
+    location: "Schweiz",
+    category: "infrastruktur",
+    technologies: ["PCS 7 V9.1", "PH", "IF"],
+    description:
+      "Hochrüstung eines bestehenden Rechenzentrum-Projekts auf SIMATIC PCS 7 V9.1 (inkl. PH und IF). Realisiert mit Siemens.",
+  },
+  {
+    year: "2023",
+    title: "Equinix – PCS 7 Upgrade auf V9.1 (2. Standort)",
+    location: "Schweiz",
+    category: "infrastruktur",
+    technologies: ["PCS 7 V9.1", "PH", "IF"],
+    description:
+      "Hochrüstung eines weiteren bestehenden Rechenzentrum-Projekts auf SIMATIC PCS 7 V9.1 (inkl. PH und IF). Realisiert mit Siemens.",
   },
   {
     year: "2018",
@@ -300,6 +347,11 @@ export const referenceHighlights: {
   category: ProjectCategory;
   description: string;
 }[] = [
+  {
+    category: "infrastruktur",
+    description:
+      "Kritische Infrastruktur und Energie: öffentliche Beleuchtung (EKZ) und Rechenzentren (Equinix) – mit WinCC OA, TIA Portal, PCS 7 und OPC UA.",
+  },
   {
     category: "logistik",
     description:
