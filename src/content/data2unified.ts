@@ -1,164 +1,157 @@
 /**
- * Content for the HMI-modernization homepage (SIMATIC WinCC Classic → Unified
- * mit dem Siemens-Add-in "Data2Unified").
+ * Content for the "WinCC-Modernisierung" page.
  *
- * QUELLE / ATTRIBUTION:
- * Die fachlichen Informationen zu Data2Unified stammen aus dem offiziellen
- * Siemens-Beitrag (SiePortal Entry ID 109770510). "Data2Unified", "SIMATIC",
- * "WinCC", "TIA Portal" und "Siemens" sind Marken der Siemens AG. Lienhard
- * Automation ist Dienstleister und unterstützt bei der Umsetzung – die
- * Add-in-Dateien werden ausschliesslich von Siemens bereitgestellt; wir
- * verlinken auf die offizielle Quelle und hosten keine Siemens-Dateien.
+ * Positioning: Lienhard Automation (Ernesto Lienhard) as THE expert for
+ * modernizing WinCC visualizations — from WinCC flexible and WinCC Classic to
+ * SIMATIC WinCC Unified. The Siemens "Data2Unified" add-in is only one of the
+ * tools used, not the headline.
+ *
+ * ATTRIBUTION: "SIMATIC", "WinCC", "WinCC flexible", "WinCC Unified",
+ * "Data2Unified" and "TIA Portal" are trademarks of Siemens AG. Lienhard
+ * Automation is an independent service provider, not a Siemens dealer.
  */
 
 export const SIEMENS_ENTRY_ID = "109770510";
 export const SIEMENS_ARTICLE_URL =
   "https://support.industry.siemens.com/cs/document/109770510/hmi-modernization-with-data2unified-a-tia-portal-add-in?dti=0&lc=en-CH";
 
-/** What the Data2Unified add-in can convert to WinCC Unified. */
-export const supportedConversions: { title: string; detail: string }[] = [
+/** Why customers choose Lienhard for the modernization. */
+export const whyMe: { title: string; detail: string }[] = [
   {
-    title: "Bildobjekte",
+    title: "Von WinCC flexible bis Unified",
     detail:
-      "„Basisobjekte“ (z. B. Textfeld, Rechteck) und „Elemente“ (z. B. Schaltfläche, E/A-Feld); Controls wie die Meldeanzeige werden in Grösse und Position übernommen.",
+      "Ich modernisiere über alle Generationen hinweg – WinCC flexible, WinCC Classic (V7) und WinCC Comfort/Advanced bis SIMATIC WinCC Unified.",
   },
   {
-    title: "Animationen",
-    detail: "Animationen auf den unterstützten Bildobjekten.",
-  },
-  {
-    title: "Systemfunktionen",
+    title: "Jeden Schritt im Griff",
     detail:
-      "Ausgewählte Systemfunktionen auf unterstützten Bildobjekten (über Skripte).",
+      "Analyse, Konzept, Migration, Anpassung, Test und Inbetriebnahme: Ich kenne den gesamten Weg aus jahrelanger Projektpraxis – nicht aus der Theorie.",
   },
   {
-    title: "Bilder & Bildverwaltung",
+    title: "Wo Standard-Tools aufhören",
     detail:
-      "Bilder und Bildverwaltung – z. B. Vorlagen, Pop-up-Bilder und Slide-in-Bilder.",
+      "Automatische Konverter bringen Sie nur einen Teil des Wegs. Die entscheidenden manuellen Anpassungen davor und danach sind genau meine Stärke.",
   },
   {
-    title: "Faceplates",
-    detail: "Teile der Faceplate-Implementierung.",
-  },
-  {
-    title: "HMI-Variablen",
-    detail: "HMI-Variablen – ausgenommen UDT-Strukturen.",
-  },
-  {
-    title: "HMI-Meldungen",
-    detail: "Übernahme der HMI-Meldungen (Alarme).",
-  },
-  {
-    title: "Archive & Archivvariablen",
-    detail: "Archive und zugehörige Archivvariablen.",
-  },
-  {
-    title: "Text- & Grafiklisten",
-    detail: "Text- und Grafiklisten werden konvertiert.",
+    title: "Begleitung, Support & Schulung",
+    detail:
+      "Ich unterstütze Sie von der ersten Beratung über die Umsetzung bis zum laufenden Support – und schule Ihr Team auf der neuen Umgebung.",
   },
 ];
 
-/** Highlights of the latest add-in release. */
-export const improvementsV64 = {
-  version: "V6.4",
-  items: [
-    "Neuer Ansatz für die Ersetzung von Sonderzeichen",
-    "Konvertierung von Grafiklisten",
-    "Verbesserte Softwarestabilität und Bugfixes bei Bildobjekten und Variablen",
-  ],
-};
-
-/** The Classic → Data2Unified → Unified process. */
+/** The modernization path: legacy → modernization → Unified. */
 export const conversionFlow: { step: string; title: string; detail: string }[] =
   [
     {
       step: "01",
-      title: "SIMATIC WinCC Classic",
-      detail: "Ihr bestehendes Projekt im TIA Portal – gewachsenes Engineering.",
+      title: "WinCC flexible / WinCC Classic",
+      detail:
+        "Ihre bestehende, über Jahre gewachsene Visualisierung – das wertvolle Fundament.",
     },
     {
       step: "02",
-      title: "Data2Unified (D2U)",
+      title: "Modernisierung",
       detail:
-        "Das Siemens-Add-in übernimmt vorhandene Projektinhalte ins Unified-Umfeld.",
+        "Analyse, Migration und gezielte Anpassung – Schritt für Schritt, ohne Ihr Prozess-Know-how zu verlieren.",
     },
     {
       step: "03",
-      title: "SIMATIC WinCC Unified",
+      title: "WinCC Unified",
       detail:
-        "Moderne Visualisierung auf SIMATIC HMI Unified Panels und Unified PC.",
+        "Zukunftssichere Visualisierung auf SIMATIC HMI Unified Panels und Unified PC.",
     },
   ];
 
 /**
- * How Lienhard Automation adds value. Data2Unified ist ausdrücklich KEIN
- * vollständiges Migrationswerkzeug – manuelle Anpassungen vor und nach der
- * Konvertierung sind nötig. Genau hier liegt unsere Dienstleistung.
+ * The step-by-step service — the core selling point: "I accompany you through
+ * every step."
  */
 export const serviceSteps: { title: string; detail: string }[] = [
   {
     title: "Analyse & Modernisierungs-Check",
     detail:
-      "Wir prüfen mit dem WinCC Unified Modernization Checker und dem Smart Advisor, welche Projektinhalte migrierbar sind und wo Aufwand entsteht.",
+      "Bestandsaufnahme Ihres Projekts und eine realistische Einschätzung von Umfang, Aufwand und Risiken.",
   },
   {
-    title: "Konvertierung mit Data2Unified",
+    title: "Konzept & Planung",
     detail:
-      "Übernahme der bestehenden Projektinhalte ins Unified-Umfeld – Sie müssen Ihre Konfiguration nicht von Grund auf neu erstellen.",
+      "Migrationsstrategie, Zeitplan und klare Bedien- und Designvorgaben für die neue WinCC-Unified-Oberfläche.",
   },
   {
-    title: "Manuelle Anpassung",
+    title: "Migration der Projektinhalte",
     detail:
-      "Data2Unified ist kein vollständiges Migrationswerkzeug: vor und nach der Konvertierung sind manuelle Anpassungen nötig. Diese übernehmen wir fachgerecht.",
+      "Übernahme von Bildern, Variablen, Meldungen, Archiven und Skripten – effizient mit bewährten Werkzeugen.",
+  },
+  {
+    title: "Anpassung & Optimierung",
+    detail:
+      "Manuelle Nacharbeit, Optimierung der Bedienoberfläche und Umsetzung neuer Unified-Funktionen.",
   },
   {
     title: "Test & Inbetriebnahme",
     detail:
-      "Validierung auf SIMATIC HMI Unified Panels, Funktionstest im laufenden Prozess und Begleitung bis zur Endabnahme.",
+      "Funktionsprüfung auf Unified Panels, Validierung im laufenden Prozess und Begleitung bis zur Endabnahme.",
+  },
+  {
+    title: "Support & Schulung",
+    detail:
+      "Einweisung Ihres Teams und verlässlicher Support über die Inbetriebnahme hinaus.",
   },
 ];
 
-/** Official Siemens downloads (hosted by Siemens — we only link to them). */
-export const downloads: {
-  release: string;
-  support: string;
-  files: { label: string; size: string }[];
-}[] = [
+/** What gets carried over during a modernization (shows the depth of work). */
+export const supportedConversions: { title: string; detail: string }[] = [
   {
-    release: "Data2Unified Add-in V6.4",
-    support: "Unterstützung für TIA Portal V21",
-    files: [
-      { label: "Data2Unified Add-in V6.4 (.zip)", size: "20,4 MB" },
-      { label: "Dokumentation Data2Unified V6.4 (PDF)", size: "2,2 MB" },
-      { label: "ReadMe OSS Data2Unified V6.4 (HTML)", size: "3,2 MB" },
-    ],
+    title: "Bilder & Bildverwaltung",
+    detail:
+      "Bilder, Vorlagen, Pop-up- und Slide-in-Bilder samt Struktur und Navigation.",
   },
   {
-    release: "Data2Unified Add-in V5.1.1",
-    support: "Unterstützung für TIA Portal V20",
-    files: [
-      { label: "Data2Unified Add-in V5.1 (.zip)", size: "19,1 MB" },
-      { label: "Dokumentation Data2Unified V5.1 (PDF)", size: "2,2 MB" },
-      { label: "ReadMe OSS Data2Unified V5.0 (HTML)", size: "3,3 MB" },
-    ],
+    title: "Bildobjekte",
+    detail:
+      "Basisobjekte (Textfeld, Rechteck), Elemente (Schaltfläche, E/A-Feld) und Controls wie die Meldeanzeige.",
+  },
+  {
+    title: "Animationen & Dynamik",
+    detail: "Animationen und Dynamisierungen auf den unterstützten Objekten.",
+  },
+  {
+    title: "Skripte & Systemfunktionen",
+    detail:
+      "Ausgewählte Systemfunktionen und Skripte werden übernommen und angepasst.",
+  },
+  {
+    title: "HMI-Variablen",
+    detail: "Übernahme der HMI-Variablen und Anbindung an die Steuerung.",
+  },
+  {
+    title: "Meldungen & Alarme",
+    detail: "HMI-Meldungen inklusive Klassen und Texten.",
+  },
+  {
+    title: "Archive & Trends",
+    detail: "Archive und Archivvariablen für historische Daten und Trends.",
+  },
+  {
+    title: "Text- & Grafiklisten",
+    detail: "Mehrsprachige Text- und Grafiklisten.",
+  },
+  {
+    title: "Faceplates",
+    detail: "Wiederverwendbare Faceplates und deren Implementierung.",
   },
 ];
 
-/** Related Siemens tools / articles referenced in the source entry. */
+/** Tools & sources used during analysis and migration (credibility, not ads). */
 export const relatedLinks: {
   title: string;
   entryId?: string;
   url: string;
 }[] = [
   {
-    title: "Data2Unified – offizieller Siemens-Beitrag (Downloads & Handbuch)",
+    title: "Data2Unified – TIA-Portal-Add-in (Siemens)",
     entryId: SIEMENS_ENTRY_ID,
     url: SIEMENS_ARTICLE_URL,
-  },
-  {
-    title: "Umstieg von Comfort Panels auf Unified Comfort Panels",
-    entryId: "109768002",
-    url: "https://support.industry.siemens.com/cs/document/109768002",
   },
   {
     title: "WinCC Unified Modernization Checker",
@@ -170,19 +163,14 @@ export const relatedLinks: {
     entryId: "109908595",
     url: "https://support.industry.siemens.com/cs/document/109908595",
   },
+  {
+    title: "Umstieg von Comfort Panels auf Unified Comfort Panels",
+    entryId: "109768002",
+    url: "https://support.industry.siemens.com/cs/document/109768002",
+  },
 ];
 
 export const securityNote = {
-  text: "Zum Schutz von Anlagen, Systemen, Maschinen und Netzwerken vor Cyber-Bedrohungen ist es notwendig, ein ganzheitliches, modernes IT-Security-Konzept umzusetzen und kontinuierlich aufrechtzuerhalten. Produkte und Lösungen von Siemens bilden dabei einen Baustein. Wir berücksichtigen diese Anforderungen bei jeder Modernisierung.",
+  text: "Zum Schutz von Anlagen, Systemen und Netzwerken vor Cyber-Bedrohungen ist ein ganzheitliches, modernes IT-Security-Konzept notwendig. Diese Anforderungen berücksichtige ich bei jeder Modernisierung.",
   url: "https://www.siemens.com/cybersecurity",
 };
-
-/** Languages the original Siemens article is available in (informational). */
-export const sourceLanguages = [
-  "Deutsch",
-  "Englisch",
-  "Spanisch",
-  "Italienisch",
-  "Chinesisch (vereinfacht)",
-  "Französisch",
-];
