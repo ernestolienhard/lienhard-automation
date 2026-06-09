@@ -9,7 +9,8 @@ import type { Dict } from "@/i18n/dictionaries";
 const { contact } = siteConfig;
 
 export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
-  const year = "2024"; // Updated on deploy; kept static to avoid hydration drift.
+  // Server-rendered at build time; updates automatically on each deploy.
+  const year = new Date().getFullYear();
   const href = (path: string) => `/${locale}${path}`;
 
   return (
