@@ -30,7 +30,11 @@ export function ServiceCard({
       {tagline ? (
         <p className="mt-1 text-sm font-medium text-accent-600">{tagline}</p>
       ) : null}
-      <p className="mt-3 text-sm leading-relaxed text-steel-600">{description}</p>
+      {/* Reserve a consistent height so the divider below aligns across cards
+          that sit side by side, even when descriptions differ in length. */}
+      <p className="mt-3 text-sm leading-relaxed text-steel-600 md:min-h-[4.5rem]">
+        {description}
+      </p>
 
       {features && features.length > 0 ? (
         <ul className="mt-5 space-y-2.5 border-t border-steel-100 pt-5">
