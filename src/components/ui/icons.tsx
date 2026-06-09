@@ -189,3 +189,18 @@ export const Network = (p: IconProps) => (
     <path d="M12 8v4M5 16v-2h14v2" />
   </Svg>
 );
+
+export const Server = (p: IconProps) => (
+  <Svg {...p}>
+    <rect x="3" y="4" width="18" height="7" rx="1.5" />
+    <rect x="3" y="13" width="18" height="7" rx="1.5" />
+    <path d="M7 7.5h.01M7 16.5h.01" />
+  </Svg>
+);
+
+export const Lock = (p: IconProps) => (
+  <Svg {...p}>
+    <rect x="4" y="10" width="16" height="11" rx="2" />
+    <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+  </Svg>
+);

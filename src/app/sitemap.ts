@@ -7,6 +7,7 @@ const routes = [
   "/leistungen",
   "/unified-modernisierung",
   "/cybersecurity",
+  "/sinema-rc",
   "/unternehmen",
   "/referenzen",
   "/kontakt",

@@ -63,7 +63,7 @@ export function Header({ dict }: { dict: Dict }) {
 
         {/* Desktop nav */}
         <nav
-          className="hidden items-center gap-1 lg:flex"
+          className="hidden items-center gap-0.5 xl:flex"
           aria-label="Hauptnavigation"
         >
           {mainNav.map((item) => {
@@ -74,7 +74,7 @@ export function Header({ dict }: { dict: Dict }) {
                 href={withLocale(locale, item.href)}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "whitespace-nowrap rounded-md px-2.5 py-2 text-sm font-medium transition-colors",
+                  "whitespace-nowrap rounded-md px-2 py-2 text-sm font-medium transition-colors",
                   active
                     ? "text-accent-700"
                     : "text-steel-600 hover:text-navy-900",
@@ -94,8 +94,8 @@ export function Header({ dict }: { dict: Dict }) {
             <Phone className="h-4 w-4" />
             {siteConfig.contact.phone}
           </a>
-          <LanguageSwitcher className="hidden lg:block" />
-          <ButtonLink href="/kontakt" className="ml-1 hidden xl:inline-flex">
+          <LanguageSwitcher className="hidden xl:block" />
+          <ButtonLink href="/kontakt" className="ml-1 hidden 2xl:inline-flex">
             {dict.cta.projektAnfragen}
           </ButtonLink>
 
@@ -106,7 +106,7 @@ export function Header({ dict }: { dict: Dict }) {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Menü schliessen" : "Menü öffnen"}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-md text-navy-900 hover:bg-steel-100 lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-md text-navy-900 hover:bg-steel-100 xl:hidden"
           >
             {open ? <X /> : <Menu />}
           </button>
@@ -114,7 +114,7 @@ export function Header({ dict }: { dict: Dict }) {
       </div>
 
       {/* Mobile menu */}
-      <div id="mobile-menu" className={cn("lg:hidden", open ? "block" : "hidden")}>
+      <div id="mobile-menu" className={cn("xl:hidden", open ? "block" : "hidden")}>
         <nav
           className="space-y-1 border-t border-steel-200 bg-white px-5 pb-6 pt-3 sm:px-8"
           aria-label="Mobile Navigation"

@@ -8,6 +8,7 @@ export type Dict = {
     leistungen: string;
     unifiedModernisierung: string;
     cybersecurity: string;
+    sinemaRc: string;
     unternehmen: string;
     referenzen: string;
     kontakt: string;
