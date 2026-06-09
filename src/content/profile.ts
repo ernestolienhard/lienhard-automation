@@ -62,10 +62,11 @@ export const career: {
  * abgeleitet. Weitere konkrete Erfolge (mit Zahlen) gerne ergänzen.
  */
 export const achievements: string[] = [
+  "Paketlogistik-Grossprojekt: Aufbau eines Paketzentrums für DHL am Flughafen Basel",
+  "Neue Paket-Sortieranlage für die Schweizerische Post – Grossanlage von strategischer Bedeutung",
   "Internationale Inbetriebnahmen in Mexiko, Türkei, Brasilien, Lettland, Belarus und Deutschland",
   "Sicherheitssteuerung für die Schlammverbrennung (Werdhölzli, Zürich)",
   "Zahlreiche ARA-Projekte: Regenbecken, Abwasserwärmerückgewinnung und Membranbiologie",
-  "Automatisierung im Pharma-Umfeld – u. a. für Roche, Merck und Boehringer Ingelheim",
   "Migration von Altsteuerungen (S5 → S7) und Software-Erweiterungen bestehender Anlagen",
   "Stahl- & Industrieanlagen: internationale SPS-Programmierung und Inbetriebnahme",
 ];

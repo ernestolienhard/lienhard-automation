@@ -8,13 +8,11 @@
 
 export type ProjectCategory =
   | "abwasser"
-  | "pharma"
   | "stahl"
   | "retrofit";
 
 export const categoryLabels: Record<ProjectCategory, string> = {
   abwasser: "Abwasser & ARA",
-  pharma: "Pharma & Bioreaktoren",
   stahl: "Stahl- & Industrieanlagen",
   retrofit: "Retrofit & Migration",
 };
@@ -101,15 +99,6 @@ export const projects: Project[] = [
     description:
       "Inbetriebnahmen und SPS-Programmierung u. a. für TALLERES Y ACEROS (MX), Celikpan (TR), Gerdau (BR), TIPRO BALTIC (LV), Lida-Baltia (BY) und BDW GmbH (DE).",
   },
-  {
-    year: "International",
-    title: "Pharma- & Bioreaktor-Systeme",
-    location: "Schweiz & international",
-    category: "pharma",
-    technologies: ["Siemens S7", "WinCC OA", "TIA Portal"],
-    description:
-      "Automatisierungs- und Visualisierungsprojekte im pharmazeutischen Umfeld – u. a. für Roche, Merck und Boehringer Ingelheim.",
-  },
 ];
 
 /** High-level project categories for the references intro / overview. */
@@ -121,11 +110,6 @@ export const referenceHighlights: {
     category: "abwasser",
     description:
       "ARA-Projekte, Regenbecken, Abwasserwärmerückgewinnung und Sicherheitssteuerungen in der ganzen Schweiz.",
-  },
-  {
-    category: "pharma",
-    description:
-      "Automatisierung und Visualisierung für anspruchsvolle Pharma- und Bioreaktor-Systeme.",
   },
   {
     category: "stahl",
