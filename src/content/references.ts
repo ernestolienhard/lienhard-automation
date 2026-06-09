@@ -48,13 +48,13 @@ export const projects: Project[] = [
       "Software-Entwicklung für ein komplettes Logistikzentrum von DHL Express – Konzepte für Steuerung, Automatisierung sowie anlagen- und applikationsspezifische Software. Verantwortlich für die Fördertechnik mit über 500 Bändern, Sortern und Endstellen; Sortierleistung rund 10'000 Sendungen/Stunde. Realisiert mit Siemens Logistics AG.",
   },
   {
-    year: "Grossprojekt",
-    title: "ARA Zermatt – grösste Membranfilter-Anlage der Schweiz",
+    year: "2013–2016",
+    title: "ARA Zermatt – grösste Membranbiologieanlage der Schweiz",
     location: "Zermatt VS",
     category: "abwasser",
-    technologies: ["Siemens S7", "HLK", "Prozessleittechnik"],
+    technologies: ["Siemens S7", "WinCC OA", "HLK", "SCADA"],
     description:
-      "Neuprogrammierung der gesamten Kläranlage samt HLK (Heizung, Lüftung, Klima) – die grösste Membranfilter-Anlage der Schweiz, vollständig im Inneren eines Berges realisiert.",
+      "Neuprogrammierung der gesamten Kläranlage samt HLK – die grösste Membranbiologieanlage der Schweiz, in einer Kaverne im Berginnern. Steuerung mit über 10 SIMATIC-CPUs (STEP 7) und WinCC OA als SCADA-Leitsystem; Ausbaugrösse 60'000 Einwohner.",
   },
   {
     year: "2018",
@@ -77,11 +77,11 @@ export const projects: Project[] = [
   {
     year: "2016",
     title: "Abwasserwärmerückgewinnung",
-    location: "ARA Zermatt VS & ARA Lugano TI",
+    location: "ARA Lugano TI",
     category: "abwasser",
     technologies: ["Siemens S7", "WinCC OA"],
     description:
-      "Programmierung der Anlagen zur Abwasserwärmerückgewinnung an zwei Standorten.",
+      "Programmierung der Anlage zur Abwasserwärmerückgewinnung.",
   },
   {
     year: "2015",
@@ -90,7 +90,7 @@ export const projects: Project[] = [
     category: "abwasser",
     technologies: ["Siemens S7", "Safety"],
     description:
-      "Sicherheitssteuerung für die Schlammverbrennung sowie weitere Aufträge: Wärmerückgewinnung (ARA Zermatt, ARA Oensingen), Regenbecken und Wasseraufbereitung.",
+      "Sicherheitssteuerung für die Schlammverbrennung sowie weitere Aufträge: Wärmerückgewinnung (ARA Oensingen), Regenbecken und Wasseraufbereitung.",
   },
   {
     year: "2014",
@@ -103,12 +103,11 @@ export const projects: Project[] = [
   },
   {
     year: "2013",
-    title: "Steuerung & Membranbiologie",
-    location: "ARA Buchs ZH & ARA Zermatt VS",
+    title: "Steuerungsprogrammierung ARA Buchs",
+    location: "ARA Buchs ZH",
     category: "abwasser",
     technologies: ["Siemens S7"],
-    description:
-      "Steuerungsprogrammierung ARA Buchs ZH sowie Membranbiologie-Anlage ARA Zermatt VS.",
+    description: "Steuerungsprogrammierung der Kläranlage ARA Buchs ZH.",
   },
   {
     year: "International",
