@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fragment } from "react";
+import Link from "next/link";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
@@ -280,14 +281,12 @@ export default function UnifiedModernisierungPage() {
             <h3 className="font-bold text-navy-900">Security-Hinweis</h3>
             <p className="mt-2 text-sm leading-relaxed text-steel-600">
               {securityNote.text}{" "}
-              <a
-                href={securityNote.url}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/cybersecurity"
                 className="underline hover:text-accent-600"
               >
-                Mehr zur Industrial Security
-              </a>
+                Mehr zu unserem Cybersecurity-Bereich
+              </Link>
               .
             </p>
           </div>

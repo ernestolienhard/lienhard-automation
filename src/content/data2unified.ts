@@ -172,5 +172,4 @@ export const relatedLinks: {
 
 export const securityNote = {
   text: "Zum Schutz von Anlagen, Systemen und Netzwerken vor Cyber-Bedrohungen ist ein ganzheitliches, modernes IT-Security-Konzept notwendig. Diese Anforderungen berücksichtige ich bei jeder Modernisierung.",
-  url: "https://www.siemens.com/cybersecurity",
 };

@@ -54,4 +54,4 @@ export const partnerTopics: { title: string; detail: string }[] = [
 ];
 
 export const SIEMENS_CYBER_URL =
-  "https://www.siemens.com/de-ch/products/industrial-digitalization-services/industrial-cybersecurity-services/";
+  "https://www.siemens.com/de-ch/company/digital-transformation/cybersecurity/";
