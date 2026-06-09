@@ -7,11 +7,13 @@
  */
 
 export type ProjectCategory =
+  | "logistik"
   | "abwasser"
   | "stahl"
   | "retrofit";
 
 export const categoryLabels: Record<ProjectCategory, string> = {
+  logistik: "Logistik & Sortieranlagen",
   abwasser: "Abwasser & ARA",
   stahl: "Stahl- & Industrieanlagen",
   retrofit: "Retrofit & Migration",
@@ -27,6 +29,24 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    year: "2019–2021",
+    title: "Mix-Mail Verteilzentrum – Schweizerische Post",
+    location: "Zürich Mülligen",
+    category: "logistik",
+    technologies: ["Siemens", "Cross-Belt-Sorter", "Fördertechnik", "Automatisierung"],
+    description:
+      "Software-Entwicklung für die vollautomatische Sortierung von Mischsendungen (Mix-Mail) – eine Weltneuheit in der Sortierung. Anlagenleistung bis 19'000 Sendungen/Stunde, ca. 1'400 Zielstellen und 5 Cross-Belt-Sorter auf zwei Ebenen. Realisiert mit Siemens Postal, Parcel & Airport Logistics.",
+  },
+  {
+    year: "2016–2018",
+    title: "DHL Gateway Basel – neues Logistikzentrum",
+    location: "Basel",
+    category: "logistik",
+    technologies: ["Siemens", "Fördertechnik", "Automatisierung"],
+    description:
+      "Software-Entwicklung für ein komplettes Logistikzentrum von DHL Express – Konzepte für Steuerung, Automatisierung sowie anlagen- und applikationsspezifische Software. Verantwortlich für die Fördertechnik mit über 500 Bändern, Sortern und Endstellen; Sortierleistung rund 10'000 Sendungen/Stunde. Realisiert mit Siemens Logistics AG.",
+  },
   {
     year: "2018",
     title: "Steuerung mehrerer Regenbecken",
@@ -106,6 +126,11 @@ export const referenceHighlights: {
   category: ProjectCategory;
   description: string;
 }[] = [
+  {
+    category: "logistik",
+    description:
+      "Software-Entwicklung für Paket- und Mischsendungs-Sortieranlagen – u. a. für DHL Express und die Schweizerische Post.",
+  },
   {
     category: "abwasser",
     description:

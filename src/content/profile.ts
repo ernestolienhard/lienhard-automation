@@ -62,8 +62,8 @@ export const career: {
  * abgeleitet. Weitere konkrete Erfolge (mit Zahlen) gerne ergänzen.
  */
 export const achievements: string[] = [
-  "Paketlogistik-Grossprojekt: Aufbau eines Paketzentrums für DHL am Flughafen Basel",
-  "Neue Paket-Sortieranlage für die Schweizerische Post – Grossanlage von strategischer Bedeutung",
+  "Mix-Mail Verteilzentrum für die Schweizerische Post (Zürich Mülligen) – Weltneuheit in der Sortierung, bis 19'000 Sendungen/Stunde",
+  "DHL Gateway Basel: Software-Entwicklung für ein neues Logistikzentrum mit über 500 Bändern, Sortern und Endstellen",
   "Internationale Inbetriebnahmen in Mexiko, Türkei, Brasilien, Lettland, Belarus und Deutschland",
   "Sicherheitssteuerung für die Schlammverbrennung (Werdhölzli, Zürich)",
   "Zahlreiche ARA-Projekte: Regenbecken, Abwasserwärmerückgewinnung und Membranbiologie",

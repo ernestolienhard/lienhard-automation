@@ -8,7 +8,7 @@ import { referenceHighlights, categoryLabels } from "@/content/references";
 export const metadata: Metadata = {
   title: "Referenzen",
   description:
-    "Über 25 Jahre internationale Projekterfahrung: ARA- und Abwasserprojekte, Stahl- und Industrieanlagen, Sicherheitssteuerungen und Retrofit, SPS-Programmierung mit TIA Portal und WinCC OA.",
+    "Über 25 Jahre internationale Projekterfahrung: Paket- und Logistikanlagen (DHL, Schweizerische Post), ARA- und Abwasserprojekte, Stahl- und Industrieanlagen sowie Retrofit – SPS-Programmierung mit TIA Portal und WinCC OA.",
   alternates: { canonical: "/referenzen" },
 };
 
