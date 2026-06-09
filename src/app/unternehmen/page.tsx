@@ -15,6 +15,8 @@ import {
   Users,
   MapPin,
   Check,
+  Network,
+  RefreshCw,
 } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
@@ -27,8 +29,8 @@ export const metadata: Metadata = {
 const focusAreas = [
   {
     icon: <Cpu className="h-5 w-5" />,
-    title: "Steuerungs- & Regelungstechnik",
-    text: "Steuerungs-, Regelungs- und Prozesstechnik für anspruchsvolle industrielle Anlagen.",
+    title: "Steuerungstechnik",
+    text: "Steuerungs- und Prozesstechnik für anspruchsvolle industrielle Anlagen.",
   },
   {
     icon: <Workflow className="h-5 w-5" />,
@@ -36,9 +38,19 @@ const focusAreas = [
     text: "Effektive, wartbare SPS-Software mit klarer Struktur und durchgängiger Architektur.",
   },
   {
+    icon: <Network className="h-5 w-5" />,
+    title: "Kommunikation & Schnittstellen",
+    text: "Vernetzung über Modbus RTU/TCP und OPC UA – inklusive OPC UA GDS Push.",
+  },
+  {
     icon: <Globe className="h-5 w-5" />,
     title: "Visualisierung von Abläufen",
     text: "Prozessvisualisierung und Leittechnik – besonders stark mit WinCC Unified und WinCC OA.",
+  },
+  {
+    icon: <RefreshCw className="h-5 w-5" />,
+    title: "Migration & Modernisierung",
+    text: "Migration von S5 auf S7 und TIA Portal sowie Modernisierung von WinCC flexible nach WinCC Unified.",
   },
   {
     icon: <GraduationCap className="h-5 w-5" />,

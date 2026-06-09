@@ -180,3 +180,12 @@ export const RefreshCw = (p: IconProps) => (
     <path d="M21 3v5h-5M3 21v-5h5" />
   </Svg>
 );
+
+export const Network = (p: IconProps) => (
+  <Svg {...p}>
+    <rect x="9" y="2" width="6" height="6" rx="1" />
+    <rect x="2" y="16" width="6" height="6" rx="1" />
+    <rect x="16" y="16" width="6" height="6" rx="1" />
+    <path d="M12 8v4M5 16v-2h14v2" />
+  </Svg>
+);

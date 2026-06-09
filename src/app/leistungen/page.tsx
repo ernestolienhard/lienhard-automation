@@ -392,7 +392,7 @@ export default function LeistungenPage() {
             {[
               {
                 icon: <Cpu className="h-5 w-5" />,
-                text: "Steuerungs-, Regelungs- und Prozesstechnik für anspruchsvolle Anlagen.",
+                text: "Steuerungs- und Prozesstechnik für anspruchsvolle Anlagen.",
               },
               {
                 icon: <Workflow className="h-5 w-5" />,
