@@ -35,7 +35,7 @@ export function ReferencesCarousel({ projects }: { projects: Project[] }) {
   // Auto-rotate every few seconds unless paused.
   useEffect(() => {
     if (paused) return;
-    const id = setInterval(() => scrollByCards(1), 4500);
+    const id = setInterval(() => scrollByCards(1), 3000);
     return () => clearInterval(id);
   }, [paused, scrollByCards]);
 

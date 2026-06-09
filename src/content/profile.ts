@@ -51,9 +51,14 @@ export const career: {
   },
   {
     period: "seit 2013",
-    title: "Selbstständig – Lienhard Automation",
+    title: "Selbstständig – Lienhard Automation GmbH",
     org: "eigene Projekte & internationale Mandate",
     text: "Eigene Automatisierungsprojekte (u. a. ARA/Abwasser und WinCC-Modernisierung) sowie – teils parallel – internationale Mandate, u. a. für Tecvil und Siemens Logistics AG (DHL, Schweizerische Post).",
+  },
+  {
+    period: "2025–2026",
+    title: "Nachdiplomstudium (NDS) Betriebswirtschaft",
+    text: "Berufsbegleitende Weiterbildung in Betriebswirtschaft – für die unternehmerische Führung und Weiterentwicklung des eigenen Betriebs.",
   },
 ];
 
