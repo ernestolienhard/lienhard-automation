@@ -1,16 +1,21 @@
+"use client";
+
 import { siteConfig } from "@/lib/site";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
 import { ArrowRight, Mail, Phone } from "@/components/ui/icons";
+import { useLocale } from "@/i18n/useLocale";
+import { getDict } from "@/i18n/dictionaries";
 
 /** Reusable call-to-action band used at the bottom of most pages. */
 export function ContactCta({
-  title = "Lassen Sie uns Ihr Projekt besprechen.",
-  lead = "Ob neue Anlage, Retrofit oder Inbetriebnahme im In- und Ausland – wir beraten Sie produktneutral und unverbindlich.",
+  title,
+  lead,
 }: {
   title?: string;
   lead?: string;
 }) {
+  const dict = getDict(useLocale());
   return (
     <section className="bg-navy-900">
       <Container className="py-16 sm:py-20">
@@ -23,14 +28,14 @@ export function ContactCta({
           <div className="relative grid items-center gap-8 lg:grid-cols-[1.5fr,1fr]">
             <div>
               <h2 className="text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                {title}
+                {title ?? dict.cta.defaultTitle}
               </h2>
               <p className="mt-4 max-w-xl text-lg leading-relaxed text-steel-300">
-                {lead}
+                {lead ?? dict.cta.defaultLead}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <ButtonLink href="/kontakt" size="lg">
-                  Projekt anfragen
+                  {dict.cta.projektAnfragen}
                   <ArrowRight className="h-4 w-4" />
                 </ButtonLink>
                 <ButtonLink
@@ -38,7 +43,7 @@ export function ContactCta({
                   variant="outline-light"
                   size="lg"
                 >
-                  Beratung vereinbaren
+                  {dict.cta.beratungVereinbaren}
                 </ButtonLink>
               </div>
             </div>
@@ -51,7 +56,7 @@ export function ContactCta({
                 <Phone className="h-5 w-5 text-accent-400" />
                 <span>
                   <span className="block text-xs uppercase tracking-wide text-steel-400">
-                    Telefon
+                    {dict.contact.phoneLabel}
                   </span>
                   {siteConfig.contact.phone}
                 </span>
@@ -63,7 +68,7 @@ export function ContactCta({
                 <Mail className="h-5 w-5 text-accent-400" />
                 <span>
                   <span className="block text-xs uppercase tracking-wide text-steel-400">
-                    E-Mail
+                    {dict.contact.emailLabel}
                   </span>
                   {siteConfig.contact.email}
                 </span>

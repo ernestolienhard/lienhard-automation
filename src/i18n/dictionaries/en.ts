@@ -12,6 +12,14 @@ const en: Dict = {
   },
   cta: {
     projektAnfragen: "Request a project",
+    beratungVereinbaren: "Arrange a consultation",
+    defaultTitle: "Let's talk about your project.",
+    defaultLead:
+      "Whether a new plant, a retrofit or commissioning at home or abroad – I advise you independently and without obligation.",
+  },
+  contact: {
+    phoneLabel: "Phone",
+    emailLabel: "Email",
   },
   footer: {
     brandDesc:

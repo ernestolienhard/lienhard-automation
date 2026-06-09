@@ -12,6 +12,14 @@ const pt: Dict = {
   },
   cta: {
     projektAnfragen: "Solicitar um projeto",
+    beratungVereinbaren: "Agendar uma consulta",
+    defaultTitle: "Vamos falar sobre o seu projeto.",
+    defaultLead:
+      "Seja uma nova instalação, um retrofit ou uma colocação em serviço na Suíça ou no estrangeiro – aconselho-o de forma independente e sem compromisso.",
+  },
+  contact: {
+    phoneLabel: "Telefone",
+    emailLabel: "E-mail",
   },
   footer: {
     brandDesc:

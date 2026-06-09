@@ -15,6 +15,13 @@ export type Dict = {
   };
   cta: {
     projektAnfragen: string;
+    beratungVereinbaren: string;
+    defaultTitle: string;
+    defaultLead: string;
+  };
+  contact: {
+    phoneLabel: string;
+    emailLabel: string;
   };
   footer: {
     brandDesc: string;
