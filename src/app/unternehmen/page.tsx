@@ -85,7 +85,8 @@ export default function UnternehmenPage() {
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-steel-300">
             Spezialist für Siemens-Automatisierung im industriellen Maschinen-
-            und Anlagenbau: SIMATIC STEP 7 Classic und PCS 7, Visualisierung mit
+            und Anlagenbau: SIMATIC STEP 7 Classic, TIA Portal und PCS 7,
+            Visualisierung mit
             WinCC Unified und WinCC OA sowie durchgängige Vernetzung über OPC UA,
             PROFINET und PROFIBUS – von der Beratung bis zur Inbetriebnahme.
           </p>
@@ -154,8 +155,9 @@ export default function UnternehmenPage() {
               Mit über 13 Jahren Erfahrung in Montage, Automation und
               Inbetriebnahme führt Ernesto Lienhard das Unternehmen mit
               technischem Tiefgang und internationalem Blick. Seine Stärke liegt
-              in der Siemens-Welt: SIMATIC STEP 7 Classic und PCS 7, programmiert
-              in FUP, KOP, AWL und SCL, inklusive Sicherheitssteuerungen (Safety).
+              in der Siemens-Welt: SIMATIC STEP 7 Classic, TIA Portal und PCS 7,
+              programmiert in FUP, KOP, AWL und SCL, inklusive
+              Sicherheitssteuerungen (Safety).
             </p>
             <p className="mt-4 leading-relaxed text-steel-600">
               Bei Visualisierung und Leittechnik ist er besonders stark mit

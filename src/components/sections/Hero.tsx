@@ -38,8 +38,9 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-steel-300 animate-fade-up">
-            Spezialisiert auf die Siemens-Welt: SIMATIC STEP 7 Classic und
-            PCS 7, Visualisierung mit WinCC Unified und WinCC OA sowie
+            Spezialisiert auf die Siemens-Welt: SIMATIC STEP 7 Classic,
+            TIA Portal und PCS 7, Visualisierung mit WinCC Unified und WinCC OA
+            sowie
             durchgängige Vernetzung über OPC UA, PROFINET und PROFIBUS. Von der
             Programmierung bis zur Inbetriebnahme – präzise und weltweit.
           </p>

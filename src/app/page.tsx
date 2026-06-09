@@ -104,7 +104,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Technologie-Kompetenz"
           title="Steuerungs-, Leit- & Kommunikationstechnik"
-          lead="Tiefe Siemens-Expertise: SIMATIC STEP 7 Classic und PCS 7, Visualisierung mit WinCC Unified und WinCC OA sowie durchgängige Kommunikation über OPC UA, Modbus, PROFINET und PROFIBUS."
+          lead="Tiefe Siemens-Expertise: SIMATIC STEP 7 Classic, TIA Portal und PCS 7, Visualisierung mit WinCC Unified und WinCC OA sowie durchgängige Kommunikation über OPC UA, Modbus, PROFINET und PROFIBUS."
           onDark
         />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
