@@ -27,16 +27,22 @@ export const career: {
     text: "Anspruchsvolle Elektronik- und Systemarbeit an Flugzeugen – mit höchsten Anforderungen an Präzision, Sicherheit und Zuverlässigkeit.",
   },
   {
-    period: "Industrie",
-    title: "Verpackungsmaschinen",
-    org: "SIG Pack",
-    text: "Elektronik und Steuerungstechnik an Hochleistungs-Verpackungsmaschinen – der Einstieg in den industriellen Maschinen- und Anlagenbau.",
+    period: "2001–2003",
+    title: "Verpackungsmaschinen, international",
+    org: "SIG-Pack Verpackung AG",
+    text: "Software und Inbetriebnahmen an Hochleistungs-Verpackungsmaschinen in Lateinamerika, Europa und den USA – der Einstieg in den internationalen Maschinen- und Anlagenbau.",
   },
   {
-    period: "Automation",
-    title: "Zurück in die Welt der Automation",
-    org: "national & international",
-    text: "Umfangreiche Projekterfahrung in SPS-Engineering, Prozessleittechnik und Inbetriebnahme – in der Schweiz und weltweit.",
+    period: "2003–2004",
+    title: "Internationale Inbetriebnahmen",
+    org: "Romaco",
+    text: "Inbetriebnahmen und Software-Einsätze in Europa, den USA, Mexiko und Jordanien.",
+  },
+  {
+    period: "2005–2011",
+    title: "Internationale Gitter- & Radiatorenanlagen",
+    org: "Schlatter AG",
+    text: "Software-Entwicklung und Inbetriebsetzung von Schweiss-, Gitter- und Radiatorenanlagen weltweit – u. a. Türkei, Lettland, Brasilien und Mexiko.",
   },
   {
     period: "Weiterbildung",
@@ -44,16 +50,10 @@ export const career: {
     text: "Weiterbildung mit fundierter technischer Basis für durchdachte, zuverlässige Automatisierungslösungen.",
   },
   {
-    period: "Spezialisierung",
-    title: "Siemens-Welt & Visualisierung",
-    org: "STEP 7 Classic · TIA Portal · PCS 7 · WinCC Unified/OA",
-    text: "Vertiefte Expertise in Steuerungs-, Leit- und Kommunikationstechnik (OPC UA, Modbus, PROFINET, PROFIBUS) sowie in Sicherheitssteuerungen (Safety).",
-  },
-  {
-    period: "Heute",
-    title: "Gründer & Geschäftsführer",
-    org: "Lienhard Automation GmbH, Zürich",
-    text: "Aufbau und Leitung des eigenen Automatisierungs-Engineerings mit internationalem Partnernetzwerk – von der Beratung bis zur Inbetriebnahme.",
+    period: "seit 2013",
+    title: "Selbstständig – Lienhard Automation",
+    org: "eigene Projekte & internationale Mandate",
+    text: "Eigene Automatisierungsprojekte (u. a. ARA/Abwasser und WinCC-Modernisierung) sowie – teils parallel – internationale Mandate, u. a. für Tecvil und Siemens Logistics AG (DHL, Schweizerische Post).",
   },
 ];
 
