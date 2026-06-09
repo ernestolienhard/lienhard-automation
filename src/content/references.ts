@@ -38,7 +38,7 @@ export const projects: Project[] = [
     category: "infrastruktur",
     technologies: ["WinCC OA", "TIA Portal", "S7-1500", "OPC UA", "OPC UA GDS Push"],
     description:
-      "Zentrale, sichere Lichtsteuerung für die Elektrizitätswerke des Kantons Zürich (EKZ): rund 3'000 SPS (SIMATIC S7-1500) in über 2'500 Trafostationen, gesteuert mit WinCC OA SCADA und programmiert im TIA Portal. Verschlüsselte OPC-UA-Kommunikation inkl. OPC UA GDS Push für die zentrale Zertifikatsverwaltung. Realisiert mit Siemens.",
+      "Zentrale, sichere Lichtsteuerung für die Elektrizitätswerke des Kantons Zürich (EKZ): rund 3'000 SPS (SIMATIC S7-1500) in über 2'500 Trafostationen, gesteuert mit WinCC OA SCADA und programmiert im TIA Portal. Verschlüsselte OPC-UA-Kommunikation inkl. OPC UA GDS Push für die zentrale Zertifikatsverwaltung. Realisiert mit Siemens Schweiz DI AG.",
   },
   {
     year: "2019–2021",
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     category: "retrofit",
     technologies: ["STEP 7", "TIA Portal"],
     description:
-      "Hochrüstung der bestehenden SPS von STEP 7 auf TIA Portal samt Software-Anpassung für die Querwagen-Verschiebung mit 360-Grad-Funktion. Realisiert mit Siemens.",
+      "Hochrüstung der bestehenden SPS von STEP 7 auf TIA Portal samt Software-Anpassung für die Querwagen-Verschiebung mit 360-Grad-Funktion. Realisiert mit Siemens Schweiz DI AG.",
   },
   {
     year: "2025–2026",
@@ -83,7 +83,7 @@ export const projects: Project[] = [
     category: "infrastruktur",
     technologies: ["PCS 7", "Modbus RTU", "Modbus TCP"],
     description:
-      "Erweiterung eines bestehenden Rechenzentrums um ein neues Stockwerk samt Generatoren-System; Datenverarbeitung via Modbus RTU und TCP. Realisiert mit Siemens.",
+      "Erweiterung eines bestehenden Rechenzentrums um ein neues Stockwerk samt Generatoren-System; Datenverarbeitung via Modbus RTU und TCP. Realisiert mit Siemens Schweiz DI AG.",
   },
   {
     year: "2023",
@@ -92,7 +92,7 @@ export const projects: Project[] = [
     category: "infrastruktur",
     technologies: ["PCS 7 V9.1", "PH", "IF"],
     description:
-      "Hochrüstung eines bestehenden Rechenzentrum-Projekts auf SIMATIC PCS 7 V9.1 (inkl. PH und IF). Realisiert mit Siemens.",
+      "Hochrüstung eines bestehenden Rechenzentrum-Projekts auf SIMATIC PCS 7 V9.1 (inkl. PH und IF). Realisiert mit Siemens Schweiz DI AG.",
   },
   {
     year: "2023",
@@ -101,7 +101,7 @@ export const projects: Project[] = [
     category: "infrastruktur",
     technologies: ["PCS 7 V9.1", "PH", "IF"],
     description:
-      "Hochrüstung eines weiteren bestehenden Rechenzentrum-Projekts auf SIMATIC PCS 7 V9.1 (inkl. PH und IF). Realisiert mit Siemens.",
+      "Hochrüstung eines weiteren bestehenden Rechenzentrum-Projekts auf SIMATIC PCS 7 V9.1 (inkl. PH und IF). Realisiert mit Siemens Schweiz DI AG.",
   },
   {
     year: "2018",
