@@ -50,7 +50,7 @@ const focusAreas = [
   {
     icon: <RefreshCw className="h-5 w-5" />,
     title: "Migration & Modernisierung",
-    text: "Migration von S5 auf S7 und TIA Portal sowie Modernisierung von WinCC flexible nach WinCC Unified.",
+    text: "Migration von Altsteuerungen (S5 → S7 → TIA Portal) sowie Modernisierung von WinCC flexible nach WinCC Unified.",
   },
   {
     icon: <GraduationCap className="h-5 w-5" />,

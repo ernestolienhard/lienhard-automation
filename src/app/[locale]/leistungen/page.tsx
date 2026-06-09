@@ -62,7 +62,7 @@ const leistungsbereiche: {
   {
     icon: <Wrench className="h-6 w-6" />,
     title: "Retrofit & Wartung",
-    text: "Modernisierung bestehender Anlagen, Migration von Altsteuerungen (S5 → S7) und Service.",
+    text: "Modernisierung bestehender Anlagen, Migration von Altsteuerungen (S5 → S7 → TIA) und Service.",
   },
   {
     icon: <RefreshCw className="h-6 w-6" />,
@@ -276,7 +276,7 @@ export default function LeistungenPage() {
             </p>
             <ul className="mt-5 space-y-2.5">
               {[
-                "Migration von Altsteuerungen (z. B. S5 → S7)",
+                "Migration von Altsteuerungen (S5 → S7 → TIA Portal)",
                 "Software-Erweiterungen bestehender Anlagen",
                 "Sicherheitssteuerungen (Safety)",
                 "Service und Wartung",

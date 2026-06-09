@@ -318,6 +318,6 @@ export const referenceHighlights: {
   {
     category: "retrofit",
     description:
-      "Modernisierung bestehender Anlagen und Migration von Altsteuerungen (S5 → S7).",
+      "Modernisierung bestehender Anlagen und Migration von Altsteuerungen (S5 → S7 → TIA).",
   },
 ];

@@ -67,6 +67,6 @@ export const achievements: string[] = [
   "Internationale Inbetriebnahmen in Mexiko, Türkei, Brasilien, Lettland, Belarus und Deutschland",
   "Sicherheitssteuerung für die Schlammverbrennung (Werdhölzli, Zürich)",
   "Zahlreiche ARA-Projekte: Regenbecken, Abwasserwärmerückgewinnung und Membranbiologie",
-  "Migration von Altsteuerungen (S5 → S7) und Software-Erweiterungen bestehender Anlagen",
+  "Migration von Altsteuerungen (S5 → S7 → TIA Portal) und Software-Erweiterungen bestehender Anlagen",
   "Stahl- & Industrieanlagen: internationale SPS-Programmierung und Inbetriebnahme",
 ];

@@ -73,6 +73,6 @@ export const advantages: { title: string; description: string }[] = [
   {
     title: "Retrofit",
     description:
-      "Modernisierung bestehender Anlagen, inkl. Migration von Altsteuerungen (z. B. S5 auf S7).",
+      "Modernisierung bestehender Anlagen, inkl. Migration von Altsteuerungen (S5 → S7 → TIA Portal).",
   },
 ];
