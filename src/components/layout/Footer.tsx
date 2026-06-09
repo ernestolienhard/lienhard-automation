@@ -9,7 +9,9 @@ import type { Dict } from "@/i18n/dictionaries";
 const { contact } = siteConfig;
 
 export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
-  // Server-rendered at build time; updates automatically on each deploy.
+  // Founding year (Handelsregister) → current year, rendered server-side and
+  // updated automatically on each deploy.
+  const founded = 2013;
   const year = new Date().getFullYear();
   const href = (path: string) => `/${locale}${path}`;
 
@@ -103,7 +105,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-navy-800 pt-6 text-xs text-steel-500 sm:flex-row sm:items-center">
           <p>
-            © {year} {siteConfig.legalName}. {dict.footer.rightsReserved}
+            © {founded}–{year} {siteConfig.legalName}. {dict.footer.rightsReserved}
           </p>
           <p>
             {dict.footer.madeIn} · {siteConfig.tagline}
