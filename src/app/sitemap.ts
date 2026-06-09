@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/leistungen",
     "/unified-modernisierung",
+    "/cybersecurity",
     "/unternehmen",
     "/referenzen",
     "/kontakt",

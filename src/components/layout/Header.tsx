@@ -58,7 +58,7 @@ export function Header() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                  "whitespace-nowrap rounded-md px-2.5 py-2 text-sm font-medium transition-colors",
                   active
                     ? "text-accent-700"
                     : "text-steel-600 hover:text-navy-900",
@@ -73,12 +73,12 @@ export function Header() {
         <div className="flex items-center gap-2">
           <a
             href={siteConfig.contact.phoneHref}
-            className="hidden items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-steel-600 transition-colors hover:text-navy-900 xl:inline-flex"
+            className="hidden items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-steel-600 transition-colors hover:text-navy-900 2xl:inline-flex"
           >
             <Phone className="h-4 w-4" />
             {siteConfig.contact.phone}
           </a>
-          <ButtonLink href="/kontakt" className="hidden sm:inline-flex">
+          <ButtonLink href="/kontakt" className="hidden xl:inline-flex">
             Projekt anfragen
           </ButtonLink>
 

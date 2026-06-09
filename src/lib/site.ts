@@ -32,6 +32,7 @@ export type NavItem = { label: string; href: string };
 export const mainNav: NavItem[] = [
   { label: "Leistungen", href: "/leistungen" },
   { label: "Unified Modernisierung", href: "/unified-modernisierung" },
+  { label: "Cybersecurity", href: "/cybersecurity" },
   { label: "Unternehmen", href: "/unternehmen" },
   { label: "Referenzen", href: "/referenzen" },
   { label: "Kontakt", href: "/kontakt" },
