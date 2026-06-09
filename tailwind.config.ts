@@ -17,27 +17,18 @@ const config: Config = {
           700: "#152744",
           600: "#1d3357",
         },
-        // Electric blue accent
+        // Lienhard brand red — primary accent (from the logo)
         accent: {
-          50: "#eef5ff",
-          100: "#d9e8ff",
-          200: "#bcd6ff",
-          300: "#8ebcff",
-          400: "#5896ff",
-          500: "#2b72f5",
-          600: "#1a56e0",
-          700: "#1543b5",
-          800: "#173a91",
-          900: "#193573",
-        },
-        // Lienhard brand red (from the logo)
-        brand: {
           50: "#fdeceb",
           100: "#fbd5d2",
+          200: "#f6b4ae",
+          300: "#f0867d",
           400: "#ec5249",
           500: "#e1251b",
           600: "#c61e15",
           700: "#a51811",
+          800: "#881712",
+          900: "#71160f",
         },
         // Neutral steel grays
         steel: {
@@ -70,7 +61,7 @@ const config: Config = {
       boxShadow: {
         card: "0 1px 2px rgba(10,20,36,0.06), 0 8px 24px -12px rgba(10,20,36,0.18)",
         "card-hover":
-          "0 2px 4px rgba(10,20,36,0.08), 0 16px 40px -16px rgba(26,86,224,0.25)",
+          "0 2px 4px rgba(10,20,36,0.08), 0 16px 40px -16px rgba(198,30,21,0.25)",
       },
       keyframes: {
         "fade-up": {

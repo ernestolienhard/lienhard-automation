@@ -155,7 +155,7 @@ export default function UnternehmenPage() {
               Inbetriebnahme führt Ernesto Lienhard das Unternehmen mit
               technischem Tiefgang und internationalem Blick. Seine Stärke liegt
               in der Siemens-Welt: SIMATIC STEP 7 Classic und PCS 7, programmiert
-              in FUP, KOP und AWL, inklusive Sicherheitssteuerungen (Safety).
+              in FUP, KOP, AWL und SCL, inklusive Sicherheitssteuerungen (Safety).
             </p>
             <p className="mt-4 leading-relaxed text-steel-600">
               Bei Visualisierung und Leittechnik ist er besonders stark mit

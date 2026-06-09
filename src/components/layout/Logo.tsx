@@ -25,7 +25,7 @@ export function Logo({
         className,
       )}
     >
-      <span className="font-wordmark text-[26px] font-bold uppercase leading-[0.95] tracking-[0.015em] text-brand-500">
+      <span className="font-wordmark text-[26px] font-bold uppercase leading-[0.95] tracking-[0.015em] text-accent-500">
         Lienhard
       </span>
       <span
