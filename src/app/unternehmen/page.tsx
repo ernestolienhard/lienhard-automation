@@ -11,7 +11,6 @@ import {
   Workflow,
   ShieldCheck,
   Globe,
-  Wrench,
   GraduationCap,
   Users,
   MapPin,
@@ -21,7 +20,7 @@ import {
 export const metadata: Metadata = {
   title: "Unternehmen",
   description:
-    "Lienhard Automation GmbH – geführt von Ernesto Lienhard, Techniker HF Automation. Steuerungstechnik, SPS-Software, Elektroniklösungen und ein internationales Partnernetzwerk.",
+    "Lienhard Automation GmbH – geführt von Ernesto Lienhard, Techniker HF Automation. Steuerungstechnik, SPS-Software, Visualisierung und ein internationales Partnernetzwerk.",
   alternates: { canonical: "/unternehmen" },
 };
 
@@ -35,11 +34,6 @@ const focusAreas = [
     icon: <Workflow className="h-5 w-5" />,
     title: "SPS-Softwareerstellung",
     text: "Effektive, wartbare SPS-Software mit klarer Struktur und durchgängiger Architektur.",
-  },
-  {
-    icon: <Wrench className="h-5 w-5" />,
-    title: "Elektroniklösungen",
-    text: "Massgeschneiderte Elektroniklösungen für spezifische Automatisierungsaufgaben.",
   },
   {
     icon: <Globe className="h-5 w-5" />,
