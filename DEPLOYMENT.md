@@ -41,7 +41,7 @@ git push -u origin main
 | `NEXT_PUBLIC_SUPABASE_URL` | `https://xxx.supabase.co` |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | `eyJ…` |
 | `SUPABASE_SERVICE_ROLE_KEY` | `eyJ…` (geheim!) |
-| `NEXT_PUBLIC_SITE_URL` | `https://lienhard-automation.com` |
+| `NEXT_PUBLIC_SITE_URL` | `https://lienhard-automation.ch` |
 
 - [ ] **Deploy** geklickt → Build erfolgreich
 - [ ] Eigene Domain unter **Settings → Domains** verbunden

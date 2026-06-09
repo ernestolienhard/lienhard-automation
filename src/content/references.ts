@@ -1,5 +1,5 @@
 /**
- * Project references — sourced from the existing lienhard-automation.com
+ * Project references — sourced from the existing lienhard-automation.ch
  * "Referenzen" page and the public client list on the home page.
  *
  * IMPORTANT: Do not fabricate clients or projects. Only add new entries that

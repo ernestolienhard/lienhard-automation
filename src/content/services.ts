@@ -1,5 +1,5 @@
 /**
- * Service content — sourced from the existing lienhard-automation.com site.
+ * Service content — sourced from the existing lienhard-automation.ch site.
  * Edit copy here to update both the home overview and the Leistungen page.
  */
 

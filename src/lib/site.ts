@@ -12,7 +12,7 @@ export const siteConfig = {
     "Lienhard Automation GmbH entwickelt Automatisierungslösungen für den industriellen Maschinen- und Anlagenbau – SPS-Engineering, Projektierung und Inbetriebnahme. Weltweit im Einsatz.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://lienhard-automation.com",
+    "https://lienhard-automation.ch",
   locale: "de_CH",
   contact: {
     person: "Ernesto Lienhard",
