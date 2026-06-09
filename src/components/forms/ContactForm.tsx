@@ -5,11 +5,60 @@ import { contactSchema } from "@/lib/validation";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, Check, Spinner } from "@/components/ui/icons";
 import { cn } from "@/lib/utils";
+import { useLocale } from "@/i18n/useLocale";
 
 type Status = "idle" | "submitting" | "success" | "error";
-type FieldErrors = Partial<Record<"name" | "email" | "message", string>>;
+type FieldKey = "name" | "email" | "message";
+type FieldErrors = Partial<Record<FieldKey, string>>;
+
+const C = {
+  de: {
+    company: "Firma (nicht ausfüllen)",
+    name: "Name",
+    email: "E-Mail",
+    message: "Nachricht",
+    messagePlaceholder: "Beschreiben Sie kurz Ihr Projekt oder Anliegen…",
+    submit: "Nachricht senden",
+    submitting: "Wird gesendet…",
+    successTitle: "Vielen Dank für Ihre Anfrage!",
+    successText: "Ich habe Ihre Nachricht erhalten und melde mich so rasch wie möglich bei Ihnen.",
+    successAgain: "Weitere Nachricht senden",
+    serverError: "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt per E-Mail.",
+    consentPre: "Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben gemäss meiner ",
+    consentLink: "Datenschutzerklärung",
+    consentPost: " zu.",
+    errors: {
+      name: "Bitte geben Sie Ihren Namen ein.",
+      email: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      message: "Bitte beschreiben Sie Ihr Anliegen (mind. 10 Zeichen).",
+    } as Record<FieldKey, string>,
+  },
+  en: {
+    company: "Company (do not fill in)",
+    name: "Name",
+    email: "Email",
+    message: "Message",
+    messagePlaceholder: "Briefly describe your project or request…",
+    submit: "Send message",
+    submitting: "Sending…",
+    successTitle: "Thank you for your enquiry!",
+    successText: "I have received your message and will get back to you as soon as possible.",
+    successAgain: "Send another message",
+    serverError: "The message could not be sent. Please try again or write to me directly by email.",
+    consentPre: "By submitting you agree to the processing of your data in accordance with my ",
+    consentLink: "privacy policy",
+    consentPost: ".",
+    errors: {
+      name: "Please enter your name.",
+      email: "Please enter a valid email address.",
+      message: "Please describe your request (at least 10 characters).",
+    } as Record<FieldKey, string>,
+  },
+};
 
 export function ContactForm() {
+  const locale = useLocale();
+  const t = locale === "en" ? C.en : C.de;
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
   const [serverError, setServerError] = useState<string | null>(null);
@@ -27,13 +76,12 @@ export function ContactForm() {
       company: (form.elements.namedItem("company") as HTMLInputElement).value,
     };
 
-    // Client-side validation for instant feedback.
     const parsed = contactSchema.safeParse(data);
     if (!parsed.success) {
       const fieldErrors: FieldErrors = {};
       for (const issue of parsed.error.issues) {
-        const key = issue.path[0] as keyof FieldErrors;
-        if (key && !fieldErrors[key]) fieldErrors[key] = issue.message;
+        const key = issue.path[0] as FieldKey;
+        if (key && !fieldErrors[key]) fieldErrors[key] = t.errors[key];
       }
       setErrors(fieldErrors);
       return;
@@ -46,46 +94,25 @@ export function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(parsed.data),
       });
-
-      if (!res.ok) {
-        const body = await res.json().catch(() => null);
-        throw new Error(body?.error ?? "Unbekannter Fehler");
-      }
-
+      if (!res.ok) throw new Error("request failed");
       setStatus("success");
       form.reset();
-    } catch (err) {
+    } catch {
       setStatus("error");
-      setServerError(
-        err instanceof Error
-          ? err.message
-          : "Die Nachricht konnte nicht gesendet werden.",
-      );
+      setServerError(t.serverError);
     }
   }
 
   if (status === "success") {
     return (
-      <div
-        role="status"
-        className="flex flex-col items-center rounded-xl2 border border-accent-200 bg-accent-50 px-6 py-12 text-center"
-      >
+      <div role="status" className="flex flex-col items-center rounded-xl2 border border-accent-200 bg-accent-50 px-6 py-12 text-center">
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent-600 text-white">
           <Check className="h-7 w-7" />
         </div>
-        <h3 className="mt-5 text-xl font-bold text-navy-900">
-          Vielen Dank für Ihre Anfrage!
-        </h3>
-        <p className="mt-2 max-w-sm text-steel-600">
-          Wir haben Ihre Nachricht erhalten und melden uns so rasch wie möglich
-          bei Ihnen.
-        </p>
-        <Button
-          variant="ghost"
-          className="mt-6"
-          onClick={() => setStatus("idle")}
-        >
-          Weitere Nachricht senden
+        <h3 className="mt-5 text-xl font-bold text-navy-900">{t.successTitle}</h3>
+        <p className="mt-2 max-w-sm text-steel-600">{t.successText}</p>
+        <Button variant="ghost" className="mt-6" onClick={() => setStatus("idle")}>
+          {t.successAgain}
         </Button>
       </div>
     );
@@ -93,40 +120,17 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
-      {/* Honeypot — hidden from users, visible to bots. */}
       <div className="absolute left-[-9999px]" aria-hidden="true">
-        <label htmlFor="company">Firma (nicht ausfüllen)</label>
-        <input
-          id="company"
-          name="company"
-          type="text"
-          tabIndex={-1}
-          autoComplete="off"
-        />
+        <label htmlFor="company">{t.company}</label>
+        <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <Field
-        id="name"
-        label="Name"
-        error={errors.name}
-        autoComplete="name"
-        required
-      />
-      <Field
-        id="email"
-        type="email"
-        label="E-Mail"
-        error={errors.email}
-        autoComplete="email"
-        required
-      />
+      <Field id="name" label={t.name} error={errors.name} autoComplete="name" required />
+      <Field id="email" type="email" label={t.email} error={errors.email} autoComplete="email" required />
 
       <div>
-        <label
-          htmlFor="message"
-          className="block text-sm font-medium text-navy-900"
-        >
-          Nachricht <span className="text-accent-600">*</span>
+        <label htmlFor="message" className="block text-sm font-medium text-navy-900">
+          {t.message} <span className="text-accent-600">*</span>
         </label>
         <textarea
           id="message"
@@ -135,55 +139,41 @@ export function ContactForm() {
           required
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? "message-error" : undefined}
-          placeholder="Beschreiben Sie kurz Ihr Projekt oder Anliegen…"
+          placeholder={t.messagePlaceholder}
           className={cn(
             "mt-1.5 w-full rounded-lg border bg-white px-4 py-3 text-sm text-navy-900 placeholder:text-steel-400 transition-colors focus:outline-none focus:ring-2 focus:ring-accent-500",
-            errors.message
-              ? "border-red-400 focus:ring-red-400"
-              : "border-steel-300",
+            errors.message ? "border-red-400 focus:ring-red-400" : "border-steel-300",
           )}
         />
         {errors.message ? (
-          <p id="message-error" className="mt-1.5 text-sm text-red-600">
-            {errors.message}
-          </p>
+          <p id="message-error" className="mt-1.5 text-sm text-red-600">{errors.message}</p>
         ) : null}
       </div>
 
       {serverError ? (
-        <p
-          role="alert"
-          className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
-        >
-          {serverError} Bitte versuchen Sie es erneut oder schreiben Sie uns
-          direkt per E-Mail.
+        <p role="alert" className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          {serverError}
         </p>
       ) : null}
 
-      <Button
-        type="submit"
-        size="lg"
-        className="w-full sm:w-auto"
-        disabled={status === "submitting"}
-      >
+      <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={status === "submitting"}>
         {status === "submitting" ? (
           <>
-            <Spinner className="h-4 w-4" /> Wird gesendet…
+            <Spinner className="h-4 w-4" /> {t.submitting}
           </>
         ) : (
           <>
-            Nachricht senden <ArrowRight className="h-4 w-4" />
+            {t.submit} <ArrowRight className="h-4 w-4" />
           </>
         )}
       </Button>
 
       <p className="text-xs text-steel-500">
-        Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben gemäss
-        unserer{" "}
-        <a href="/datenschutz" className="underline hover:text-accent-600">
-          Datenschutzerklärung
-        </a>{" "}
-        zu.
+        {t.consentPre}
+        <a href={`/${locale}/datenschutz`} className="underline hover:text-accent-600">
+          {t.consentLink}
+        </a>
+        {t.consentPost}
       </p>
     </form>
   );
@@ -223,9 +213,7 @@ function Field({
         )}
       />
       {error ? (
-        <p id={`${id}-error`} className="mt-1.5 text-sm text-red-600">
-          {error}
-        </p>
+        <p id={`${id}-error`} className="mt-1.5 text-sm text-red-600">{error}</p>
       ) : null}
     </div>
   );
