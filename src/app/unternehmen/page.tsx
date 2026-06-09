@@ -92,11 +92,11 @@ export default function UnternehmenPage() {
             Über Lienhard Automation
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-steel-300">
-            Spezialist für Siemens-Automatisierung im industriellen Maschinen-
-            und Anlagenbau: SIMATIC STEP 7 Classic, TIA Portal und PCS 7,
-            Visualisierung mit
-            WinCC Unified und WinCC OA sowie durchgängige Vernetzung über OPC UA,
-            PROFINET und PROFIBUS – von der Beratung bis zur Inbetriebnahme.
+            Ich bin Ihr Spezialist für Siemens-Automatisierung im industriellen
+            Maschinen- und Anlagenbau: SIMATIC STEP 7 Classic, TIA Portal und
+            PCS 7, Visualisierung mit WinCC Unified und WinCC OA sowie
+            durchgängige Vernetzung über OPC UA, PROFINET und PROFIBUS – von der
+            Beratung bis zur Inbetriebnahme.
           </p>
         </Container>
       </section>
@@ -105,7 +105,7 @@ export default function UnternehmenPage() {
       <Section tone="light">
         <SectionHeading
           eyebrow="Arbeitsschwerpunkte"
-          title="Wo unsere Stärken liegen"
+          title="Wo meine Stärken liegen"
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {focusAreas.map((area, i) => (
@@ -161,16 +161,16 @@ export default function UnternehmenPage() {
             </p>
             <p className="mt-5 text-lg leading-relaxed text-steel-600">
               Mit über 25 Jahren Erfahrung in Montage, Automation und
-              Inbetriebnahme führt Ernesto Lienhard das Unternehmen mit
-              technischem Tiefgang und internationalem Blick. Seine Stärke liegt
-              in der Siemens-Welt: SIMATIC STEP 7 Classic, TIA Portal und PCS 7,
+              Inbetriebnahme führe ich Lienhard Automation mit technischem
+              Tiefgang und internationalem Blick. Meine Stärke liegt in der
+              Siemens-Welt: SIMATIC STEP 7 Classic, TIA Portal und PCS 7,
               programmiert in FUP, KOP, AWL und SCL, inklusive
               Sicherheitssteuerungen (Safety).
             </p>
             <p className="mt-4 leading-relaxed text-steel-600">
-              Bei Visualisierung und Leittechnik ist er besonders stark mit
+              Bei Visualisierung und Leittechnik bin ich besonders stark mit
               WinCC Unified und WinCC OA; die saubere Vernetzung von Anlagen
-              realisiert er über OPC UA, Modbus (RTU/TCP), PROFINET und
+              realisiere ich über OPC UA, Modbus (RTU/TCP), PROFINET und
               PROFIBUS – von der ersten Beratung bis zur Inbetriebnahme vor Ort.
             </p>
           </div>
@@ -227,7 +227,7 @@ export default function UnternehmenPage() {
       <Section tone="muted">
         <SectionHeading
           eyebrow="Erfolge & Meilensteine"
-          title="Was in über 25 Jahren entstanden ist"
+          title="Was ich in über 25 Jahren erreicht habe"
           lead="Ein Auszug aus erfolgreich umgesetzten Projekten im In- und Ausland."
         />
         <div className="mt-12 grid gap-4 sm:grid-cols-2">
@@ -273,7 +273,7 @@ export default function UnternehmenPage() {
         <SectionHeading
           eyebrow="Partnernetzwerk"
           title="Gemeinsam stärker"
-          lead="Ein eingespieltes Netzwerk von Partnerunternehmen in der Schweiz, Europa und den USA."
+          lead="Mein eingespieltes Netzwerk von Partnerunternehmen in der Schweiz, Europa und den USA – für Projekte jeder Grösse."
         />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {partners.map((partner) => (
