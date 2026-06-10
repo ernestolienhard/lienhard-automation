@@ -1,9 +1,8 @@
 /**
- * Profile of Ernesto Lienhard – career & achievements. Locale-aware (de/en/es).
- *
- * Facts are from verified sources (his own statements, real references); no CV
- * facts are invented.
+ * Profile of Ernesto Lienhard – career & achievements.
+ * Locale-aware (de/en/es/fr/it/pt). No CV facts are invented.
  */
+import { pageLocale, type Locale } from "@/i18n/config";
 
 export type CareerEntry = {
   period: string;
@@ -12,10 +11,7 @@ export type CareerEntry = {
   text: string;
 };
 
-type L = "de" | "en" | "es";
-const pick = (locale: string): L => (locale === "en" ? "en" : locale === "es" ? "es" : "de");
-
-const careerByLocale: Record<L, CareerEntry[]> = {
+const careerByLocale: Record<Locale, CareerEntry[]> = {
   de: [
     { period: "Ausbildung", title: "Lehre als Elektromonteur", text: "Solide handwerkliche und elektrotechnische Grundausbildung – das Fundament der gesamten Laufbahn." },
     { period: "3 Jahre", title: "Flugzeug-Elektroniker", org: "SR Technics", text: "Anspruchsvolle Elektronik- und Systemarbeit an Flugzeugen – mit höchsten Anforderungen an Präzision, Sicherheit und Zuverlässigkeit." },
@@ -46,9 +42,39 @@ const careerByLocale: Record<L, CareerEntry[]> = {
     { period: "desde 2013", title: "Autónomo – Lienhard Automation GmbH", org: "proyectos propios y encargos internacionales", text: "Proyectos de automatización propios (entre otros EDAR/aguas residuales y modernización de WinCC) así como, en parte en paralelo, encargos internacionales, entre otros para Tecvil y Siemens Logistics AG (DHL, Correos de Suiza)." },
     { period: "2025–2026", title: "Professional Bachelor in Business Administration", text: "Formación continua a tiempo parcial en administración de empresas, para la dirección empresarial y el desarrollo de la propia empresa." },
   ],
+  fr: [
+    { period: "Formation", title: "Apprentissage d'électricien", text: "Solide formation pratique et électrotechnique : le fondement de toute la carrière." },
+    { period: "3 ans", title: "Électronicien aéronautique", org: "SR Technics", text: "Travail exigeant d'électronique et de systèmes sur avions, avec les plus hautes exigences de précision, de sécurité et de fiabilité." },
+    { period: "2001–2003", title: "Machines d'emballage, international", org: "SIG-Pack Verpackung AG", text: "Logiciel et mises en service sur des machines d'emballage à haute performance en Amérique latine, en Europe et aux États-Unis : l'entrée dans la construction internationale de machines et d'installations." },
+    { period: "2003–2004", title: "Mises en service internationales", org: "Romaco", text: "Mises en service et missions logicielles en Europe, aux États-Unis, au Mexique et en Jordanie." },
+    { period: "2005–2011", title: "Lignes internationales de treillis et de radiateurs", org: "Schlatter AG", text: "Développement logiciel et mise en service de lignes de soudage, de treillis et de radiateurs dans le monde entier, notamment en Turquie, en Lettonie, au Brésil et au Mexique." },
+    { period: "Formation continue", title: "Technicien HF en automatisation", text: "Formation continue avec une solide base technique pour des solutions d'automatisation réfléchies et fiables." },
+    { period: "depuis 2013", title: "Indépendant – Lienhard Automation GmbH", org: "projets propres et mandats internationaux", text: "Projets d'automatisation propres (notamment STEP/eaux usées et modernisation WinCC) ainsi que, en partie en parallèle, des mandats internationaux, notamment pour Tecvil et Siemens Logistics AG (DHL, La Poste suisse)." },
+    { period: "2025–2026", title: "Professional Bachelor in Business Administration", text: "Formation continue en cours d'emploi en gestion d'entreprise, pour la direction entrepreneuriale et le développement de sa propre entreprise." },
+  ],
+  it: [
+    { period: "Formazione", title: "Apprendistato come elettricista", text: "Solida formazione pratica ed elettrotecnica: il fondamento dell'intera carriera." },
+    { period: "3 anni", title: "Elettronico aeronautico", org: "SR Technics", text: "Impegnativo lavoro di elettronica e sistemi su aeromobili, con i massimi requisiti di precisione, sicurezza e affidabilità." },
+    { period: "2001–2003", title: "Macchine per imballaggio, internazionale", org: "SIG-Pack Verpackung AG", text: "Software e messe in servizio su macchine per imballaggio ad alte prestazioni in America Latina, Europa e USA: l'ingresso nella costruzione internazionale di macchine e impianti." },
+    { period: "2003–2004", title: "Messe in servizio internazionali", org: "Romaco", text: "Messe in servizio e interventi software in Europa, USA, Messico e Giordania." },
+    { period: "2005–2011", title: "Linee internazionali di reti e radiatori", org: "Schlatter AG", text: "Sviluppo software e messa in servizio di linee di saldatura, reti e radiatori in tutto il mondo, tra cui Turchia, Lettonia, Brasile e Messico." },
+    { period: "Formazione continua", title: "Tecnico HF in automazione", text: "Formazione continua con una solida base tecnica per soluzioni di automazione ben studiate e affidabili." },
+    { period: "dal 2013", title: "Lavoratore autonomo – Lienhard Automation GmbH", org: "progetti propri e incarichi internazionali", text: "Progetti di automazione propri (tra cui IDA/acque reflue e modernizzazione WinCC) nonché, in parte in parallelo, incarichi internazionali, tra cui per Tecvil e Siemens Logistics AG (DHL, Posta svizzera)." },
+    { period: "2025–2026", title: "Professional Bachelor in Business Administration", text: "Formazione continua in economia aziendale, parallela al lavoro, per la gestione imprenditoriale e lo sviluppo della propria azienda." },
+  ],
+  pt: [
+    { period: "Formação", title: "Aprendizagem de eletricista", text: "Sólida formação prática e eletrotécnica: a base de toda a carreira." },
+    { period: "3 anos", title: "Técnico de eletrónica aeronáutica", org: "SR Technics", text: "Trabalho exigente de eletrónica e sistemas em aeronaves, com os mais elevados requisitos de precisão, segurança e fiabilidade." },
+    { period: "2001–2003", title: "Máquinas de embalagem, internacional", org: "SIG-Pack Verpackung AG", text: "Software e colocações em serviço em máquinas de embalagem de alto desempenho na América Latina, Europa e EUA: a entrada na construção internacional de máquinas e instalações." },
+    { period: "2003–2004", title: "Colocações em serviço internacionais", org: "Romaco", text: "Colocações em serviço e trabalhos de software na Europa, EUA, México e Jordânia." },
+    { period: "2005–2011", title: "Linhas internacionais de redes e radiadores", org: "Schlatter AG", text: "Desenvolvimento de software e colocação em serviço de linhas de soldadura, redes e radiadores em todo o mundo, incluindo Turquia, Letónia, Brasil e México." },
+    { period: "Formação contínua", title: "Técnico HF em automação", text: "Formação contínua com uma sólida base técnica para soluções de automação bem pensadas e fiáveis." },
+    { period: "desde 2013", title: "Trabalhador independente – Lienhard Automation GmbH", org: "projetos próprios e mandatos internacionais", text: "Projetos de automação próprios (entre outros ETAR/águas residuais e modernização de WinCC) bem como, em parte em paralelo, mandatos internacionais, entre outros para a Tecvil e a Siemens Logistics AG (DHL, Correios da Suíça)." },
+    { period: "2025–2026", title: "Professional Bachelor in Business Administration", text: "Formação contínua em gestão de empresas, em regime pós-laboral, para a gestão empresarial e o desenvolvimento da própria empresa." },
+  ],
 };
 
-const achievementsByLocale: Record<L, string[]> = {
+const achievementsByLocale: Record<Locale, string[]> = {
   de: [
     "Mix-Mail Verteilzentrum für die Schweizerische Post (Zürich Mülligen) – Weltneuheit in der Sortierung, bis 19'000 Sendungen/Stunde",
     "DHL Gateway Basel: Software-Entwicklung für ein neues Logistikzentrum mit über 500 Bändern, Sortern und Endstellen",
@@ -76,11 +102,38 @@ const achievementsByLocale: Record<L, string[]> = {
     "Migración de controladores antiguos (S5 → S7 → TIA Portal) y ampliaciones de software de instalaciones existentes",
     "Instalaciones siderúrgicas e industriales: programación y puesta en marcha de PLC a nivel internacional",
   ],
+  fr: [
+    "Centre de tri Mix-Mail pour La Poste suisse (Zurich Mülligen) : une première mondiale en matière de tri, jusqu'à 19 000 envois par heure",
+    "DHL Gateway Bâle : développement logiciel pour un nouveau centre logistique avec plus de 500 convoyeurs, trieurs et exutoires",
+    "Mises en service internationales au Mexique, en Turquie, au Brésil, en Lettonie, au Bélarus et en Allemagne",
+    "Commande de sécurité pour l'incinération des boues (Werdhölzli, Zurich)",
+    "Nombreux projets de STEP : bassins d'orage, récupération de chaleur des eaux usées et biologie membranaire",
+    "Migration d'anciennes commandes (S5 → S7 → TIA Portal) et extensions logicielles d'installations existantes",
+    "Installations sidérurgiques et industrielles : programmation API et mise en service à l'international",
+  ],
+  it: [
+    "Centro di smistamento Mix-Mail per la Posta svizzera (Zurigo Mülligen): una novità mondiale nello smistamento, fino a 19 000 invii all'ora",
+    "DHL Gateway Basilea: sviluppo software per un nuovo centro logistico con oltre 500 nastri, sorter e scivoli",
+    "Messe in servizio internazionali in Messico, Turchia, Brasile, Lettonia, Bielorussia e Germania",
+    "Controllo di sicurezza per l'incenerimento dei fanghi (Werdhölzli, Zurigo)",
+    "Numerosi progetti di IDA: bacini di pioggia, recupero di calore dalle acque reflue e biologia a membrana",
+    "Migrazione di vecchi controllori (S5 → S7 → TIA Portal) ed estensioni software di impianti esistenti",
+    "Impianti siderurgici e industriali: programmazione PLC e messa in servizio a livello internazionale",
+  ],
+  pt: [
+    "Centro de distribuição Mix-Mail para os Correios da Suíça (Zurique Mülligen): uma novidade mundial na triagem, até 19 000 envios por hora",
+    "DHL Gateway Basileia: desenvolvimento de software para um novo centro logístico com mais de 500 tapetes, sorters e destinos",
+    "Colocações em serviço internacionais no México, Turquia, Brasil, Letónia, Bielorrússia e Alemanha",
+    "Controlo de segurança para a incineração de lamas (Werdhölzli, Zurique)",
+    "Numerosos projetos de ETAR: bacias de tempestade, recuperação de calor de águas residuais e biologia de membrana",
+    "Migração de controladores antigos (S5 → S7 → TIA Portal) e ampliações de software de instalações existentes",
+    "Instalações siderúrgicas e industriais: programação de PLC e colocação em serviço a nível internacional",
+  ],
 };
 
 export function getCareer(locale: string): CareerEntry[] {
-  return careerByLocale[pick(locale)];
+  return careerByLocale[pageLocale(locale)];
 }
 export function getAchievements(locale: string): string[] {
-  return achievementsByLocale[pick(locale)];
+  return achievementsByLocale[pageLocale(locale)];
 }

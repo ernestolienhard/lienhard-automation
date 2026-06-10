@@ -36,10 +36,43 @@ const C = {
     ctaSecondary: "Nuestros servicios",
     points: ["Especialista en SIMATIC", "WinCC Unified y WinCC OA", "Más de 25 años de experiencia"],
   },
+  fr: {
+    eyebrow: "Votre spécialiste de l'automatisation Siemens",
+    h1a: "Automation. ",
+    h1accent: "Engineering.",
+    h1b: " Partout dans le monde.",
+    subtitle:
+      "Spécialisé dans l'univers Siemens : SIMATIC STEP 7 Classic, TIA Portal et PCS 7, visualisation avec WinCC Unified et WinCC OA, et connectivité intégrale via OPC UA, PROFINET et PROFIBUS. De la programmation à la mise en service, avec précision et partout dans le monde.",
+    ctaPrimary: "Demander un projet",
+    ctaSecondary: "Nos services",
+    points: ["Spécialiste SIMATIC", "WinCC Unified et WinCC OA", "Plus de 25 ans d'expérience"],
+  },
+  it: {
+    eyebrow: "Il vostro specialista per l'automazione Siemens",
+    h1a: "Automation. ",
+    h1accent: "Engineering.",
+    h1b: " In tutto il mondo.",
+    subtitle:
+      "Specializzato nel mondo Siemens: SIMATIC STEP 7 Classic, TIA Portal e PCS 7, visualizzazione con WinCC Unified e WinCC OA, e connettività integrale tramite OPC UA, PROFINET e PROFIBUS. Dalla programmazione alla messa in servizio, con precisione e in tutto il mondo.",
+    ctaPrimary: "Richiedi un progetto",
+    ctaSecondary: "I nostri servizi",
+    points: ["Specialista SIMATIC", "WinCC Unified e WinCC OA", "Oltre 25 anni di esperienza"],
+  },
+  pt: {
+    eyebrow: "O seu especialista em automação Siemens",
+    h1a: "Automation. ",
+    h1accent: "Engineering.",
+    h1b: " Em todo o mundo.",
+    subtitle:
+      "Especializado no mundo Siemens: SIMATIC STEP 7 Classic, TIA Portal e PCS 7, visualização com WinCC Unified e WinCC OA, e conectividade integral através de OPC UA, PROFINET e PROFIBUS. Da programação à colocação em serviço, com precisão e em todo o mundo.",
+    ctaPrimary: "Solicitar um projeto",
+    ctaSecondary: "Os nossos serviços",
+    points: ["Especialista SIMATIC", "WinCC Unified e WinCC OA", "Mais de 25 anos de experiência"],
+  },
 };
 
 export function Hero({ locale }: { locale: string }) {
-  const t = locale === "en" ? C.en : locale === "es" ? C.es : C.de;
+  const t = C[locale as keyof typeof C] ?? C.de;
   return (
     <section className="relative overflow-hidden bg-navy-950 text-white">
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-navy [background-size:40px_40px]" />

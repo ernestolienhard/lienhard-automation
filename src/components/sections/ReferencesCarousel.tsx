@@ -11,6 +11,9 @@ const arrowLabels = {
   de: { prev: "Vorheriges Projekt", next: "Nächstes Projekt" },
   en: { prev: "Previous project", next: "Next project" },
   es: { prev: "Proyecto anterior", next: "Proyecto siguiente" },
+  fr: { prev: "Projet précédent", next: "Projet suivant" },
+  it: { prev: "Progetto precedente", next: "Progetto successivo" },
+  pt: { prev: "Projeto anterior", next: "Projeto seguinte" },
 };
 
 /**
@@ -20,7 +23,7 @@ const arrowLabels = {
  */
 export function ReferencesCarousel({ projects }: { projects: Project[] }) {
   const locale = useLocale();
-  const labels = locale === "en" ? arrowLabels.en : locale === "es" ? arrowLabels.es : arrowLabels.de;
+  const labels = arrowLabels[locale as keyof typeof arrowLabels] ?? arrowLabels.de;
   const trackRef = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
 

@@ -21,11 +21,26 @@ const C = {
     text: "La página solicitada no existe o se ha movido.",
     home: "Volver al inicio",
   },
+  fr: {
+    title: "Page introuvable",
+    text: "La page demandée n'existe pas ou a été déplacée.",
+    home: "Retour à l'accueil",
+  },
+  it: {
+    title: "Pagina non trovata",
+    text: "La pagina richiesta non esiste o è stata spostata.",
+    home: "Torna alla home",
+  },
+  pt: {
+    title: "Página não encontrada",
+    text: "A página solicitada não existe ou foi movida.",
+    home: "Voltar ao início",
+  },
 };
 
 export default function NotFound() {
   const locale = useLocale();
-  const t = locale === "en" ? C.en : locale === "es" ? C.es : C.de;
+  const t = C[locale as keyof typeof C] ?? C.de;
   return (
     <section className="bg-navy-950 text-white">
       <Container className="flex min-h-[60vh] flex-col items-center justify-center py-24 text-center">

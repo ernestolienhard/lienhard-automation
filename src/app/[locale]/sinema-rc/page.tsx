@@ -227,6 +227,65 @@ const C: Record<Locale, Content> = {
     ctaLead:
       "Póngase en contacto conmigo: configuro SINEMA Remote Connect para usted, opero el servidor en el centro de datos si lo desea y garantizo un acceso seguro a sus instalaciones.",
   },
+  fr: {
+    metaTitle: "SINEMA RC – maintenance à distance",
+    metaDesc:
+      "Maintenance à distance sécurisée avec SINEMA Remote Connect : serveur SINEMA RC hébergé dans un centre de données ou votre propre système. Connexions VPN chiffrées et basées sur certificats vers vos installations, dans le monde entier.",
+    eyebrow: "SINEMA RC · Maintenance à distance",
+    h1a: "Maintenance à distance sécurisée avec ",
+    h1accent: "SINEMA Remote Connect",
+    subtitle: (
+      <>
+        Je suis votre expert SINEMA Remote Connect : sur demande, j'exploite un{" "}
+        {bold("serveur SINEMA RC hébergé dans un centre de données")} pour votre
+        maintenance à distance, ou je construis votre{" "}
+        {bold("propre système SINEMA RC")}. Accès chiffré et basé sur certificats
+        à vos installations, dans le monde entier.
+      </>
+    ),
+    ctaHero: "Demander une maintenance à distance",
+    siemensBtn: "SINEMA RC chez Siemens",
+    attribution:
+      "SINEMA, SINEMA Remote Connect, SCALANCE et Siemens sont des marques de Siemens AG. Lienhard Automation est un prestataire indépendant, pas un revendeur Siemens.",
+    whyEyebrow: "Pourquoi SINEMA RC",
+    whyTitle: "Une maintenance à distance sûre et simple",
+    whyLead:
+      "SINEMA Remote Connect relie vos installations en toute sécurité au service, sans configuration VPN complexe et sans IP fixe publique.",
+    why: [
+      { title: "Sécurité basée sur certificats", detail: "Tunnels VPN chiffrés avec authentification basée sur certificats : accès réservé aux personnes autorisées." },
+      { title: "Derrière les pare-feu et sans IP fixe", detail: "Fonctionne sans IP fixe publique et à travers les pare-feu : l'installation établit elle-même la connexion." },
+      { title: "Gestion centralisée", detail: "Toutes les connexions distantes gérées de manière centralisée : claires, traçables et évolutives." },
+      { title: "Aide rapide sans déplacement", detail: "Analyser les défauts, adapter les programmes et suivre les installations, dans le monde entier et sans temps de trajet." },
+    ],
+    offerEyebrow: "Mon offre",
+    offerTitle: "Deux voies vers une maintenance à distance sûre",
+    offerLead:
+      "Que ce soit comme service depuis le centre de données ou comme système propre, je configure SINEMA Remote Connect sur mesure et m'en occupe.",
+    offerings: [
+      { title: "Serveur SINEMA RC hébergé", detail: "J'exploite pour vous un serveur SINEMA Remote Connect dans un centre de données. Vous utilisez une maintenance à distance sécurisée comme service, sans infrastructure serveur propre, configuration, mises à jour et sauvegarde comprises." },
+      { title: "Votre propre système SINEMA RC", detail: "Je construis et configure votre propre système SINEMA Remote Connect, chez vous ou dans un centre de données loué. Vous gardez ainsi le contrôle total de vos accès distants." },
+    ],
+    flowEyebrow: "Comment ça marche",
+    flowTitle: "De l'installation à l'accès sécurisé",
+    flowLead:
+      "L'installation établit activement la connexion avec le serveur SINEMA RC : sûre, chiffrée et sans ouvrir de brèches dans votre pare-feu.",
+    flow: [
+      { step: "01", title: "Installation et routeur SCALANCE", detail: "Sur site, un routeur SCALANCE (p. ex. M-800) relie votre machine ou installation au serveur SINEMA RC." },
+      { step: "02", title: "Serveur SINEMA RC dans le centre de données", detail: "Le serveur gère les tunnels VPN sécurisés basés sur certificats et administre tous les accès de manière centralisée." },
+      { step: "03", title: "Accès distant sécurisé", detail: "Vous ou vos techniciens accédez à l'installation de manière chiffrée, pour la maintenance à distance, le diagnostic et le support." },
+    ],
+    useCases: [
+      "Maintenance et diagnostic à distance sans déplacement",
+      "Suivi sécurisé de machines sur le terrain (OEM)",
+      "Gestion centralisée de tous les sites",
+      "Résolution rapide des défauts, dans le monde entier",
+      "Aucun effort VPN côté client",
+      "Exploitation dans le centre de données ou chez vous",
+    ],
+    ctaTitle: "Configurer la maintenance à distance de vos installations ?",
+    ctaLead:
+      "Contactez-moi : je configure SINEMA Remote Connect pour vous, j'exploite le serveur dans le centre de données sur demande et je garantis un accès sécurisé à vos installations.",
+  },
   it: {
     metaTitle: "SINEMA RC – manutenzione remota",
     metaDesc:

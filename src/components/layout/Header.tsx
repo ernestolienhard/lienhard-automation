@@ -16,12 +16,15 @@ import type { Dict } from "@/i18n/dictionaries";
 export function Header({ dict }: { dict: Dict }) {
   const pathname = usePathname();
   const locale = useLocale();
-  const a11y =
-    locale === "en"
-      ? { nav: "Main navigation", mobileNav: "Mobile navigation", open: "Open menu", close: "Close menu" }
-      : locale === "es"
-        ? { nav: "Navegación principal", mobileNav: "Navegación móvil", open: "Abrir menú", close: "Cerrar menú" }
-        : { nav: "Hauptnavigation", mobileNav: "Mobile Navigation", open: "Menü öffnen", close: "Menü schliessen" };
+  const a11yMap = {
+    de: { nav: "Hauptnavigation", mobileNav: "Mobile Navigation", open: "Menü öffnen", close: "Menü schliessen" },
+    en: { nav: "Main navigation", mobileNav: "Mobile navigation", open: "Open menu", close: "Close menu" },
+    es: { nav: "Navegación principal", mobileNav: "Navegación móvil", open: "Abrir menú", close: "Cerrar menú" },
+    fr: { nav: "Navigation principale", mobileNav: "Navigation mobile", open: "Ouvrir le menu", close: "Fermer le menu" },
+    it: { nav: "Navigazione principale", mobileNav: "Navigazione mobile", open: "Apri menu", close: "Chiudi menu" },
+    pt: { nav: "Navegação principal", mobileNav: "Navegação móvel", open: "Abrir menu", close: "Fechar menu" },
+  };
+  const a11y = a11yMap[locale as keyof typeof a11yMap] ?? a11yMap.de;
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { siteConfig } from "@/lib/site";
-import { pageLocale } from "@/i18n/config";
+import { pageLocale, type Locale } from "@/i18n/config";
 import { Mail, MapPin, Phone, Clock } from "@/components/ui/icons";
 
 type Content = {
@@ -22,7 +22,7 @@ type Content = {
   formIntro: string;
 };
 
-const C: Record<"de" | "en" | "es", Content> = {
+const C: Record<Locale, Content> = {
   de: {
     metaTitle: "Kontakt",
     metaDesc:
@@ -82,6 +82,66 @@ const C: Record<"de" | "en" | "es", Content> = {
     formTitle: "Solicitar un proyecto",
     formIntro:
       "Rellene el formulario: normalmente respondo en un día laborable.",
+  },
+  fr: {
+    metaTitle: "Contact",
+    metaDesc:
+      "Contactez Lienhard Automation GmbH à Zurich. Demandez un projet, convenez d'un conseil ou appelez directement : j'attends votre message.",
+    eyebrow: "Contact",
+    h1: "Prendre contact",
+    subtitle:
+      "Décrivez-moi votre projet ou convenez d'un conseil sans engagement. Je vous recontacte rapidement.",
+    role: "Gérant · Technicien HF en automatisation",
+    labelAddress: "Adresse",
+    labelPhone: "Téléphone",
+    labelEmail: "E-mail",
+    labelAvailability: "Disponibilité",
+    availability: "Lun – Ven, sur rendez-vous",
+    mapNote:
+      "Emplacement réservé à la carte : une carte Google Maps ou OpenStreetMap peut être intégrée ici.",
+    formTitle: "Demander un projet",
+    formIntro:
+      "Remplissez le formulaire : je réponds généralement dans un jour ouvrable.",
+  },
+  it: {
+    metaTitle: "Contatto",
+    metaDesc:
+      "Contattate Lienhard Automation GmbH a Zurigo. Richiedete un progetto, fissate una consulenza o chiamate direttamente: attendo il vostro messaggio.",
+    eyebrow: "Contatto",
+    h1: "Mettiti in contatto",
+    subtitle:
+      "Descrivetemi il vostro progetto o fissate una consulenza senza impegno. Vi richiamo rapidamente.",
+    role: "Amministratore · Tecnico HF in automazione",
+    labelAddress: "Indirizzo",
+    labelPhone: "Telefono",
+    labelEmail: "E-mail",
+    labelAvailability: "Disponibilità",
+    availability: "Lun – Ven, su appuntamento",
+    mapNote:
+      "Segnaposto per la mappa: qui è possibile integrare una mappa Google Maps o OpenStreetMap.",
+    formTitle: "Richiedi un progetto",
+    formIntro:
+      "Compilate il modulo: di solito rispondo entro un giorno lavorativo.",
+  },
+  pt: {
+    metaTitle: "Contacto",
+    metaDesc:
+      "Contacte a Lienhard Automation GmbH em Zurique. Solicite um projeto, marque uma consulta ou ligue diretamente: aguardo a sua mensagem.",
+    eyebrow: "Contacto",
+    h1: "Entre em contacto",
+    subtitle:
+      "Descreva-me o seu projeto ou marque uma consulta sem compromisso. Entro em contacto consigo rapidamente.",
+    role: "Gerente · Técnico HF em automação",
+    labelAddress: "Endereço",
+    labelPhone: "Telefone",
+    labelEmail: "E-mail",
+    labelAvailability: "Disponibilidade",
+    availability: "Seg – Sex, com marcação",
+    mapNote:
+      "Marcador de mapa: aqui pode ser integrado um mapa do Google Maps ou OpenStreetMap.",
+    formTitle: "Solicitar um projeto",
+    formIntro:
+      "Preencha o formulário: normalmente respondo no prazo de um dia útil.",
   },
 };
 

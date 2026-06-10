@@ -30,6 +30,7 @@ const ogLocale: Record<Locale, string> = {
   de: "de_CH",
   en: "en_US",
   es: "es_ES",
+  fr: "fr_CH",
   it: "it_IT",
   pt: "pt_PT",
 };
@@ -45,18 +46,24 @@ export function generateMetadata({
   ) as Record<string, string>;
   languages["x-default"] = "/de";
 
-  const en = locale === "en";
-  const es = locale === "es";
-  const brandTitle = en
-    ? `${siteConfig.legalName} – Automation. Engineering. Worldwide.`
-    : es
-      ? `${siteConfig.legalName} – Automation. Engineering. En todo el mundo.`
-      : `${siteConfig.legalName} – Automation. Engineering. Weltweit.`;
-  const description = en
-    ? "Lienhard Automation GmbH develops automation solutions for industrial machine and plant engineering – PLC engineering, project planning and commissioning. In use worldwide."
-    : es
-      ? "Lienhard Automation GmbH desarrolla soluciones de automatización para la construcción industrial de máquinas e instalaciones: ingeniería de PLC, planificación de proyectos y puesta en marcha. En uso en todo el mundo."
-      : siteConfig.description;
+  const suffix: Record<Locale, string> = {
+    de: "Weltweit.",
+    en: "Worldwide.",
+    es: "En todo el mundo.",
+    fr: "Partout dans le monde.",
+    it: "In tutto il mondo.",
+    pt: "Em todo o mundo.",
+  };
+  const descriptions: Record<Locale, string> = {
+    de: siteConfig.description,
+    en: "Lienhard Automation GmbH develops automation solutions for industrial machine and plant engineering – PLC engineering, project planning and commissioning. In use worldwide.",
+    es: "Lienhard Automation GmbH desarrolla soluciones de automatización para la construcción industrial de máquinas e instalaciones: ingeniería de PLC, planificación de proyectos y puesta en marcha. En uso en todo el mundo.",
+    fr: "Lienhard Automation GmbH développe des solutions d'automatisation pour la construction industrielle de machines et d'installations : ingénierie API, planification de projet et mise en service. Utilisées dans le monde entier.",
+    it: "Lienhard Automation GmbH sviluppa soluzioni di automazione per la costruzione industriale di macchine e impianti: ingegneria PLC, pianificazione di progetto e messa in servizio. In uso in tutto il mondo.",
+    pt: "A Lienhard Automation GmbH desenvolve soluções de automação para a construção industrial de máquinas e instalações: engenharia de PLC, planeamento de projetos e colocação em serviço. Em uso em todo o mundo.",
+  };
+  const brandTitle = `${siteConfig.legalName} – Automation. Engineering. ${suffix[locale]}`;
+  const description = descriptions[locale];
 
   return {
     metadataBase: new URL(siteConfig.url),

@@ -329,6 +329,93 @@ const C: Record<Locale, Content> = {
     ctaLead:
       "Veamos su proyecto WinCC existente. Estimo el esfuerzo y los riesgos con honestidad y le acompaño del análisis a la puesta en marcha, incluyendo soporte y formación.",
   },
+  fr: {
+    metaTitle: "Modernisation WinCC",
+    metaDesc:
+      "Expert de la modernisation de visualisations WinCC : de WinCC flexible et WinCC Classic à SIMATIC WinCC Unified. Analyse, migration, adaptation, mise en service, support et formation, le tout d'une seule main.",
+    eyebrow: "Modernisation WinCC · Votre spécialiste",
+    h1a: "Votre expert pour la modernisation de votre ",
+    h1accent: "visualisation WinCC",
+    subtitle: (
+      <>
+        De {w("WinCC flexible")} et {w("WinCC Classic")} à {w("WinCC Unified")} :
+        je modernise les projets existants en toute sécurité et sans repartir de
+        zéro, et je connais chaque étape par la pratique. Je vous accompagne, vous
+        soutiens et vous forme tout au long de la migration.
+      </>
+    ),
+    ctaHero: "Demander une modernisation",
+    ctaRefs: "Voir les références",
+    heroPoints: ["WinCC flexible · Classic · Unified", "Chaque étape d'une seule main", "Accompagnement, support et formation"],
+    whyEyebrow: "Pourquoi avec moi",
+    whyTitle: "Une modernisation entre de bonnes mains",
+    whyLead:
+      "Moderniser une visualisation, c'est préserver un savoir accumulé pendant des années tout en le rendant pérenne. C'est précisément là que je suis le bon partenaire.",
+    why: [
+      { title: "De WinCC flexible à Unified", detail: "Je modernise à travers toutes les générations : WinCC flexible, WinCC Classic (V7) et WinCC Comfort/Advanced jusqu'à SIMATIC WinCC Unified." },
+      { title: "Chaque étape maîtrisée", detail: "Analyse, concept, migration, adaptation, test et mise en service : je connais tout le parcours par des années de pratique de projets, pas par la théorie." },
+      { title: "Là où s'arrêtent les outils standards", detail: "Les convertisseurs automatiques ne vous mènent qu'à mi-chemin. Les adaptations manuelles décisives, avant et après, sont précisément mon point fort." },
+      { title: "Accompagnement, support et formation", detail: "Je vous accompagne du premier conseil à la réalisation jusqu'au support continu, et je forme votre équipe au nouvel environnement." },
+    ],
+    pathEyebrow: "Le chemin",
+    pathTitle: "Du projet hérité à la visualisation Unified",
+    pathLead: "Conserver ce qui a fait ses preuves, remplacer l'obsolète : planifiable et sans risque pour votre exploitation en cours.",
+    flow: [
+      { step: "01", title: "WinCC flexible / WinCC Classic", detail: "Votre visualisation existante, développée au fil des ans : la base précieuse." },
+      { step: "02", title: "Modernisation", detail: "Analyse, migration et adaptation ciblée, étape par étape, sans perdre votre savoir-faire de process." },
+      { step: "03", title: "WinCC Unified", detail: "Une visualisation pérenne sur SIMATIC HMI Unified Panels et Unified PC." },
+    ],
+    stepsEyebrow: "Mon accompagnement",
+    stepsTitle: "Comment je vous accompagne, étape par étape",
+    stepsLead: "Du premier diagnostic à la formation de votre équipe : un processus clair dans lequel vous n'êtes jamais seul.",
+    steps: [
+      { title: "Analyse et diagnostic de modernisation", detail: "État des lieux de votre projet et une estimation réaliste de l'ampleur, de la charge et des risques." },
+      { title: "Concept et planification", detail: "Stratégie de migration, calendrier et exigences claires d'utilisation et de design pour la nouvelle interface WinCC Unified." },
+      { title: "Migration des contenus du projet", detail: "Reprise des vues, variables, alarmes, archives et scripts, de manière efficace avec des outils éprouvés." },
+      { title: "Adaptation et optimisation", detail: "Retouche manuelle, optimisation de l'interface utilisateur et mise en œuvre des nouvelles fonctions Unified." },
+      { title: "Test et mise en service", detail: "Test fonctionnel sur Unified Panels, validation en cours de process et accompagnement jusqu'à la réception finale." },
+      { title: "Support et formation", detail: "Initiation de votre équipe et support fiable au-delà de la mise en service." },
+    ],
+    scopeEyebrow: "Périmètre",
+    scopeTitle: "Ce qui est repris lors de la modernisation",
+    scopeLead: "Vos contenus de projet existants ne sont pas perdus : ils sont repris, adaptés et optimisés pour WinCC Unified.",
+    scope: [
+      { title: "Vues et gestion des vues", detail: "Vues, modèles, pop-ups et slide-in, structure et navigation comprises." },
+      { title: "Objets de vue", detail: "Objets de base (champ de texte, rectangle), éléments (bouton, champ E/S) et contrôles comme la vue des alarmes." },
+      { title: "Animations et dynamique", detail: "Animations et dynamisations sur les objets pris en charge." },
+      { title: "Scripts et fonctions système", detail: "Des fonctions système et des scripts sélectionnés sont repris et adaptés." },
+      { title: "Variables IHM", detail: "Reprise des variables IHM et liaison à l'automate." },
+      { title: "Alarmes et messages", detail: "Alarmes IHM, classes et textes compris." },
+      { title: "Archives et courbes", detail: "Archives et variables d'archive pour les données historiques et les courbes." },
+      { title: "Listes de textes et de graphiques", detail: "Listes de textes et de graphiques multilingues." },
+      { title: "Faceplates", detail: "Faceplates réutilisables et leur implémentation." },
+    ],
+    scopeNote: "Le périmètre exact et les éléments migrables, je les vérifie individuellement pour votre projet lors du diagnostic de modernisation.",
+    toolsEyebrow: "Outils et méthodes",
+    toolsTitle: "Des outils éprouvés, utilisés proprement",
+    toolsP1: (
+      <>
+        Pour une migration efficace, j'utilise les outils officiels Siemens, dont
+        l'add-in TIA Portal <strong>Data2Unified</strong>, le WinCC Unified
+        Modernization Checker et le Smart Advisor. Ils accélèrent la reprise ; la
+        qualité technique vient de l'adaptation et de l'optimisation manuelles.
+      </>
+    ),
+    attribution:
+      "SIMATIC, WinCC, WinCC flexible, WinCC Unified, Data2Unified et TIA Portal sont des marques de Siemens AG. Lienhard Automation est un prestataire indépendant, pas un revendeur Siemens.",
+    securityText:
+      "Protéger les installations, les systèmes et les réseaux contre les cybermenaces nécessite un concept de sécurité informatique global et moderne. Je tiens compte de ces exigences dans chaque modernisation.",
+    securityLink: "En savoir plus sur notre domaine cybersécurité",
+    relatedTitles: [
+      "Data2Unified – add-in TIA Portal (Siemens)",
+      "WinCC Unified Modernization Checker",
+      "WinCC Unified Smart Advisor",
+      "Passage des Comfort Panels aux Unified Comfort Panels",
+    ],
+    ctaTitle: "Prêt à rendre votre visualisation pérenne ?",
+    ctaLead:
+      "Examinons votre projet WinCC existant. J'estime honnêtement la charge et les risques et je vous accompagne de l'analyse à la mise en service, support et formation compris.",
+  },
   it: {
     metaTitle: "Modernizzazione WinCC",
     metaDesc:

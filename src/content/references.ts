@@ -1,10 +1,11 @@
 /**
- * Project references – locale-aware (de/en). Language-neutral fields (year,
- * location, category) live in `base`; translated fields (title, description,
- * technologies) live in `txt` and are merged per locale.
+ * Project references – locale-aware (de/en/es/fr/it/pt). Language-neutral
+ * fields (year, location, category) live in `base`; translated fields (title,
+ * description, technologies) live in `txt` and are merged per locale.
  *
  * Do not fabricate clients or projects.
  */
+import { pageLocale, type Locale } from "@/i18n/config";
 
 export type ProjectCategory =
   | "infrastruktur"
@@ -24,8 +25,6 @@ export type Project = {
 
 type Base = { year: string; location: string; category: ProjectCategory };
 type Txt = { title: string; description: string; technologies: string[] };
-type L = "de" | "en" | "es";
-const pick = (locale: string): L => (locale === "en" ? "en" : locale === "es" ? "es" : "de");
 
 const base: Base[] = [
   { year: "2024–2026", location: "Kanton Zürich", category: "infrastruktur" },
@@ -67,7 +66,7 @@ const base: Base[] = [
   { year: "2014", location: "Warren, USA", category: "retrofit" },
 ];
 
-const txt: Record<L, Txt[]> = {
+const txt: Record<Locale, Txt[]> = {
   de: [
     { title: "EKZ – Öffentliche Beleuchtung, Kanton Zürich", technologies: ["WinCC OA", "TIA Portal", "S7-1500", "OPC UA", "OPC UA GDS Push"], description: "Zentrale, sichere Lichtsteuerung für die Elektrizitätswerke des Kantons Zürich (EKZ): rund 3'000 SPS (SIMATIC S7-1500) in über 2'500 Trafostationen, gesteuert mit WinCC OA SCADA und programmiert im TIA Portal. Verschlüsselte OPC-UA-Kommunikation inkl. OPC UA GDS Push für die zentrale Zertifikatsverwaltung. Realisiert mit Siemens Schweiz DI AG." },
     { title: "Mix-Mail Verteilzentrum – Schweizerische Post", technologies: ["Siemens", "Cross-Belt-Sorter", "Fördertechnik", "Automatisierung"], description: "Software-Entwicklung für die vollautomatische Sortierung von Mischsendungen (Mix-Mail) – eine Weltneuheit in der Sortierung. Anlagenleistung bis 19'000 Sendungen/Stunde, ca. 1'400 Zielstellen und 5 Cross-Belt-Sorter auf zwei Ebenen. Realisiert mit Siemens Postal, Parcel & Airport Logistics." },
@@ -185,9 +184,126 @@ const txt: Record<L, Txt[]> = {
     { title: "Conversión MG320 S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversión de una MG320 de control S5 a S7." },
     { title: "Ampliación de software – planta de estirado en frío", technologies: ["Siemens S7"], description: "Ampliación de software de una planta de estirado en frío." },
   ],
+  fr: [
+    { title: "EKZ – Éclairage public, canton de Zurich", technologies: ["WinCC OA", "TIA Portal", "S7-1500", "OPC UA", "OPC UA GDS Push"], description: "Commande d'éclairage centrale et sécurisée pour le fournisseur d'électricité du canton de Zurich (EKZ) : environ 3000 API (SIMATIC S7-1500) dans plus de 2500 postes de transformation, pilotés avec WinCC OA SCADA et programmés dans TIA Portal. Communication OPC UA chiffrée, y compris OPC UA GDS Push pour la gestion centrale des certificats. Réalisé avec Siemens Schweiz DI AG." },
+    { title: "Centre de tri Mix-Mail – La Poste suisse", technologies: ["Siemens", "Trieur cross-belt", "Convoyage", "Automatisation"], description: "Développement logiciel pour le tri entièrement automatique d'envois mixtes (Mix-Mail) : une première mondiale en matière de tri. Capacité jusqu'à 19 000 envois par heure, environ 1400 exutoires et 5 trieurs cross-belt sur deux niveaux. Réalisé avec Siemens Postal, Parcel & Airport Logistics." },
+    { title: "DHL Gateway Bâle – nouveau centre logistique", technologies: ["Siemens", "Convoyage", "Automatisation"], description: "Développement logiciel pour un centre logistique complet de DHL Express : concepts de commande, d'automatisation et logiciels spécifiques à l'installation et à l'application. Responsable du convoyage avec plus de 500 convoyeurs, trieurs et exutoires ; capacité de tri d'environ 10 000 envois par heure. Réalisé avec Siemens Logistics AG." },
+    { title: "STEP Zermatt – plus grande installation de biologie membranaire de Suisse", technologies: ["Siemens S7", "WinCC OA", "CVC", "SCADA"], description: "Reprogrammation de toute la station d'épuration, CVC compris : la plus grande installation de biologie membranaire de Suisse, dans une caverne à l'intérieur de la montagne. Commande avec plus de 10 CPU SIMATIC (STEP 7) et WinCC OA comme système SCADA ; capacité 60 000 équivalents-habitants." },
+    { title: "CFF – chariot transversal 360°, Zurich Altstetten", technologies: ["STEP 7", "TIA Portal"], description: "Mise à niveau de l'API existant de STEP 7 vers TIA Portal avec adaptation logicielle pour le déplacement du chariot transversal avec fonction 360 degrés. Réalisé avec Siemens Schweiz DI AG." },
+    { title: "Equinix – extension de centre de données", technologies: ["PCS 7", "Modbus RTU", "Modbus TCP"], description: "Extension d'un centre de données existant avec un nouvel étage et un système de générateurs ; traitement des données via Modbus RTU et TCP. Réalisé avec Siemens Schweiz DI AG." },
+    { title: "Equinix – mise à niveau de PCS 7 vers V9.1", technologies: ["PCS 7 V9.1", "PH", "IF"], description: "Mise à niveau d'un projet de centre de données existant vers SIMATIC PCS 7 V9.1 (PH et IF compris). Réalisé avec Siemens Schweiz DI AG." },
+    { title: "Equinix – mise à niveau de PCS 7 vers V9.1 (2e site)", technologies: ["PCS 7 V9.1", "PH", "IF"], description: "Mise à niveau d'un autre projet de centre de données existant vers SIMATIC PCS 7 V9.1 (PH et IF compris). Réalisé avec Siemens Schweiz DI AG." },
+    { title: "Commande de bassin d'orage – STEP Reinach", technologies: ["TIA Portal", "WinCC OA"], description: "Programmation de la commande pour plusieurs bassins d'orage (TIA Portal/WinCC OA)." },
+    { title: "Installation de récupération de chaleur des eaux usées – STEP Elgg", technologies: ["Siemens S7", "WinCC OA"], description: "Extension de la commande de l'installation de récupération de chaleur des eaux usées (S7/WinCC OA)." },
+    { title: "Commande de bassin d'orage – Sennhof", technologies: ["TIA Portal", "WinCC OA"], description: "Programmation de la commande pour un bassin d'orage (TIA Portal/WinCC OA)." },
+    { title: "Commande de bassin d'orage – Huggenberg", technologies: ["TIA Portal", "WinCC OA"], description: "Programmation de la commande pour un bassin d'orage (TIA Portal/WinCC OA)." },
+    { title: "Commande de bassin d'orage – Dickbuch", technologies: ["TIA Portal", "WinCC OA"], description: "Programmation de la commande pour un bassin d'orage (TIA Portal/WinCC OA)." },
+    { title: "Commande de bassin d'orage – Hauptwil", technologies: ["TIA Portal", "WinCC OA"], description: "Programmation de la commande pour un bassin d'orage (TIA Portal/WinCC OA)." },
+    { title: "Commande de bassin d'orage – Niederwil", technologies: ["TIA Portal", "WinCC OA"], description: "Programmation de la commande pour un bassin d'orage (TIA Portal/WinCC OA)." },
+    { title: "Installation de récupération de chaleur des eaux usées – STEP Lugano", technologies: ["Siemens S7", "WinCC OA"], description: "Programmation de la commande de l'installation de récupération de chaleur des eaux usées (S7/WinCC OA)." },
+    { title: "Installation de récupération de chaleur des eaux usées – STEP Zermatt", technologies: ["Siemens S7", "WinCC OA"], description: "Programmation de la commande de l'installation de récupération de chaleur des eaux usées (S7/WinCC OA)." },
+    { title: "Installation de récupération de chaleur des eaux usées – STEP Zermatt", technologies: ["Siemens S7", "WinCC OA"], description: "Programmation de la commande de l'installation de récupération de chaleur des eaux usées (S7/WinCC OA)." },
+    { title: "Installation de récupération de chaleur des eaux usées – STEP Oensingen", technologies: ["Siemens S7", "WinCC OA"], description: "Programmation de la commande de l'installation de récupération de chaleur des eaux usées (S7/WinCC OA)." },
+    { title: "Commande de bassin d'orage – Arnegg", technologies: ["TIA Portal", "WinCC OA"], description: "Programmation de la commande pour un bassin d'orage (TIA Portal/WinCC OA)." },
+    { title: "Commande de bassin d'orage – Andwil", technologies: ["TIA Portal", "WinCC OA"], description: "Programmation de la commande pour un bassin d'orage (TIA Portal/WinCC OA)." },
+    { title: "Commande de bassin d'orage – STEP Zermatt", technologies: ["Siemens S7", "WinCC OA"], description: "Programmation de la commande pour un bassin d'orage (S7/WinCC OA)." },
+    { title: "Station de pompage d'eau Henessen", technologies: ["TIA Portal", "WinCC OA"], description: "Programmation de la commande d'une station de pompage d'eau (TIA Portal/WinCC OA)." },
+    { title: "Station d'épuration Rheinfelden", technologies: ["Siemens S7", "WinCC OA"], description: "Programmation de la commande de la station d'épuration (S7/WinCC OA)." },
+    { title: "Système de ventilation et de chauffage – STEP Zermatt", technologies: ["Siemens S7", "CVC"], description: "Programmation du système de ventilation et de chauffage de la station d'épuration de Zermatt." },
+    { title: "Commande de sécurité – incinération des boues", technologies: ["S7-400 H", "Safety"], description: "Programmation de la commande de sécurité à sécurité intégrée sur un système S7-400 H pour l'installation d'incinération des boues de Werdhölzli." },
+    { title: "Commande de sécurité – incinération des boues", technologies: ["S7-400 H", "Safety"], description: "Programmation de la commande de sécurité à sécurité intégrée sur un système S7-400 H pour l'installation d'incinération des boues de Werdhölzli." },
+    { title: "Programmation de commande – STEP Buchs", technologies: ["Siemens S7", "WinCC OA"], description: "Programmation de la commande de la station d'épuration STEP Buchs ZH (S7/WinCC OA)." },
+    { title: "Ligne de treillis MG630 – TALLERES Y ACEROS", technologies: ["Siemens S7", "Soudage"], description: "Développement logiciel et mise en service de la ligne de treillis MG630." },
+    { title: "Ligne de radiateurs – Celikpan", technologies: ["Siemens S7", "Soudage"], description: "Développement logiciel et mise en service de la ligne de radiateurs." },
+    { title: "Ligne de radiateurs – TIPRO Baltic", technologies: ["Siemens S7", "Soudage"], description: "Développement logiciel et mise en service de la ligne de radiateurs." },
+    { title: "Ligne de radiateurs – Lida-Baltia", technologies: ["Siemens S7", "Soudage"], description: "Développement logiciel et mise en service de la ligne de radiateurs." },
+    { title: "Commande de soudage Superflex (Jäger)", technologies: ["Siemens", "Processeur de soudage TCW"], description: "Commande de soudage sur une Superflex (Jäger) avec Siemens et processeur de soudage TCW." },
+    { title: "Ligne de treillis Gerdau – conversion S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversion de la ligne de treillis de la commande S5 vers S7." },
+    { title: "Ligne de treillis MG320 BDW – conversion S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversion de la ligne de treillis MG320 de la commande S5 vers S7." },
+    { title: "Conversion MG320 S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversion d'une MG320 de la commande S5 vers S7." },
+    { title: "Extension logicielle – ligne d'étirage à froid", technologies: ["Siemens S7"], description: "Extension logicielle d'une ligne d'étirage à froid." },
+  ],
+  it: [
+    { title: "EKZ – Illuminazione pubblica, Cantone di Zurigo", technologies: ["WinCC OA", "TIA Portal", "S7-1500", "OPC UA", "OPC UA GDS Push"], description: "Comando di illuminazione centrale e sicuro per l'azienda elettrica del Cantone di Zurigo (EKZ): circa 3000 PLC (SIMATIC S7-1500) in oltre 2500 cabine di trasformazione, comandati con WinCC OA SCADA e programmati in TIA Portal. Comunicazione OPC UA cifrata, incl. OPC UA GDS Push per la gestione centralizzata dei certificati. Realizzato con Siemens Schweiz DI AG." },
+    { title: "Centro di smistamento Mix-Mail – Posta svizzera", technologies: ["Siemens", "Sorter cross-belt", "Trasporto", "Automazione"], description: "Sviluppo software per lo smistamento completamente automatico di invii misti (Mix-Mail): una novità mondiale nello smistamento. Capacità fino a 19 000 invii all'ora, circa 1400 scivoli e 5 sorter cross-belt su due livelli. Realizzato con Siemens Postal, Parcel & Airport Logistics." },
+    { title: "DHL Gateway Basilea – nuovo centro logistico", technologies: ["Siemens", "Trasporto", "Automazione"], description: "Sviluppo software per un centro logistico completo di DHL Express: concetti di comando, automazione e software specifico per impianto e applicazione. Responsabile della tecnica di trasporto con oltre 500 nastri, sorter e scivoli; capacità di smistamento di circa 10 000 invii all'ora. Realizzato con Siemens Logistics AG." },
+    { title: "IDA Zermatt – maggiore impianto a biologia a membrana della Svizzera", technologies: ["Siemens S7", "WinCC OA", "HVAC", "SCADA"], description: "Riprogrammazione dell'intero impianto di depurazione, incl. HVAC: il maggiore impianto a biologia a membrana della Svizzera, in una caverna all'interno della montagna. Comando con oltre 10 CPU SIMATIC (STEP 7) e WinCC OA come sistema SCADA; dimensionamento 60 000 abitanti equivalenti." },
+    { title: "FFS – carro trasversale 360°, Zurigo Altstetten", technologies: ["STEP 7", "TIA Portal"], description: "Aggiornamento del PLC esistente da STEP 7 a TIA Portal, incl. adattamento software per lo spostamento del carro trasversale con funzione a 360 gradi. Realizzato con Siemens Schweiz DI AG." },
+    { title: "Equinix – ampliamento di data center", technologies: ["PCS 7", "Modbus RTU", "Modbus TCP"], description: "Ampliamento di un data center esistente con un nuovo piano e un sistema di generatori; elaborazione dati tramite Modbus RTU e TCP. Realizzato con Siemens Schweiz DI AG." },
+    { title: "Equinix – aggiornamento di PCS 7 a V9.1", technologies: ["PCS 7 V9.1", "PH", "IF"], description: "Aggiornamento di un progetto di data center esistente a SIMATIC PCS 7 V9.1 (incl. PH e IF). Realizzato con Siemens Schweiz DI AG." },
+    { title: "Equinix – aggiornamento di PCS 7 a V9.1 (2° sito)", technologies: ["PCS 7 V9.1", "PH", "IF"], description: "Aggiornamento di un altro progetto di data center esistente a SIMATIC PCS 7 V9.1 (incl. PH e IF). Realizzato con Siemens Schweiz DI AG." },
+    { title: "Comando bacino di pioggia – IDA Reinach", technologies: ["TIA Portal", "WinCC OA"], description: "Programmazione del comando per diversi bacini di pioggia (TIA Portal/WinCC OA)." },
+    { title: "Impianto di recupero calore delle acque reflue – IDA Elgg", technologies: ["Siemens S7", "WinCC OA"], description: "Ampliamento del comando dell'impianto di recupero calore delle acque reflue (S7/WinCC OA)." },
+    { title: "Comando bacino di pioggia – Sennhof", technologies: ["TIA Portal", "WinCC OA"], description: "Programmazione del comando per un bacino di pioggia (TIA Portal/WinCC OA)." },
+    { title: "Comando bacino di pioggia – Huggenberg", technologies: ["TIA Portal", "WinCC OA"], description: "Programmazione del comando per un bacino di pioggia (TIA Portal/WinCC OA)." },
+    { title: "Comando bacino di pioggia – Dickbuch", technologies: ["TIA Portal", "WinCC OA"], description: "Programmazione del comando per un bacino di pioggia (TIA Portal/WinCC OA)." },
+    { title: "Comando bacino di pioggia – Hauptwil", technologies: ["TIA Portal", "WinCC OA"], description: "Programmazione del comando per un bacino di pioggia (TIA Portal/WinCC OA)." },
+    { title: "Comando bacino di pioggia – Niederwil", technologies: ["TIA Portal", "WinCC OA"], description: "Programmazione del comando per un bacino di pioggia (TIA Portal/WinCC OA)." },
+    { title: "Impianto di recupero calore delle acque reflue – IDA Lugano", technologies: ["Siemens S7", "WinCC OA"], description: "Programmazione del comando dell'impianto di recupero calore delle acque reflue (S7/WinCC OA)." },
+    { title: "Impianto di recupero calore delle acque reflue – IDA Zermatt", technologies: ["Siemens S7", "WinCC OA"], description: "Programmazione del comando dell'impianto di recupero calore delle acque reflue (S7/WinCC OA)." },
+    { title: "Impianto di recupero calore delle acque reflue – IDA Zermatt", technologies: ["Siemens S7", "WinCC OA"], description: "Programmazione del comando dell'impianto di recupero calore delle acque reflue (S7/WinCC OA)." },
+    { title: "Impianto di recupero calore delle acque reflue – IDA Oensingen", technologies: ["Siemens S7", "WinCC OA"], description: "Programmazione del comando dell'impianto di recupero calore delle acque reflue (S7/WinCC OA)." },
+    { title: "Comando bacino di pioggia – Arnegg", technologies: ["TIA Portal", "WinCC OA"], description: "Programmazione del comando per un bacino di pioggia (TIA Portal/WinCC OA)." },
+    { title: "Comando bacino di pioggia – Andwil", technologies: ["TIA Portal", "WinCC OA"], description: "Programmazione del comando per un bacino di pioggia (TIA Portal/WinCC OA)." },
+    { title: "Comando bacino di pioggia – IDA Zermatt", technologies: ["Siemens S7", "WinCC OA"], description: "Programmazione del comando per un bacino di pioggia (S7/WinCC OA)." },
+    { title: "Stazione di pompaggio acqua Henessen", technologies: ["TIA Portal", "WinCC OA"], description: "Programmazione del comando di una stazione di pompaggio acqua (TIA Portal/WinCC OA)." },
+    { title: "Impianto di depurazione Rheinfelden", technologies: ["Siemens S7", "WinCC OA"], description: "Programmazione del comando dell'impianto di depurazione (S7/WinCC OA)." },
+    { title: "Sistema di ventilazione e riscaldamento – IDA Zermatt", technologies: ["Siemens S7", "HVAC"], description: "Programmazione del sistema di ventilazione e riscaldamento dell'impianto di depurazione di Zermatt." },
+    { title: "Controllo di sicurezza – incenerimento fanghi", technologies: ["S7-400 H", "Safety"], description: "Programmazione del controllo di sicurezza fail-safe su sistema S7-400 H per l'impianto di incenerimento fanghi di Werdhölzli." },
+    { title: "Controllo di sicurezza – incenerimento fanghi", technologies: ["S7-400 H", "Safety"], description: "Programmazione del controllo di sicurezza fail-safe su sistema S7-400 H per l'impianto di incenerimento fanghi di Werdhölzli." },
+    { title: "Programmazione comando – IDA Buchs", technologies: ["Siemens S7", "WinCC OA"], description: "Programmazione del comando dell'impianto di depurazione IDA Buchs ZH (S7/WinCC OA)." },
+    { title: "Linea di reti MG630 – TALLERES Y ACEROS", technologies: ["Siemens S7", "Saldatura"], description: "Sviluppo software e messa in servizio della linea di reti MG630." },
+    { title: "Linea di radiatori – Celikpan", technologies: ["Siemens S7", "Saldatura"], description: "Sviluppo software e messa in servizio della linea di radiatori." },
+    { title: "Linea di radiatori – TIPRO Baltic", technologies: ["Siemens S7", "Saldatura"], description: "Sviluppo software e messa in servizio della linea di radiatori." },
+    { title: "Linea di radiatori – Lida-Baltia", technologies: ["Siemens S7", "Saldatura"], description: "Sviluppo software e messa in servizio della linea di radiatori." },
+    { title: "Comando di saldatura Superflex (Jäger)", technologies: ["Siemens", "Processore di saldatura TCW"], description: "Comando di saldatura su una Superflex (Jäger) con Siemens e processore di saldatura TCW." },
+    { title: "Linea di reti Gerdau – conversione S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversione della linea di reti dal comando S5 a S7." },
+    { title: "Linea di reti MG320 BDW – conversione S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversione della linea di reti MG320 dal comando S5 a S7." },
+    { title: "Conversione MG320 S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversione di una MG320 dal comando S5 a S7." },
+    { title: "Estensione software – linea di trafilatura a freddo", technologies: ["Siemens S7"], description: "Estensione software di una linea di trafilatura a freddo." },
+  ],
+  pt: [
+    { title: "EKZ – Iluminação pública, cantão de Zurique", technologies: ["WinCC OA", "TIA Portal", "S7-1500", "OPC UA", "OPC UA GDS Push"], description: "Comando de iluminação central e seguro para a empresa de eletricidade do cantão de Zurique (EKZ): cerca de 3000 PLC (SIMATIC S7-1500) em mais de 2500 postos de transformação, comandados com WinCC OA SCADA e programados em TIA Portal. Comunicação OPC UA cifrada, incl. OPC UA GDS Push para a gestão central de certificados. Realizado com Siemens Schweiz DI AG." },
+    { title: "Centro de distribuição Mix-Mail – Correios da Suíça", technologies: ["Siemens", "Sorter cross-belt", "Transporte", "Automação"], description: "Desenvolvimento de software para a triagem totalmente automática de envios mistos (Mix-Mail): uma novidade mundial na triagem. Capacidade até 19 000 envios por hora, cerca de 1400 destinos e 5 sorters cross-belt em dois níveis. Realizado com Siemens Postal, Parcel & Airport Logistics." },
+    { title: "DHL Gateway Basileia – novo centro logístico", technologies: ["Siemens", "Transporte", "Automação"], description: "Desenvolvimento de software para um centro logístico completo da DHL Express: conceitos de comando, automação e software específico de instalação e aplicação. Responsável pela tecnologia de transporte com mais de 500 tapetes, sorters e destinos; capacidade de triagem de cerca de 10 000 envios por hora. Realizado com Siemens Logistics AG." },
+    { title: "ETAR Zermatt – maior instalação de biologia de membrana da Suíça", technologies: ["Siemens S7", "WinCC OA", "AVAC", "SCADA"], description: "Reprogramação de toda a estação de tratamento, incl. AVAC: a maior instalação de biologia de membrana da Suíça, numa caverna no interior da montanha. Comando com mais de 10 CPU SIMATIC (STEP 7) e WinCC OA como sistema SCADA; dimensionamento 60 000 habitantes equivalentes." },
+    { title: "SBB – vagão transversal 360°, Zurique Altstetten", technologies: ["STEP 7", "TIA Portal"], description: "Atualização do PLC existente de STEP 7 para TIA Portal, incl. adaptação de software para a deslocação do vagão transversal com função de 360 graus. Realizado com Siemens Schweiz DI AG." },
+    { title: "Equinix – ampliação de centro de dados", technologies: ["PCS 7", "Modbus RTU", "Modbus TCP"], description: "Ampliação de um centro de dados existente com um novo piso e um sistema de geradores; processamento de dados via Modbus RTU e TCP. Realizado com Siemens Schweiz DI AG." },
+    { title: "Equinix – atualização de PCS 7 para V9.1", technologies: ["PCS 7 V9.1", "PH", "IF"], description: "Atualização de um projeto de centro de dados existente para SIMATIC PCS 7 V9.1 (incl. PH e IF). Realizado com Siemens Schweiz DI AG." },
+    { title: "Equinix – atualização de PCS 7 para V9.1 (2.º local)", technologies: ["PCS 7 V9.1", "PH", "IF"], description: "Atualização de outro projeto de centro de dados existente para SIMATIC PCS 7 V9.1 (incl. PH e IF). Realizado com Siemens Schweiz DI AG." },
+    { title: "Comando de bacia de tempestade – ETAR Reinach", technologies: ["TIA Portal", "WinCC OA"], description: "Programação do comando para várias bacias de tempestade (TIA Portal/WinCC OA)." },
+    { title: "Instalação de recuperação de calor de águas residuais – ETAR Elgg", technologies: ["Siemens S7", "WinCC OA"], description: "Ampliação do comando da instalação de recuperação de calor de águas residuais (S7/WinCC OA)." },
+    { title: "Comando de bacia de tempestade – Sennhof", technologies: ["TIA Portal", "WinCC OA"], description: "Programação do comando para uma bacia de tempestade (TIA Portal/WinCC OA)." },
+    { title: "Comando de bacia de tempestade – Huggenberg", technologies: ["TIA Portal", "WinCC OA"], description: "Programação do comando para uma bacia de tempestade (TIA Portal/WinCC OA)." },
+    { title: "Comando de bacia de tempestade – Dickbuch", technologies: ["TIA Portal", "WinCC OA"], description: "Programação do comando para uma bacia de tempestade (TIA Portal/WinCC OA)." },
+    { title: "Comando de bacia de tempestade – Hauptwil", technologies: ["TIA Portal", "WinCC OA"], description: "Programação do comando para uma bacia de tempestade (TIA Portal/WinCC OA)." },
+    { title: "Comando de bacia de tempestade – Niederwil", technologies: ["TIA Portal", "WinCC OA"], description: "Programação do comando para uma bacia de tempestade (TIA Portal/WinCC OA)." },
+    { title: "Instalação de recuperação de calor de águas residuais – ETAR Lugano", technologies: ["Siemens S7", "WinCC OA"], description: "Programação do comando da instalação de recuperação de calor de águas residuais (S7/WinCC OA)." },
+    { title: "Instalação de recuperação de calor de águas residuais – ETAR Zermatt", technologies: ["Siemens S7", "WinCC OA"], description: "Programação do comando da instalação de recuperação de calor de águas residuais (S7/WinCC OA)." },
+    { title: "Instalação de recuperação de calor de águas residuais – ETAR Zermatt", technologies: ["Siemens S7", "WinCC OA"], description: "Programação do comando da instalação de recuperação de calor de águas residuais (S7/WinCC OA)." },
+    { title: "Instalação de recuperação de calor de águas residuais – ETAR Oensingen", technologies: ["Siemens S7", "WinCC OA"], description: "Programação do comando da instalação de recuperação de calor de águas residuais (S7/WinCC OA)." },
+    { title: "Comando de bacia de tempestade – Arnegg", technologies: ["TIA Portal", "WinCC OA"], description: "Programação do comando para uma bacia de tempestade (TIA Portal/WinCC OA)." },
+    { title: "Comando de bacia de tempestade – Andwil", technologies: ["TIA Portal", "WinCC OA"], description: "Programação do comando para uma bacia de tempestade (TIA Portal/WinCC OA)." },
+    { title: "Comando de bacia de tempestade – ETAR Zermatt", technologies: ["Siemens S7", "WinCC OA"], description: "Programação do comando para uma bacia de tempestade (S7/WinCC OA)." },
+    { title: "Estação de bombagem de água Henessen", technologies: ["TIA Portal", "WinCC OA"], description: "Programação do comando de uma estação de bombagem de água (TIA Portal/WinCC OA)." },
+    { title: "Estação de tratamento de águas residuais Rheinfelden", technologies: ["Siemens S7", "WinCC OA"], description: "Programação do comando da estação de tratamento de águas residuais (S7/WinCC OA)." },
+    { title: "Sistema de ventilação e aquecimento – ETAR Zermatt", technologies: ["Siemens S7", "AVAC"], description: "Programação do sistema de ventilação e aquecimento da estação de tratamento de Zermatt." },
+    { title: "Controlo de segurança – incineração de lamas", technologies: ["S7-400 H", "Safety"], description: "Programação do controlo de segurança à prova de falhas num sistema S7-400 H para a instalação de incineração de lamas de Werdhölzli." },
+    { title: "Controlo de segurança – incineração de lamas", technologies: ["S7-400 H", "Safety"], description: "Programação do controlo de segurança à prova de falhas num sistema S7-400 H para a instalação de incineração de lamas de Werdhölzli." },
+    { title: "Programação de comando – ETAR Buchs", technologies: ["Siemens S7", "WinCC OA"], description: "Programação do comando da estação de tratamento ETAR Buchs ZH (S7/WinCC OA)." },
+    { title: "Linha de redes MG630 – TALLERES Y ACEROS", technologies: ["Siemens S7", "Soldadura"], description: "Desenvolvimento de software e colocação em serviço da linha de redes MG630." },
+    { title: "Linha de radiadores – Celikpan", technologies: ["Siemens S7", "Soldadura"], description: "Desenvolvimento de software e colocação em serviço da linha de radiadores." },
+    { title: "Linha de radiadores – TIPRO Baltic", technologies: ["Siemens S7", "Soldadura"], description: "Desenvolvimento de software e colocação em serviço da linha de radiadores." },
+    { title: "Linha de radiadores – Lida-Baltia", technologies: ["Siemens S7", "Soldadura"], description: "Desenvolvimento de software e colocação em serviço da linha de radiadores." },
+    { title: "Comando de soldadura Superflex (Jäger)", technologies: ["Siemens", "Processador de soldadura TCW"], description: "Comando de soldadura numa Superflex (Jäger) com Siemens e processador de soldadura TCW." },
+    { title: "Linha de redes Gerdau – conversão S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversão da linha de redes do comando S5 para S7." },
+    { title: "Linha de redes MG320 BDW – conversão S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversão da linha de redes MG320 do comando S5 para S7." },
+    { title: "Conversão MG320 S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversão de uma MG320 do comando S5 para S7." },
+    { title: "Ampliação de software – linha de trefilagem a frio", technologies: ["Siemens S7"], description: "Ampliação de software de uma linha de trefilagem a frio." },
+  ],
 };
 
-const categoryLabelsByLocale: Record<L, Record<ProjectCategory, string>> = {
+const categoryLabelsByLocale: Record<Locale, Record<ProjectCategory, string>> = {
   de: {
     infrastruktur: "Infrastruktur & Energie",
     logistik: "Logistik & Sortieranlagen",
@@ -209,9 +325,30 @@ const categoryLabelsByLocale: Record<L, Record<ProjectCategory, string>> = {
     stahl: "Instalaciones siderúrgicas e industriales",
     retrofit: "Retrofit y migración",
   },
+  fr: {
+    infrastruktur: "Infrastructure et énergie",
+    logistik: "Logistique et tri",
+    abwasser: "Eaux usées et STEP",
+    stahl: "Installations sidérurgiques et industrielles",
+    retrofit: "Rétrofit et migration",
+  },
+  it: {
+    infrastruktur: "Infrastruttura ed energia",
+    logistik: "Logistica e smistamento",
+    abwasser: "Acque reflue e IDA",
+    stahl: "Impianti siderurgici e industriali",
+    retrofit: "Retrofit e migrazione",
+  },
+  pt: {
+    infrastruktur: "Infraestrutura e energia",
+    logistik: "Logística e triagem",
+    abwasser: "Águas residuais e ETAR",
+    stahl: "Instalações siderúrgicas e industriais",
+    retrofit: "Retrofit e migração",
+  },
 };
 
-const highlightsByLocale: Record<L, { category: ProjectCategory; description: string }[]> = {
+const highlightsByLocale: Record<Locale, { category: ProjectCategory; description: string }[]> = {
   de: [
     { category: "infrastruktur", description: "Kritische Infrastruktur und Energie: öffentliche Beleuchtung (EKZ) und Rechenzentren (Equinix) – mit WinCC OA, TIA Portal, PCS 7 und OPC UA." },
     { category: "logistik", description: "Software-Entwicklung für Paket- und Mischsendungs-Sortieranlagen – u. a. für DHL Express und die Schweizerische Post." },
@@ -233,15 +370,36 @@ const highlightsByLocale: Record<L, { category: ProjectCategory; description: st
     { category: "stahl", description: "Puestas en marcha internacionales de instalaciones siderúrgicas e industriales en Europa y América." },
     { category: "retrofit", description: "Modernización de instalaciones existentes y migración de controladores antiguos (S5 → S7 → TIA)." },
   ],
+  fr: [
+    { category: "infrastruktur", description: "Infrastructure critique et énergie : éclairage public (EKZ) et centres de données (Equinix), avec WinCC OA, TIA Portal, PCS 7 et OPC UA." },
+    { category: "logistik", description: "Développement logiciel pour des installations de tri de colis et d'envois mixtes, notamment pour DHL Express et La Poste suisse." },
+    { category: "abwasser", description: "Projets de STEP, bassins d'orage, récupération de chaleur des eaux usées et commandes de sécurité dans toute la Suisse." },
+    { category: "stahl", description: "Mises en service internationales d'installations sidérurgiques et industrielles en Europe et en Amérique." },
+    { category: "retrofit", description: "Modernisation d'installations existantes et migration d'anciennes commandes (S5 → S7 → TIA)." },
+  ],
+  it: [
+    { category: "infrastruktur", description: "Infrastruttura critica ed energia: illuminazione pubblica (EKZ) e data center (Equinix), con WinCC OA, TIA Portal, PCS 7 e OPC UA." },
+    { category: "logistik", description: "Sviluppo software per impianti di smistamento di pacchi e invii misti, tra cui per DHL Express e la Posta svizzera." },
+    { category: "abwasser", description: "Progetti di IDA, bacini di pioggia, recupero di calore dalle acque reflue e controlli di sicurezza in tutta la Svizzera." },
+    { category: "stahl", description: "Messe in servizio internazionali di impianti siderurgici e industriali in Europa e in America." },
+    { category: "retrofit", description: "Modernizzazione di impianti esistenti e migrazione di vecchi controllori (S5 → S7 → TIA)." },
+  ],
+  pt: [
+    { category: "infrastruktur", description: "Infraestrutura crítica e energia: iluminação pública (EKZ) e centros de dados (Equinix), com WinCC OA, TIA Portal, PCS 7 e OPC UA." },
+    { category: "logistik", description: "Desenvolvimento de software para instalações de triagem de encomendas e envios mistos, entre outros para a DHL Express e os Correios da Suíça." },
+    { category: "abwasser", description: "Projetos de ETAR, bacias de tempestade, recuperação de calor de águas residuais e controlos de segurança em toda a Suíça." },
+    { category: "stahl", description: "Colocações em serviço internacionais de instalações siderúrgicas e industriais na Europa e na América." },
+    { category: "retrofit", description: "Modernização de instalações existentes e migração de controladores antigos (S5 → S7 → TIA)." },
+  ],
 };
 
 export function getProjects(locale: string): Project[] {
-  const t = txt[pick(locale)];
+  const t = txt[pageLocale(locale)];
   return base.map((b, i) => ({ ...b, ...t[i] }));
 }
 export function getCategoryLabels(locale: string): Record<ProjectCategory, string> {
-  return categoryLabelsByLocale[pick(locale)];
+  return categoryLabelsByLocale[pageLocale(locale)];
 }
 export function getReferenceHighlights(locale: string) {
-  return highlightsByLocale[pick(locale)];
+  return highlightsByLocale[pageLocale(locale)];
 }

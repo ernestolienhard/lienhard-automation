@@ -16,11 +16,14 @@ const ui = {
   de: { all: "Alle Projekte", filter: "Projekte filtern" },
   en: { all: "All projects", filter: "Filter projects" },
   es: { all: "Todos los proyectos", filter: "Filtrar proyectos" },
+  fr: { all: "Tous les projets", filter: "Filtrer les projets" },
+  it: { all: "Tutti i progetti", filter: "Filtra i progetti" },
+  pt: { all: "Todos os projetos", filter: "Filtrar projetos" },
 };
 
 export function ReferencesGrid() {
   const locale = useLocale();
-  const t = locale === "en" ? ui.en : locale === "es" ? ui.es : ui.de;
+  const t = ui[locale as keyof typeof ui] ?? ui.de;
   const projects = getProjects(locale);
   const categoryLabels = getCategoryLabels(locale);
   const [active, setActive] = useState<Filter>("alle");

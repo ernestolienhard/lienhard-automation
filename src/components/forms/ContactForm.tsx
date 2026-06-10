@@ -75,11 +75,74 @@ const C = {
       message: "Describa su consulta (mín. 10 caracteres).",
     } as Record<FieldKey, string>,
   },
+  fr: {
+    company: "Entreprise (ne pas remplir)",
+    name: "Nom",
+    email: "E-mail",
+    message: "Message",
+    messagePlaceholder: "Décrivez brièvement votre projet ou votre demande…",
+    submit: "Envoyer le message",
+    submitting: "Envoi…",
+    successTitle: "Merci pour votre demande !",
+    successText: "J'ai bien reçu votre message et je vous recontacte dès que possible.",
+    successAgain: "Envoyer un autre message",
+    serverError: "Le message n'a pas pu être envoyé. Veuillez réessayer ou m'écrire directement par e-mail.",
+    consentPre: "En envoyant, vous acceptez le traitement de vos données conformément à ma ",
+    consentLink: "politique de confidentialité",
+    consentPost: ".",
+    errors: {
+      name: "Veuillez saisir votre nom.",
+      email: "Veuillez saisir une adresse e-mail valide.",
+      message: "Veuillez décrire votre demande (au moins 10 caractères).",
+    } as Record<FieldKey, string>,
+  },
+  it: {
+    company: "Azienda (non compilare)",
+    name: "Nome",
+    email: "E-mail",
+    message: "Messaggio",
+    messagePlaceholder: "Descrivete brevemente il vostro progetto o la vostra richiesta…",
+    submit: "Invia messaggio",
+    submitting: "Invio in corso…",
+    successTitle: "Grazie per la vostra richiesta!",
+    successText: "Ho ricevuto il vostro messaggio e vi ricontatterò al più presto.",
+    successAgain: "Invia un altro messaggio",
+    serverError: "Non è stato possibile inviare il messaggio. Riprovate o scrivetemi direttamente via e-mail.",
+    consentPre: "Inviando, accettate il trattamento dei vostri dati conformemente alla mia ",
+    consentLink: "informativa sulla privacy",
+    consentPost: ".",
+    errors: {
+      name: "Inserite il vostro nome.",
+      email: "Inserite un indirizzo e-mail valido.",
+      message: "Descrivete la vostra richiesta (almeno 10 caratteri).",
+    } as Record<FieldKey, string>,
+  },
+  pt: {
+    company: "Empresa (não preencher)",
+    name: "Nome",
+    email: "E-mail",
+    message: "Mensagem",
+    messagePlaceholder: "Descreva brevemente o seu projeto ou pedido…",
+    submit: "Enviar mensagem",
+    submitting: "A enviar…",
+    successTitle: "Obrigado pelo seu pedido!",
+    successText: "Recebi a sua mensagem e entrarei em contacto consigo o mais rapidamente possível.",
+    successAgain: "Enviar outra mensagem",
+    serverError: "Não foi possível enviar a mensagem. Tente novamente ou escreva-me diretamente por e-mail.",
+    consentPre: "Ao enviar, concorda com o tratamento dos seus dados de acordo com a minha ",
+    consentLink: "política de privacidade",
+    consentPost: ".",
+    errors: {
+      name: "Introduza o seu nome.",
+      email: "Introduza um endereço de e-mail válido.",
+      message: "Descreva o seu pedido (pelo menos 10 caracteres).",
+    } as Record<FieldKey, string>,
+  },
 };
 
 export function ContactForm() {
   const locale = useLocale();
-  const t = locale === "en" ? C.en : locale === "es" ? C.es : C.de;
+  const t = C[locale as keyof typeof C] ?? C.de;
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
   const [serverError, setServerError] = useState<string | null>(null);

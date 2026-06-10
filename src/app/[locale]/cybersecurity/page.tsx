@@ -210,6 +210,59 @@ const C: Record<Locale, Content> = {
     ctaLead:
       "Póngase en contacto con nosotros: incorporamos a los expertos en seguridad adecuados y seguimos siendo su interlocutor de confianza para la automatización.",
   },
+  fr: {
+    metaTitle: "Cybersécurité",
+    metaDesc:
+      "La cybersécurité industrielle (sécurité OT) est un domaine hautement spécialisé. Lienhard Automation collabore avec des experts en sécurité reconnus : automatisation sûre et savoir-faire spécialisé d'une seule main.",
+    eyebrow: "Cybersécurité · Sécurité OT",
+    h1a: "Une automatisation sûre, ",
+    h1accent: "avec des experts",
+    subtitle:
+      "La cybersécurité industrielle est un domaine à part entière, hautement spécialisé. Sur ces sujets, nous collaborons étroitement avec des partenaires de sécurité reconnus, afin que vous receviez une automatisation sûre et fiable et le savoir-faire spécialisé nécessaire d'une seule main.",
+    ctaHero: "En parler",
+    whyEyebrow: "Pourquoi c'est important",
+    whyTitle: "La sécurité OT est différente de la sécurité IT",
+    whyLead:
+      "Les installations industrielles ont leurs propres exigences, marquées par une disponibilité maximale, de longs cycles de vie et des environnements hérités.",
+    reasons: [
+      { title: "Production connectée", detail: "Davantage de connectivité, d'accès à distance et d'IIoT élargit la surface d'attaque des installations industrielles." },
+      { title: "La disponibilité d'abord", detail: "En OT, la disponibilité maximale de l'installation prime : les mesures de protection doivent sécuriser l'exploitation, pas la perturber." },
+      { title: "De longs cycles de vie", detail: "Les installations fonctionnent pendant des décennies. Les systèmes hérités nécessitent une protection particulière et réfléchie." },
+    ],
+    approachEyebrow: "Notre approche",
+    approachTitle: "Avec des partenaires de sécurité spécialisés",
+    approachP1:
+      "L'automatisation est notre cœur de métier. Pour la cybersécurité industrielle, nous faisons appel de manière ciblée à des experts reconnus qui ne s'occupent que de cela au quotidien.",
+    approachP2: (
+      <>
+        Pour vous, cela signifie : {b("un interlocuteur unique")}, une
+        responsabilité de bout en bout et une démarche fondée sur des normes
+        reconnues comme {b("IEC 62443")} et le principe {b("defense-in-depth")}.
+      </>
+    ),
+    approachCta: "Demander sans engagement",
+    approachPoints: [
+      "Des experts en cybersécurité reconnus dans le réseau",
+      "Un interlocuteur unique pour l'automatisation et la sécurité",
+      "Démarche selon IEC 62443 et defense-in-depth",
+      "Focus sur la disponibilité de votre installation",
+    ],
+    topicsEyebrow: "Domaines thématiques",
+    topicsTitle: "Ce que nous couvrons avec nos partenaires",
+    topicsLead:
+      "Du diagnostic initial à la protection continue : les sujets spécialisés sont pris en charge par nos partenaires, coordonnés via Lienhard Automation.",
+    topics: [
+      { title: "Évaluation de sécurité et analyse de risques", detail: "Rendre transparents et évaluer les vulnérabilités et les risques de votre installation." },
+      { title: "Segmentation réseau IT/OT", detail: "Zones, protection des cellules et protection périmétrique selon le principe defense-in-depth." },
+      { title: "Durcissement des systèmes et gestion des correctifs", detail: "Durcissement des systèmes ainsi que gestion des vulnérabilités et des mises à jour." },
+      { title: "Surveillance et gestion des urgences", detail: "Surveillance, sauvegarde/restauration et un plan clair pour les situations d'urgence." },
+    ],
+    note: "Vous trouverez davantage d'informations sur la cybersécurité industrielle et les normes reconnues, entre autres, chez Siemens. SIMATIC, WinCC et IEC 62443 sont des marques ou des normes de leurs titulaires respectifs.",
+    noteBtn: "Industrial Cybersecurity",
+    ctaTitle: "La cybersécurité est-elle un sujet pour votre installation ?",
+    ctaLead:
+      "Contactez-nous : nous faisons appel aux bons experts en sécurité et restons votre interlocuteur de confiance pour l'automatisation.",
+  },
   it: {
     metaTitle: "Cybersecurity",
     metaDesc:
