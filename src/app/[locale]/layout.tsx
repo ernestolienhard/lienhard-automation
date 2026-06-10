@@ -45,13 +45,21 @@ export function generateMetadata({
   ) as Record<string, string>;
   languages["x-default"] = "/de";
 
+  const en = locale === "en";
+  const brandTitle = en
+    ? `${siteConfig.legalName} – Automation. Engineering. Worldwide.`
+    : `${siteConfig.legalName} – Automation. Engineering. Weltweit.`;
+  const description = en
+    ? "Lienhard Automation GmbH develops automation solutions for industrial machine and plant engineering – PLC engineering, project planning and commissioning. In use worldwide."
+    : siteConfig.description;
+
   return {
     metadataBase: new URL(siteConfig.url),
     title: {
-      default: `${siteConfig.legalName} – Automation. Engineering. Weltweit.`,
+      default: brandTitle,
       template: `%s – ${siteConfig.name}`,
     },
-    description: siteConfig.description,
+    description,
     keywords: [
       "Automation",
       "SPS-Engineering",
@@ -77,16 +85,16 @@ export function generateMetadata({
       locale: ogLocale[locale],
       url: `${siteConfig.url}/${locale}`,
       siteName: siteConfig.legalName,
-      title: `${siteConfig.legalName} – Automation. Engineering. Weltweit.`,
-      description: siteConfig.description,
+      title: brandTitle,
+      description,
       images: [
         { url: "/og-image.png", width: 1200, height: 630, alt: siteConfig.legalName },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${siteConfig.legalName} – Automation. Engineering. Weltweit.`,
-      description: siteConfig.description,
+      title: brandTitle,
+      description,
       images: ["/og-image.png"],
     },
     robots: { index: true, follow: true },
