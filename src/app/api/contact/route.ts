@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
 import { contactSchema } from "@/lib/validation";
 
-// Always run on the server (Node.js runtime, required by nodemailer).
+// Always run on the server, never statically cached.
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
@@ -36,21 +35,18 @@ export async function POST(request: Request) {
 
   const { name, email, message } = parsed.data;
 
-  // SMTP credentials (Microsoft 365 / Outlook). Configured in Vercel env vars.
-  const host = process.env.SMTP_HOST ?? "smtp.office365.com";
-  const port = Number(process.env.SMTP_PORT ?? "587");
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
-  // For Microsoft 365 the "from" must be the authenticated mailbox (or an alias
-  // it is allowed to send as). Defaults to the SMTP user.
+  const apiKey = process.env.RESEND_API_KEY;
+  const to = process.env.CONTACT_NOTIFICATION_TO;
+  // Must be an address on a domain verified in Resend.
   const from =
     process.env.CONTACT_NOTIFICATION_FROM ??
-    (user ? `Lienhard Automation <${user}>` : undefined);
-  const to = process.env.CONTACT_NOTIFICATION_TO ?? user;
+    "Lienhard Automation <onboarding@resend.dev>";
 
-  if (!user || !pass || !from || !to) {
+  if (!apiKey || !to) {
+    // Email service not configured yet. Log so nothing is lost in dev,
+    // and return a clear error instead of pretending it was sent.
     console.error(
-      "[contact] SMTP is not configured. Submission was NOT sent:",
+      "[contact] Email service is not configured. Submission was NOT sent:",
       { name, email },
     );
     return NextResponse.json(
@@ -73,26 +69,33 @@ export async function POST(request: Request) {
   `;
 
   try {
-    const transporter = nodemailer.createTransport({
-      host,
-      port,
-      secure: port === 465, // 465 = implicit TLS; 587 = STARTTLS
-      auth: { user, pass },
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from,
+        to: [to],
+        subject,
+        text,
+        html,
+        // Lets you reply directly to the sender from your inbox.
+        reply_to: email,
+      }),
     });
 
-    await transporter.sendMail({
-      from,
-      to,
-      replyTo: email, // reply goes straight to the visitor
-      subject,
-      text,
-      html,
-    });
+    if (!res.ok) {
+      const body = await res.text().catch(() => "");
+      console.error("[contact] Resend send failed:", res.status, body);
+      return NextResponse.json(
+        { error: "Die Nachricht konnte nicht gesendet werden." },
+        { status: 502 },
+      );
+    }
   } catch (err) {
-    console.error(
-      "[contact] SMTP send failed:",
-      err instanceof Error ? err.message : err,
-    );
+    console.error("[contact] Resend request error:", err);
     return NextResponse.json(
       { error: "Die Nachricht konnte nicht gesendet werden." },
       { status: 502 },
