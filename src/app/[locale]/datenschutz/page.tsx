@@ -1,37 +1,103 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/layout/LegalPage";
 import { siteConfig } from "@/lib/site";
+import { pageLocale } from "@/i18n/config";
 
 export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
-  const en = params.locale === "en";
-  return {
-    title: en ? "Privacy" : "Datenschutz",
-    description: en
+  const l = pageLocale(params.locale);
+  const title = l === "en" ? "Privacy" : l === "es" ? "Privacidad" : "Datenschutz";
+  const description =
+    l === "en"
       ? "Privacy policy of Lienhard Automation GmbH under the Swiss Data Protection Act (DSG)."
-      : "Datenschutzerklärung der Lienhard Automation GmbH gemäss schweizerischem Datenschutzgesetz (DSG).",
-    alternates: { canonical: "/datenschutz" },
-  };
+      : l === "es"
+        ? "Política de privacidad de Lienhard Automation GmbH conforme a la Ley suiza de protección de datos (DSG)."
+        : "Datenschutzerklärung der Lienhard Automation GmbH gemäss schweizerischem Datenschutzgesetz (DSG).";
+  return { title, description, alternates: { canonical: "/datenschutz" } };
 }
 
 const { contact } = siteConfig;
 
 export default function DatenschutzPage({ params }: { params: { locale: string } }) {
-  const en = params.locale === "en";
+  const l = pageLocale(params.locale);
+  const en = l === "en";
+  const es = l === "es";
+  const title = en ? "Privacy policy" : es ? "Política de privacidad" : "Datenschutzerklärung";
   const responsible = (
     <p>
       {siteConfig.legalName}
       <br />
       {contact.street}, {contact.postalCode} {contact.city}, {contact.country}
       <br />
-      {en ? "Email" : "E-Mail"}: <a href={`mailto:${contact.email}`}>{contact.email}</a>
+      {es ? "Correo electrónico" : en ? "Email" : "E-Mail"}: <a href={`mailto:${contact.email}`}>{contact.email}</a>
       <br />
-      {en ? "Phone" : "Telefon"}: <a href={contact.phoneHref}>{contact.phone}</a>
+      {es ? "Teléfono" : en ? "Phone" : "Telefon"}: <a href={contact.phoneHref}>{contact.phone}</a>
     </p>
   );
 
   return (
-    <LegalPage title={en ? "Privacy policy" : "Datenschutzerklärung"} locale={params.locale}>
-      {en ? (
+    <LegalPage title={title} locale={params.locale}>
+      {es ? (
+        <>
+          <p>
+            La protección de sus datos personales es importante para mí. Trato sus
+            datos personales conforme a la Ley suiza de protección de datos (DSG)
+            y, en su caso, al Reglamento General de Protección de Datos (RGPD).
+          </p>
+          <h2>1. Responsable</h2>
+          {responsible}
+          <h2>2. Tratamiento de datos personales al visitar el sitio web</h2>
+          <p>
+            Al acceder a este sitio web, el proveedor de alojamiento (Vercel)
+            trata datos técnicamente necesarios (p. ej., dirección IP, fecha y
+            hora del acceso, tipo de navegador). Estos datos sirven para el
+            funcionamiento seguro y estable del sitio web y no se combinan con
+            otras fuentes de datos.
+          </p>
+          <h2>3. Formulario de contacto</h2>
+          <p>
+            Si me envía una consulta a través del formulario de contacto, los
+            datos que facilite (nombre, dirección de correo electrónico y mensaje)
+            se almacenan para tramitar su consulta. El almacenamiento se realiza
+            en una base de datos de mi proveedor de servicios Supabase. No
+            transmito estos datos a terceros sin su consentimiento y los utilizo
+            exclusivamente para responder a su consulta.
+          </p>
+          <h2>4. Proveedores de servicios utilizados (encargados del tratamiento)</h2>
+          <ul>
+            <li><strong>Vercel Inc.</strong> – alojamiento y entrega del sitio web.</li>
+            <li><strong>Supabase</strong> – almacenamiento de consultas de contacto.</li>
+            <li><em>[Añadir más servicios si se utilizan, p. ej. Resend para notificaciones por correo electrónico, herramientas de análisis, etc.]</em></li>
+          </ul>
+          <h2>5. Cookies</h2>
+          <p>
+            Este sitio web utiliza actualmente solo cookies técnicamente
+            necesarias. Si en el futuro se utilizan cookies de análisis o
+            marketing, esta sección debe ampliarse en consecuencia e integrarse,
+            en su caso, un banner de cookies. <em>[A revisar por el cliente.]</em>
+          </p>
+          <h2>6. Sus derechos</h2>
+          <p>
+            En el marco de los requisitos legales, tiene derecho a información,
+            rectificación, supresión y limitación del tratamiento de sus datos
+            personales, así como el derecho a la portabilidad de los datos. Para
+            ejercer estos derechos basta con un mensaje a la dirección de contacto
+            indicada arriba.
+          </p>
+          <h2>7. Conservación</h2>
+          <p>
+            Conservo los datos personales solo durante el tiempo necesario para
+            los fines indicados o exigido por los plazos legales de conservación.
+          </p>
+          <h2>8. Modificaciones</h2>
+          <p>
+            Me reservo el derecho de adaptar esta política de privacidad para que
+            siempre cumpla con los requisitos legales vigentes.
+          </p>
+          <p className="text-sm text-steel-500">
+            Última actualización: <em>[añadir fecha en la publicación]</em>
+          </p>
+        </>
+      ) : en ? (
         <>
           <p>
             The protection of your personal data is important to me. I process

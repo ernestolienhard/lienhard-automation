@@ -46,12 +46,17 @@ export function generateMetadata({
   languages["x-default"] = "/de";
 
   const en = locale === "en";
+  const es = locale === "es";
   const brandTitle = en
     ? `${siteConfig.legalName} – Automation. Engineering. Worldwide.`
-    : `${siteConfig.legalName} – Automation. Engineering. Weltweit.`;
+    : es
+      ? `${siteConfig.legalName} – Automation. Engineering. En todo el mundo.`
+      : `${siteConfig.legalName} – Automation. Engineering. Weltweit.`;
   const description = en
     ? "Lienhard Automation GmbH develops automation solutions for industrial machine and plant engineering – PLC engineering, project planning and commissioning. In use worldwide."
-    : siteConfig.description;
+    : es
+      ? "Lienhard Automation GmbH desarrolla soluciones de automatización para la construcción industrial de máquinas e instalaciones: ingeniería de PLC, planificación de proyectos y puesta en marcha. En uso en todo el mundo."
+      : siteConfig.description;
 
   return {
     metadataBase: new URL(siteConfig.url),
