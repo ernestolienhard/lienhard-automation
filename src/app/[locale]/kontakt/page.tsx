@@ -11,6 +11,7 @@ type Content = {
   eyebrow: string;
   h1: string;
   subtitle: string;
+  role: string;
   labelAddress: string;
   labelPhone: string;
   labelEmail: string;
@@ -30,6 +31,7 @@ const C: Record<"de" | "en", Content> = {
     h1: "Kontakt aufnehmen",
     subtitle:
       "Beschreiben Sie mir Ihr Projekt oder vereinbaren Sie eine unverbindliche Beratung. Ich melde mich rasch bei Ihnen zurück.",
+    role: "Geschäftsführer · Techniker HF Automation",
     labelAddress: "Adresse",
     labelPhone: "Telefon",
     labelEmail: "E-Mail",
@@ -49,6 +51,7 @@ const C: Record<"de" | "en", Content> = {
     h1: "Get in touch",
     subtitle:
       "Describe your project to me or arrange a no-obligation consultation. I will get back to you quickly.",
+    role: "Managing Director · Technician HF Automation",
     labelAddress: "Address",
     labelPhone: "Phone",
     labelEmail: "Email",
@@ -112,7 +115,7 @@ export default function KontaktPage({
           <div className="grid gap-10 lg:grid-cols-[1fr,1.1fr] lg:gap-16">
             <div>
               <h2 className="text-2xl font-bold text-navy-900">{contact.person}</h2>
-              <p className="mt-1 text-accent-600">{contact.role}</p>
+              <p className="mt-1 text-accent-600">{t.role}</p>
 
               <dl className="mt-8 space-y-5">
                 {details.map((d) => (

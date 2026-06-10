@@ -31,7 +31,7 @@ const careerByLocale: Record<"de" | "en", CareerEntry[]> = {
     { period: "2005–2011", title: "International grid & radiator lines", org: "Schlatter AG", text: "Software development and commissioning of welding, grid and radiator lines worldwide – including Turkey, Latvia, Brazil and Mexico." },
     { period: "Further education", title: "Technician HF Automation", text: "Further education with a sound technical basis for well-considered, reliable automation solutions." },
     { period: "since 2013", title: "Self-employed – Lienhard Automation GmbH", org: "own projects & international assignments", text: "Own automation projects (incl. WWTP/wastewater and WinCC modernization) as well as – partly in parallel – international assignments, including for Tecvil and Siemens Logistics AG (DHL, Swiss Post)." },
-    { period: "2025–2026", title: "Postgraduate studies (NDS) in business administration", text: "Part-time further education in business administration – for the entrepreneurial management and development of my own company." },
+    { period: "2025–2026", title: "Professional Bachelor in Business Administration", text: "Part-time further education in business administration – for the entrepreneurial management and development of my own company." },
   ],
 };
 
