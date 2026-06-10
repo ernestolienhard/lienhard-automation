@@ -5,6 +5,13 @@ import { ProjectCard } from "@/components/cards/ProjectCard";
 import { ArrowRight } from "@/components/ui/icons";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/content/references";
+import { useLocale } from "@/i18n/useLocale";
+
+const arrowLabels = {
+  de: { prev: "Vorheriges Projekt", next: "Nächstes Projekt" },
+  en: { prev: "Previous project", next: "Next project" },
+  es: { prev: "Proyecto anterior", next: "Proyecto siguiente" },
+};
 
 /**
  * Horizontally scrolling references carousel with prev/next arrows and gentle
@@ -12,6 +19,8 @@ import type { Project } from "@/content/references";
  * card on mobile, 2 on tablet, 3 on desktop.
  */
 export function ReferencesCarousel({ projects }: { projects: Project[] }) {
+  const locale = useLocale();
+  const labels = locale === "en" ? arrowLabels.en : locale === "es" ? arrowLabels.es : arrowLabels.de;
   const trackRef = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
 
@@ -67,7 +76,7 @@ export function ReferencesCarousel({ projects }: { projects: Project[] }) {
         <button
           type="button"
           onClick={() => scrollByCards(-1)}
-          aria-label="Vorheriges Projekt"
+          aria-label={labels.prev}
           className={arrowClass}
         >
           <ArrowRight className={cn("h-5 w-5 rotate-180")} />
@@ -75,7 +84,7 @@ export function ReferencesCarousel({ projects }: { projects: Project[] }) {
         <button
           type="button"
           onClick={() => scrollByCards(1)}
-          aria-label="Nächstes Projekt"
+          aria-label={labels.next}
           className={arrowClass}
         >
           <ArrowRight className="h-5 w-5" />

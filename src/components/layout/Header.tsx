@@ -16,6 +16,12 @@ import type { Dict } from "@/i18n/dictionaries";
 export function Header({ dict }: { dict: Dict }) {
   const pathname = usePathname();
   const locale = useLocale();
+  const a11y =
+    locale === "en"
+      ? { nav: "Main navigation", mobileNav: "Mobile navigation", open: "Open menu", close: "Close menu" }
+      : locale === "es"
+        ? { nav: "Navegación principal", mobileNav: "Navegación móvil", open: "Abrir menú", close: "Cerrar menú" }
+        : { nav: "Hauptnavigation", mobileNav: "Mobile Navigation", open: "Menü öffnen", close: "Menü schliessen" };
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -64,7 +70,7 @@ export function Header({ dict }: { dict: Dict }) {
         {/* Desktop nav */}
         <nav
           className="hidden items-center gap-0.5 xl:flex"
-          aria-label="Hauptnavigation"
+          aria-label={a11y.nav}
         >
           {mainNav.map((item) => {
             const active = isActive(item.href);
@@ -105,7 +111,7 @@ export function Header({ dict }: { dict: Dict }) {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            aria-label={open ? "Menü schliessen" : "Menü öffnen"}
+            aria-label={open ? a11y.close : a11y.open}
             className="inline-flex h-11 w-11 items-center justify-center rounded-md text-navy-900 hover:bg-steel-100 xl:hidden"
           >
             {open ? <X /> : <Menu />}
@@ -117,7 +123,7 @@ export function Header({ dict }: { dict: Dict }) {
       <div id="mobile-menu" className={cn("xl:hidden", open ? "block" : "hidden")}>
         <nav
           className="space-y-1 border-t border-steel-200 bg-white px-5 pb-6 pt-3 sm:px-8"
-          aria-label="Mobile Navigation"
+          aria-label={a11y.mobileNav}
         >
           {mainNav.map((item) => {
             const active = isActive(item.href);
