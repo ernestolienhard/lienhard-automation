@@ -21,16 +21,19 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
   const l = pageLocale(params.locale);
   const en = l === "en";
   const es = l === "es";
-  const title = en ? "Privacy policy" : es ? "Política de privacidad" : "Datenschutzerklärung";
+  const titles: Record<string, string> = { de: "Datenschutzerklärung", en: "Privacy policy", es: "Política de privacidad", fr: "Politique de confidentialité", it: "Informativa sulla privacy", pt: "Política de privacidade" };
+  const emailLabels: Record<string, string> = { de: "E-Mail", en: "Email", es: "Correo electrónico", fr: "E-mail", it: "E-mail", pt: "E-mail" };
+  const phoneLabels: Record<string, string> = { de: "Telefon", en: "Phone", es: "Teléfono", fr: "Téléphone", it: "Telefono", pt: "Telefone" };
+  const title = titles[l] ?? titles.de;
   const responsible = (
     <p>
       {siteConfig.legalName}
       <br />
       {contact.street}, {contact.postalCode} {contact.city}, {contact.country}
       <br />
-      {es ? "Correo electrónico" : en ? "Email" : "E-Mail"}: <a href={`mailto:${contact.email}`}>{contact.email}</a>
+      {emailLabels[l] ?? emailLabels.de}: <a href={`mailto:${contact.email}`}>{contact.email}</a>
       <br />
-      {es ? "Teléfono" : en ? "Phone" : "Telefon"}: <a href={contact.phoneHref}>{contact.phone}</a>
+      {phoneLabels[l] ?? phoneLabels.de}: <a href={contact.phoneHref}>{contact.phone}</a>
     </p>
   );
 
@@ -155,6 +158,189 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
           </p>
           <p className="text-sm text-steel-500">
             Last updated: <em>[add date on publication]</em>
+          </p>
+        </>
+      ) : l === "fr" ? (
+        <>
+          <p>
+            La protection de vos données personnelles me tient à cœur. Je traite
+            vos données personnelles conformément à la loi suisse sur la
+            protection des données (LPD) et, le cas échéant, au Règlement général
+            sur la protection des données (RGPD).
+          </p>
+          <h2>1. Responsable du traitement</h2>
+          {responsible}
+          <h2>2. Traitement des données lors de la visite du site web</h2>
+          <p>
+            Lors de l'accès à ce site web, des données techniquement nécessaires
+            (p. ex. adresse IP, date et heure de l'accès, type de navigateur)
+            sont traitées par l'hébergeur (Vercel). Ces données servent à
+            l'exploitation sûre et stable du site web et ne sont pas regroupées
+            avec d'autres sources de données.
+          </p>
+          <h2>3. Formulaire de contact</h2>
+          <p>
+            Si vous m'envoyez une demande via le formulaire de contact, les
+            données que vous fournissez (nom, adresse e-mail et message) sont
+            enregistrées pour traiter votre demande. L'enregistrement a lieu dans
+            une base de données de mon prestataire Supabase. Je ne transmets pas
+            ces données à des tiers sans votre consentement et les utilise
+            exclusivement pour répondre à votre demande.
+          </p>
+          <h2>4. Prestataires utilisés (sous-traitants)</h2>
+          <ul>
+            <li><strong>Vercel Inc.</strong> – hébergement et diffusion du site web.</li>
+            <li><strong>Supabase</strong> – stockage des demandes de contact.</li>
+            <li><em>[Ajouter d'autres services le cas échéant, p. ex. Resend pour les notifications par e-mail, outils d'analyse, etc.]</em></li>
+          </ul>
+          <h2>5. Cookies</h2>
+          <p>
+            Ce site web n'utilise actuellement que des cookies techniquement
+            nécessaires. Si des cookies d'analyse ou de marketing sont utilisés à
+            l'avenir, cette section devra être complétée en conséquence et, le cas
+            échéant, une bannière de cookies intégrée. <em>[À vérifier par le client.]</em>
+          </p>
+          <h2>6. Vos droits</h2>
+          <p>
+            Dans le cadre des dispositions légales, vous avez le droit d'accès, de
+            rectification, d'effacement et de limitation du traitement de vos
+            données personnelles, ainsi que le droit à la portabilité des données.
+            Pour exercer ces droits, un message à l'adresse de contact indiquée
+            ci-dessus suffit.
+          </p>
+          <h2>7. Conservation</h2>
+          <p>
+            Je ne conserve les données personnelles que le temps nécessaire aux
+            finalités indiquées ou requis par les délais légaux de conservation.
+          </p>
+          <h2>8. Modifications</h2>
+          <p>
+            Je me réserve le droit d'adapter cette politique de confidentialité
+            afin qu'elle réponde toujours aux exigences légales en vigueur.
+          </p>
+          <p className="text-sm text-steel-500">
+            Dernière mise à jour : <em>[ajouter la date lors de la publication]</em>
+          </p>
+        </>
+      ) : l === "it" ? (
+        <>
+          <p>
+            La protezione dei vostri dati personali è per me importante. Tratto i
+            vostri dati personali conformemente alla legge svizzera sulla
+            protezione dei dati (LPD) e, ove applicabile, al Regolamento generale
+            sulla protezione dei dati (GDPR).
+          </p>
+          <h2>1. Titolare del trattamento</h2>
+          {responsible}
+          <h2>2. Trattamento dei dati durante la visita del sito web</h2>
+          <p>
+            Accedendo a questo sito web, l'hosting provider (Vercel) tratta dati
+            tecnicamente necessari (p. es. indirizzo IP, data e ora dell'accesso,
+            tipo di browser). Questi dati servono al funzionamento sicuro e
+            stabile del sito web e non vengono combinati con altre fonti di dati.
+          </p>
+          <h2>3. Modulo di contatto</h2>
+          <p>
+            Se mi inviate una richiesta tramite il modulo di contatto, i dati da
+            voi forniti (nome, indirizzo e-mail e messaggio) vengono memorizzati
+            per gestire la vostra richiesta. La memorizzazione avviene in un
+            database del mio fornitore di servizi Supabase. Non trasmetto questi
+            dati a terzi senza il vostro consenso e li utilizzo esclusivamente per
+            rispondere alla vostra richiesta.
+          </p>
+          <h2>4. Fornitori di servizi utilizzati (responsabili del trattamento)</h2>
+          <ul>
+            <li><strong>Vercel Inc.</strong> – hosting e distribuzione del sito web.</li>
+            <li><strong>Supabase</strong> – memorizzazione delle richieste di contatto.</li>
+            <li><em>[Aggiungere altri servizi se utilizzati, p. es. Resend per le notifiche e-mail, strumenti di analisi, ecc.]</em></li>
+          </ul>
+          <h2>5. Cookie</h2>
+          <p>
+            Questo sito web utilizza attualmente solo cookie tecnicamente
+            necessari. Se in futuro verranno utilizzati cookie di analisi o di
+            marketing, questa sezione dovrà essere integrata di conseguenza e, se
+            necessario, dovrà essere inserito un banner dei cookie. <em>[Da verificare a cura del cliente.]</em>
+          </p>
+          <h2>6. I vostri diritti</h2>
+          <p>
+            Nell'ambito delle disposizioni di legge, avete il diritto di accesso,
+            rettifica, cancellazione e limitazione del trattamento dei vostri dati
+            personali, nonché il diritto alla portabilità dei dati. Per esercitare
+            questi diritti è sufficiente un messaggio all'indirizzo di contatto
+            indicato sopra.
+          </p>
+          <h2>7. Conservazione</h2>
+          <p>
+            Conservo i dati personali solo per il tempo necessario alle finalità
+            indicate o richiesto dai termini di conservazione previsti dalla legge.
+          </p>
+          <h2>8. Modifiche</h2>
+          <p>
+            Mi riservo il diritto di adattare questa informativa sulla privacy
+            affinché sia sempre conforme ai requisiti legali vigenti.
+          </p>
+          <p className="text-sm text-steel-500">
+            Ultimo aggiornamento: <em>[aggiungere la data alla pubblicazione]</em>
+          </p>
+        </>
+      ) : l === "pt" ? (
+        <>
+          <p>
+            A proteção dos seus dados pessoais é importante para mim. Trato os
+            seus dados pessoais de acordo com a Lei suíça de proteção de dados
+            (LPD) e, quando aplicável, com o Regulamento Geral sobre a Proteção de
+            Dados (RGPD).
+          </p>
+          <h2>1. Responsável pelo tratamento</h2>
+          {responsible}
+          <h2>2. Tratamento de dados ao visitar o site</h2>
+          <p>
+            Ao aceder a este site, o fornecedor de alojamento (Vercel) trata dados
+            tecnicamente necessários (p. ex. endereço IP, data e hora do acesso,
+            tipo de navegador). Estes dados servem para o funcionamento seguro e
+            estável do site e não são combinados com outras fontes de dados.
+          </p>
+          <h2>3. Formulário de contacto</h2>
+          <p>
+            Se me enviar um pedido através do formulário de contacto, os dados que
+            fornecer (nome, endereço de e-mail e mensagem) são armazenados para
+            tratar o seu pedido. O armazenamento é feito numa base de dados do meu
+            prestador de serviços Supabase. Não transmito estes dados a terceiros
+            sem o seu consentimento e utilizo-os exclusivamente para responder ao
+            seu pedido.
+          </p>
+          <h2>4. Prestadores de serviços utilizados (subcontratantes)</h2>
+          <ul>
+            <li><strong>Vercel Inc.</strong> – alojamento e entrega do site.</li>
+            <li><strong>Supabase</strong> – armazenamento de pedidos de contacto.</li>
+            <li><em>[Adicionar outros serviços, se utilizados, p. ex. Resend para notificações por e-mail, ferramentas de análise, etc.]</em></li>
+          </ul>
+          <h2>5. Cookies</h2>
+          <p>
+            Este site utiliza atualmente apenas cookies tecnicamente necessários.
+            Se no futuro forem utilizados cookies de análise ou de marketing, esta
+            secção deve ser complementada em conformidade e, se necessário,
+            integrado um banner de cookies. <em>[A rever pelo cliente.]</em>
+          </p>
+          <h2>6. Os seus direitos</h2>
+          <p>
+            No âmbito dos requisitos legais, tem o direito de acesso, retificação,
+            eliminação e limitação do tratamento dos seus dados pessoais, bem como
+            o direito à portabilidade dos dados. Para exercer estes direitos,
+            basta uma mensagem para o endereço de contacto indicado acima.
+          </p>
+          <h2>7. Conservação</h2>
+          <p>
+            Conservo os dados pessoais apenas durante o tempo necessário para as
+            finalidades indicadas ou exigido pelos prazos legais de conservação.
+          </p>
+          <h2>8. Alterações</h2>
+          <p>
+            Reservo-me o direito de adaptar esta política de privacidade para que
+            cumpra sempre os requisitos legais em vigor.
+          </p>
+          <p className="text-sm text-steel-500">
+            Última atualização: <em>[adicionar data na publicação]</em>
           </p>
         </>
       ) : (

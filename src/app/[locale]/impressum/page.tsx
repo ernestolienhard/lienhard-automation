@@ -21,7 +21,8 @@ export default function ImpressumPage({ params }: { params: { locale: string } }
   const l = pageLocale(params.locale);
   const en = l === "en";
   const es = l === "es";
-  const title = en ? "Imprint" : es ? "Aviso legal" : "Impressum";
+  const titles: Record<string, string> = { de: "Impressum", en: "Imprint", es: "Aviso legal", fr: "Mentions légales", it: "Note legali", pt: "Informação legal" };
+  const title = titles[l] ?? titles.de;
 
   const address = (
     <p>
@@ -34,8 +35,10 @@ export default function ImpressumPage({ params }: { params: { locale: string } }
       {contact.country}
     </p>
   );
-  const phoneLabel = es ? "Teléfono" : en ? "Phone" : "Telefon";
-  const emailLabel = es ? "Correo electrónico" : en ? "Email" : "E-Mail";
+  const phoneLabels: Record<string, string> = { de: "Telefon", en: "Phone", es: "Teléfono", fr: "Téléphone", it: "Telefono", pt: "Telefone" };
+  const emailLabels: Record<string, string> = { de: "E-Mail", en: "Email", es: "Correo electrónico", fr: "E-mail", it: "E-mail", pt: "E-mail" };
+  const phoneLabel = phoneLabels[l] ?? phoneLabels.de;
+  const emailLabel = emailLabels[l] ?? emailLabels.de;
   const contactBlock = (
     <p>
       {phoneLabel}: <a href={contact.phoneHref}>{contact.phone}</a>
@@ -107,6 +110,101 @@ export default function ImpressumPage({ params }: { params: { locale: string } }
           </p>
           <p className="text-sm text-steel-500">
             Last updated: <em>[add date on publication]</em>
+          </p>
+        </>
+      ) : l === "fr" ? (
+        <>
+          <h2>Coordonnées du prestataire</h2>
+          {address}
+          <h2>Personne autorisée à représenter</h2>
+          <p>{contact.person}, Gérant</p>
+          <h2>Contact</h2>
+          {contactBlock}
+          <h2>Registre du commerce / IDE</h2>
+          <p>
+            Inscription au registre du commerce : <em>[ajouter le numéro IDE / de registre du commerce]</em>
+            <br />
+            Numéro de TVA : <em>[ajouter le numéro de TVA, le cas échéant]</em>
+          </p>
+          <h2>Clause de non-responsabilité</h2>
+          <p>
+            Les contenus de ce site web ont été élaborés avec le plus grand soin.
+            Toutefois, aucune garantie n'est donnée quant à l'exactitude,
+            l'exhaustivité et l'actualité des contenus. Les exploitants des liens
+            externes sont seuls responsables de leurs contenus.
+          </p>
+          <h2>Droit d'auteur</h2>
+          <p>
+            Les contenus publiés sur ce site web sont soumis au droit d'auteur
+            suisse. Toute utilisation en dehors des limites du droit d'auteur
+            nécessite l'accord écrit préalable de l'auteur respectif.
+          </p>
+          <p className="text-sm text-steel-500">
+            Dernière mise à jour : <em>[ajouter la date lors de la publication]</em>
+          </p>
+        </>
+      ) : l === "it" ? (
+        <>
+          <h2>Dati del prestatore</h2>
+          {address}
+          <h2>Persona autorizzata a rappresentare</h2>
+          <p>{contact.person}, Amministratore</p>
+          <h2>Contatto</h2>
+          {contactBlock}
+          <h2>Registro di commercio / IDI</h2>
+          <p>
+            Iscrizione al registro di commercio: <em>[aggiungere il numero IDI / di registro di commercio]</em>
+            <br />
+            Numero IVA: <em>[aggiungere il numero IVA, se disponibile]</em>
+          </p>
+          <h2>Esclusione di responsabilità</h2>
+          <p>
+            I contenuti di questo sito web sono stati elaborati con la massima
+            cura. Tuttavia, non si assume alcuna garanzia per l'esattezza, la
+            completezza e l'attualità dei contenuti. Dei contenuti dei link
+            esterni sono responsabili esclusivamente i rispettivi gestori.
+          </p>
+          <h2>Diritto d'autore</h2>
+          <p>
+            I contenuti pubblicati su questo sito web sono soggetti al diritto
+            d'autore svizzero. Qualsiasi utilizzo al di fuori dei limiti del
+            diritto d'autore richiede il previo consenso scritto del rispettivo
+            autore.
+          </p>
+          <p className="text-sm text-steel-500">
+            Ultimo aggiornamento: <em>[aggiungere la data alla pubblicazione]</em>
+          </p>
+        </>
+      ) : l === "pt" ? (
+        <>
+          <h2>Dados do prestador</h2>
+          {address}
+          <h2>Pessoa autorizada a representar</h2>
+          <p>{contact.person}, Gerente</p>
+          <h2>Contacto</h2>
+          {contactBlock}
+          <h2>Registo comercial / UID</h2>
+          <p>
+            Inscrição no registo comercial: <em>[adicionar número UID / de registo comercial]</em>
+            <br />
+            Número de IVA: <em>[adicionar número de IVA, se existir]</em>
+          </p>
+          <h2>Exclusão de responsabilidade</h2>
+          <p>
+            Os conteúdos deste site foram elaborados com o maior cuidado possível.
+            No entanto, não se assume qualquer garantia quanto à exatidão,
+            integridade e atualidade dos conteúdos. Pelos conteúdos das ligações
+            externas são exclusivamente responsáveis os respetivos operadores.
+          </p>
+          <h2>Direitos de autor</h2>
+          <p>
+            Os conteúdos publicados neste site estão sujeitos à legislação suíça
+            de direitos de autor. Qualquer utilização fora dos limites dos
+            direitos de autor requer o consentimento prévio por escrito do
+            respetivo autor.
+          </p>
+          <p className="text-sm text-steel-500">
+            Última atualização: <em>[adicionar data na publicação]</em>
           </p>
         </>
       ) : (
