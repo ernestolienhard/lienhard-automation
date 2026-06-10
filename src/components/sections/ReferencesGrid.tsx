@@ -2,47 +2,42 @@
 
 import { useMemo, useState } from "react";
 import {
-  categoryLabels,
-  projects,
+  getCategoryLabels,
+  getProjects,
   type ProjectCategory,
 } from "@/content/references";
 import { ProjectCard } from "@/components/cards/ProjectCard";
 import { cn } from "@/lib/utils";
+import { useLocale } from "@/i18n/useLocale";
 
 type Filter = ProjectCategory | "alle";
 
-const filters: { value: Filter; label: string }[] = [
-  { value: "alle", label: "Alle Projekte" },
-  ...(Object.keys(categoryLabels) as ProjectCategory[]).map((c) => ({
-    value: c,
-    label: categoryLabels[c],
-  })),
-];
-
 export function ReferencesGrid() {
+  const locale = useLocale();
+  const en = locale === "en";
+  const projects = getProjects(locale);
+  const categoryLabels = getCategoryLabels(locale);
   const [active, setActive] = useState<Filter>("alle");
 
-  // Only show filters that actually have projects.
+  const filters: { value: Filter; label: string }[] = [
+    { value: "alle", label: en ? "All projects" : "Alle Projekte" },
+    ...(Object.keys(categoryLabels) as ProjectCategory[]).map((c) => ({
+      value: c,
+      label: categoryLabels[c],
+    })),
+  ];
+
   const available = useMemo(() => {
     const used = new Set(projects.map((p) => p.category));
-    return filters.filter((f) => f.value === "alle" || used.has(f.value));
-  }, []);
+    return filters.filter((f) => f.value === "alle" || used.has(f.value as ProjectCategory));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [locale]);
 
-  const visible = useMemo(
-    () =>
-      active === "alle"
-        ? projects
-        : projects.filter((p) => p.category === active),
-    [active],
-  );
+  const visible = active === "alle" ? projects : projects.filter((p) => p.category === active);
 
   return (
     <div>
-      <div
-        className="flex flex-wrap gap-2"
-        role="group"
-        aria-label="Projekte filtern"
-      >
+      <div className="flex flex-wrap gap-2" role="group" aria-label={en ? "Filter projects" : "Projekte filtern"}>
         {available.map((f) => {
           const isActive = active === f.value;
           return (

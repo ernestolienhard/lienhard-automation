@@ -1,14 +1,13 @@
 import { Section, SectionHeading } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { Hero } from "@/components/sections/Hero";
 import { ContactCta } from "@/components/sections/ContactCta";
 import { ReferencesCarousel } from "@/components/sections/ReferencesCarousel";
 import { ServiceCard } from "@/components/cards/ServiceCard";
-import { services, advantages } from "@/content/services";
-import { technologies } from "@/content/technologies";
-import { projects } from "@/content/references";
+import { getServices, getAdvantages } from "@/content/services";
+import { getTechnologies } from "@/content/technologies";
+import { getProjects } from "@/content/references";
 import { siteConfig } from "@/lib/site";
 import {
   ArrowRight,
@@ -36,21 +35,86 @@ const advantageIcons = [
   <Workflow key="5" className="h-5 w-5" />,
 ];
 
-export default function HomePage() {
-  const featuredProjects = projects.slice(0, 6);
+const T = {
+  de: {
+    servicesEyebrow: "Leistungen",
+    servicesTitle: "Automatisierung aus einer Hand",
+    servicesLead: "Beratung, Planung, Projektierung und Umsetzung steuerungstechnischer Prozesse im industriellen Maschinen- und Anlagenbau.",
+    allServices: "Alle Leistungen ansehen",
+    advEyebrow: "Ihre Vorteile",
+    advTitle: "Warum Lienhard Automation",
+    advLead: "Verlässlich, präzise und unabhängig – über die Inbetriebnahme hinaus.",
+    techEyebrow: "Technologie-Kompetenz",
+    techTitle: "Steuerungs-, Leit- & Kommunikationstechnik",
+    techLead: "Tiefe Siemens-Expertise: SIMATIC STEP 7 Classic, TIA Portal und PCS 7, Visualisierung mit WinCC Unified und WinCC OA sowie durchgängige Kommunikation über OPC UA, Modbus, PROFINET und PROFIBUS.",
+    refEyebrow: "Referenzen",
+    refTitle: "Ausgewählte Projekte",
+    refLead: "Über 25 Jahre Projekterfahrung im internationalen Umfeld.",
+    allRefs: "Alle Referenzen",
+    aboutEyebrow: "Über mich",
+    aboutTitle: "Erfahrung, die Anlagen zuverlässig zum Laufen bringt",
+    aboutText: `Ich bin ${siteConfig.contact.person}, Techniker HF Automation, mit über 25 Jahren Erfahrung in Montage und Automation – davon über 10 Jahre mehrheitlich im Ausland, auf fünf Kontinenten. Projekte realisiere ich in der Schweiz und weltweit – mit einem starken Partnernetzwerk in Europa und Amerika.`,
+    statYears: "Jahre Erfahrung",
+    statPartners: "Partnerunternehmen",
+    statContinents: "Kontinente",
+    aboutCta: "Über mich",
+    imgPlaceholder: "Bildplatzhalter · Team / Anlage",
+    imgNote: "Hier wird ein vom Kunden bereitgestelltes Foto eingesetzt.",
+    factLocation: "Standort",
+    factArea: "Einsatzgebiet",
+    factAreaValue: "Schweiz & weltweit",
+    factFocus: "Schwerpunkt",
+    factFocusValue: "SPS-Engineering & Projektierung",
+    locationValue: `${siteConfig.contact.city}, ${siteConfig.contact.country}`,
+  },
+  en: {
+    servicesEyebrow: "Services",
+    servicesTitle: "Automation from a single source",
+    servicesLead: "Consulting, planning, project engineering and implementation of control processes in industrial machine and plant engineering.",
+    allServices: "View all services",
+    advEyebrow: "Your benefits",
+    advTitle: "Why Lienhard Automation",
+    advLead: "Reliable, precise and independent – beyond commissioning.",
+    techEyebrow: "Technology expertise",
+    techTitle: "Control, supervisory & communication technology",
+    techLead: "Deep Siemens expertise: SIMATIC STEP 7 Classic, TIA Portal and PCS 7, visualization with WinCC Unified and WinCC OA, and seamless communication via OPC UA, Modbus, PROFINET and PROFIBUS.",
+    refEyebrow: "References",
+    refTitle: "Selected projects",
+    refLead: "Over 25 years of project experience in an international environment.",
+    allRefs: "All references",
+    aboutEyebrow: "About me",
+    aboutTitle: "Experience that gets plants running reliably",
+    aboutText: `I am ${siteConfig.contact.person}, Technician HF Automation, with over 25 years of experience in installation and automation – more than 10 of them mostly abroad, on five continents. I realize projects in Switzerland and worldwide – with a strong partner network in Europe and the Americas.`,
+    statYears: "Years of experience",
+    statPartners: "Partner companies",
+    statContinents: "Continents",
+    aboutCta: "About me",
+    imgPlaceholder: "Image placeholder · team / plant",
+    imgNote: "A photo provided by the client will be placed here.",
+    factLocation: "Location",
+    factArea: "Area of operation",
+    factAreaValue: "Switzerland & worldwide",
+    factFocus: "Focus",
+    factFocusValue: "PLC engineering & project planning",
+    locationValue: "Zurich, Switzerland",
+  },
+};
+
+export default function HomePage({ params }: { params: { locale: string } }) {
+  const locale = params.locale === "en" ? "en" : "de";
+  const t = T[locale];
+  const services = getServices(locale);
+  const advantages = getAdvantages(locale);
+  const technologies = getTechnologies(locale);
+  const featuredProjects = getProjects(locale).slice(0, 6);
 
   return (
     <>
-      {/* 1 — Hero */}
-      <Hero />
+      <Hero locale={locale} />
 
-      {/* 3 — Services overview */}
+      {/* Services overview */}
       <Section tone="light">
-        <SectionHeading
-          eyebrow="Leistungen"
-          title="Automatisierung aus einer Hand"
-          lead="Beratung, Planung, Projektierung und Umsetzung steuerungstechnischer Prozesse im industriellen Maschinen- und Anlagenbau."
-        />
+        <SectionHeading eyebrow={t.servicesEyebrow} title={t.servicesTitle} lead={t.servicesLead} />
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {services.map((service, i) => (
             <Reveal key={service.slug} delay={i * 0.08}>
@@ -66,18 +130,14 @@ export default function HomePage() {
         </div>
         <div className="mt-10">
           <ButtonLink href="/leistungen" variant="ghost">
-            Alle Leistungen ansehen <ArrowRight className="h-4 w-4" />
+            {t.allServices} <ArrowRight className="h-4 w-4" />
           </ButtonLink>
         </div>
       </Section>
 
-      {/* 4 — Why choose Lienhard Automation */}
+      {/* Advantages */}
       <Section tone="muted">
-        <SectionHeading
-          eyebrow="Ihre Vorteile"
-          title="Warum Lienhard Automation"
-          lead="Verlässlich, präzise und unabhängig – über die Inbetriebnahme hinaus."
-        />
+        <SectionHeading eyebrow={t.advEyebrow} title={t.advTitle} lead={t.advLead} />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {advantages.map((adv, i) => (
             <Reveal key={adv.title} delay={(i % 3) * 0.06}>
@@ -87,9 +147,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="font-bold text-navy-900">{adv.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-steel-600">
-                    {adv.description}
-                  </p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-steel-600">{adv.description}</p>
                 </div>
               </div>
             </Reveal>
@@ -97,14 +155,9 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* 5 — Technology expertise */}
+      {/* Technology expertise */}
       <Section tone="dark">
-        <SectionHeading
-          eyebrow="Technologie-Kompetenz"
-          title="Steuerungs-, Leit- & Kommunikationstechnik"
-          lead="Tiefe Siemens-Expertise: SIMATIC STEP 7 Classic, TIA Portal und PCS 7, Visualisierung mit WinCC Unified und WinCC OA sowie durchgängige Kommunikation über OPC UA, Modbus, PROFINET und PROFIBUS."
-          onDark
-        />
+        <SectionHeading eyebrow={t.techEyebrow} title={t.techTitle} lead={t.techLead} onDark />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {technologies.map((tech, i) => (
             <Reveal key={tech.vendor} delay={(i % 3) * 0.06}>
@@ -112,10 +165,7 @@ export default function HomePage() {
                 <h3 className="font-bold text-white">{tech.vendor}</h3>
                 <ul className="mt-3 flex flex-wrap gap-2">
                   {tech.items.map((item) => (
-                    <li
-                      key={item}
-                      className="rounded-md border border-navy-600 bg-navy-900/60 px-2.5 py-1 text-xs font-medium text-steel-300"
-                    >
+                    <li key={item} className="rounded-md border border-navy-600 bg-navy-900/60 px-2.5 py-1 text-xs font-medium text-steel-300">
                       {item}
                     </li>
                   ))}
@@ -126,16 +176,12 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* 6 — References preview */}
+      {/* References preview */}
       <Section tone="light">
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <SectionHeading
-            eyebrow="Referenzen"
-            title="Ausgewählte Projekte"
-            lead="Über 25 Jahre Projekterfahrung im internationalen Umfeld."
-          />
+          <SectionHeading eyebrow={t.refEyebrow} title={t.refTitle} lead={t.refLead} />
           <ButtonLink href="/referenzen" variant="ghost" className="shrink-0">
-            Alle Referenzen <ArrowRight className="h-4 w-4" />
+            {t.allRefs} <ArrowRight className="h-4 w-4" />
           </ButtonLink>
         </div>
         <div className="mt-12">
@@ -143,62 +189,45 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* 7 — About preview */}
+      {/* About preview */}
       <Section tone="muted">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="eyebrow">Über mich</p>
+            <p className="eyebrow">{t.aboutEyebrow}</p>
             <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
-              Erfahrung, die Anlagen zuverlässig zum Laufen bringt
+              {t.aboutTitle}
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-steel-600">
-              Ich bin {siteConfig.contact.person}, Techniker HF Automation, mit
-              über 25 Jahren Erfahrung in Montage und Automation – davon über 10
-              Jahre mehrheitlich im Ausland, auf fünf Kontinenten. Projekte
-              realisiere ich in der Schweiz und weltweit – mit einem starken
-              Partnernetzwerk in Europa und Amerika.
-            </p>
+            <p className="mt-4 text-lg leading-relaxed text-steel-600">{t.aboutText}</p>
             <dl className="mt-8 grid grid-cols-3 gap-6">
               <div>
                 <dt className="text-3xl font-bold text-accent-600">25+</dt>
-                <dd className="mt-1 text-sm text-steel-600">Jahre Erfahrung</dd>
+                <dd className="mt-1 text-sm text-steel-600">{t.statYears}</dd>
               </div>
               <div>
                 <dt className="text-3xl font-bold text-accent-600">5</dt>
-                <dd className="mt-1 text-sm text-steel-600">
-                  Partnerunternehmen
-                </dd>
+                <dd className="mt-1 text-sm text-steel-600">{t.statPartners}</dd>
               </div>
               <div>
                 <dt className="text-3xl font-bold text-accent-600">5</dt>
-                <dd className="mt-1 text-sm text-steel-600">Kontinente</dd>
+                <dd className="mt-1 text-sm text-steel-600">{t.statContinents}</dd>
               </div>
             </dl>
             <div className="mt-8">
               <ButtonLink href="/unternehmen" variant="secondary">
-                Über mich <ArrowRight className="h-4 w-4" />
+                {t.aboutCta} <ArrowRight className="h-4 w-4" />
               </ButtonLink>
             </div>
           </div>
 
-          {/* Visual placeholder — replace with a real photo when available */}
           <div className="relative">
             <div className="aspect-[4/3] overflow-hidden rounded-xl2 border border-steel-200 bg-navy-900">
-              <div
-                aria-hidden
-                className="h-full w-full bg-grid-navy [background-size:28px_28px]"
-              />
+              <div aria-hidden className="h-full w-full bg-grid-navy [background-size:28px_28px]" />
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center">
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-accent-600 text-white">
                   <Globe className="h-7 w-7" />
                 </div>
-                <p className="text-sm font-medium text-steel-300">
-                  {/* ASSET PLACEHOLDER */}
-                  Bildplatzhalter · Team / Anlage
-                </p>
-                <p className="max-w-[14rem] text-xs text-steel-500">
-                  Hier wird ein vom Kunden bereitgestelltes Foto eingesetzt.
-                </p>
+                <p className="text-sm font-medium text-steel-300">{t.imgPlaceholder}</p>
+                <p className="max-w-[14rem] text-xs text-steel-500">{t.imgNote}</p>
               </div>
             </div>
           </div>
@@ -209,33 +238,16 @@ export default function HomePage() {
       <Section tone="light" className="!py-14">
         <div className="grid gap-6 sm:grid-cols-3">
           {[
-            {
-              icon: <Building className="h-5 w-5" />,
-              label: "Standort",
-              value: `${siteConfig.contact.city}, ${siteConfig.contact.country}`,
-            },
-            {
-              icon: <Globe className="h-5 w-5" />,
-              label: "Einsatzgebiet",
-              value: "Schweiz & weltweit",
-            },
-            {
-              icon: <Workflow className="h-5 w-5" />,
-              label: "Schwerpunkt",
-              value: "SPS-Engineering & Projektierung",
-            },
+            { icon: <Building className="h-5 w-5" />, label: t.factLocation, value: t.locationValue },
+            { icon: <Globe className="h-5 w-5" />, label: t.factArea, value: t.factAreaValue },
+            { icon: <Workflow className="h-5 w-5" />, label: t.factFocus, value: t.factFocusValue },
           ].map((item) => (
-            <div
-              key={item.label}
-              className="flex items-center gap-4 rounded-xl2 border border-steel-200 bg-steel-50 p-5"
-            >
+            <div key={item.label} className="flex items-center gap-4 rounded-xl2 border border-steel-200 bg-steel-50 p-5">
               <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-white text-accent-600 shadow-sm">
                 {item.icon}
               </div>
               <div>
-                <p className="text-xs uppercase tracking-wide text-steel-500">
-                  {item.label}
-                </p>
+                <p className="text-xs uppercase tracking-wide text-steel-500">{item.label}</p>
                 <p className="font-semibold text-navy-900">{item.value}</p>
               </div>
             </div>
@@ -243,7 +255,6 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* 8 — Contact CTA */}
       <ContactCta />
     </>
   );

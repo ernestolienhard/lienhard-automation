@@ -1,7 +1,11 @@
-import { categoryLabels, type Project } from "@/content/references";
+"use client";
+
+import { getCategoryLabels, type Project } from "@/content/references";
 import { MapPin } from "@/components/ui/icons";
+import { useLocale } from "@/i18n/useLocale";
 
 export function ProjectCard({ project }: { project: Project }) {
+  const categoryLabels = getCategoryLabels(useLocale());
   return (
     <article className="flex h-full flex-col rounded-xl2 border border-steel-200 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
       <div className="flex items-center justify-between gap-3">
