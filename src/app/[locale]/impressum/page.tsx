@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/layout/LegalPage";
-import { siteConfig, getLegalName } from "@/lib/site";
+import { siteConfig, getLegalName, getVatNumber } from "@/lib/site";
 import { pageLocale } from "@/i18n/config";
 
 export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
@@ -39,6 +39,8 @@ export default function ImpressumPage({ params }: { params: { locale: string } }
   const emailLabels: Record<string, string> = { de: "E-Mail", en: "Email", es: "Correo electrónico", fr: "E-mail", it: "E-mail", pt: "E-mail" };
   const phoneLabel = phoneLabels[l] ?? phoneLabels.de;
   const emailLabel = emailLabels[l] ?? emailLabels.de;
+  const uid = siteConfig.registration.uid;
+  const vat = getVatNumber(l);
   const contactBlock = (
     <p>
       {phoneLabel}: <a href={contact.phoneHref}>{contact.phone}</a>
@@ -59,9 +61,13 @@ export default function ImpressumPage({ params }: { params: { locale: string } }
           {contactBlock}
           <h2>Registro mercantil / UID</h2>
           <p>
-            Inscripción en el registro mercantil: <em>[añadir número UID / de registro mercantil]</em>
-            <br />
-            Número de IVA: <em>[añadir número de IVA, si lo hay]</em>
+            Inscripción en el registro mercantil (Registro Mercantil del Cantón de Zúrich): {uid}
+            {vat ? (
+              <>
+                <br />
+                Número de IVA: {vat}
+              </>
+            ) : null}
           </p>
           <h2>Exención de responsabilidad</h2>
           <p>
@@ -91,9 +97,13 @@ export default function ImpressumPage({ params }: { params: { locale: string } }
           {contactBlock}
           <h2>Commercial register / UID</h2>
           <p>
-            Commercial register entry: <em>[add UID / commercial register number]</em>
-            <br />
-            VAT number: <em>[add VAT number, if available]</em>
+            Commercial register entry (Commercial Registry Office of the Canton of Zurich): {uid}
+            {vat ? (
+              <>
+                <br />
+                VAT number: {vat}
+              </>
+            ) : null}
           </p>
           <h2>Disclaimer</h2>
           <p>
@@ -122,9 +132,13 @@ export default function ImpressumPage({ params }: { params: { locale: string } }
           {contactBlock}
           <h2>Registre du commerce / IDE</h2>
           <p>
-            Inscription au registre du commerce : <em>[ajouter le numéro IDE / de registre du commerce]</em>
-            <br />
-            Numéro de TVA : <em>[ajouter le numéro de TVA, le cas échéant]</em>
+            Inscription au registre du commerce (Office du registre du commerce du canton de Zurich) : {uid}
+            {vat ? (
+              <>
+                <br />
+                Numéro de TVA : {vat}
+              </>
+            ) : null}
           </p>
           <h2>Clause de non-responsabilité</h2>
           <p>
@@ -153,9 +167,13 @@ export default function ImpressumPage({ params }: { params: { locale: string } }
           {contactBlock}
           <h2>Registro di commercio / IDI</h2>
           <p>
-            Iscrizione al registro di commercio: <em>[aggiungere il numero IDI / di registro di commercio]</em>
-            <br />
-            Numero IVA: <em>[aggiungere il numero IVA, se disponibile]</em>
+            Iscrizione al registro di commercio (Ufficio del registro di commercio del Cantone di Zurigo): {uid}
+            {vat ? (
+              <>
+                <br />
+                Numero IVA: {vat}
+              </>
+            ) : null}
           </p>
           <h2>Esclusione di responsabilità</h2>
           <p>
@@ -185,9 +203,13 @@ export default function ImpressumPage({ params }: { params: { locale: string } }
           {contactBlock}
           <h2>Registo comercial / UID</h2>
           <p>
-            Inscrição no registo comercial: <em>[adicionar número UID / de registo comercial]</em>
-            <br />
-            Número de IVA: <em>[adicionar número de IVA, se existir]</em>
+            Inscrição no registo comercial (Conservatória do Registo Comercial do Cantão de Zurique): {uid}
+            {vat ? (
+              <>
+                <br />
+                Número de IVA: {vat}
+              </>
+            ) : null}
           </p>
           <h2>Exclusão de responsabilidade</h2>
           <p>
@@ -217,9 +239,13 @@ export default function ImpressumPage({ params }: { params: { locale: string } }
           {contactBlock}
           <h2>Handelsregister / UID</h2>
           <p>
-            Handelsregistereintrag: <em>[UID-Nummer / Handelsregister-Nummer ergänzen]</em>
-            <br />
-            Mehrwertsteuernummer: <em>[MWST-Nummer ergänzen, falls vorhanden]</em>
+            Handelsregistereintrag (Handelsregisteramt des Kantons Zürich): {uid}
+            {vat ? (
+              <>
+                <br />
+                Mehrwertsteuernummer: {vat}
+              </>
+            ) : null}
           </p>
           <h2>Haftungsausschluss</h2>
           <p>

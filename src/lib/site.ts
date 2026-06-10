@@ -25,6 +25,12 @@ export const siteConfig = {
     phoneHref: "tel:+41797011821",
     email: "info@lienhard-automation.ch",
   },
+  /** Commercial register identifier (UID). VAT number is derived from it. */
+  registration: {
+    uid: "CHE-459.098.587",
+    /** Set to false if the company is not registered for VAT (hides the line). */
+    vatRegistered: true,
+  },
 } as const;
 
 /**
@@ -44,6 +50,22 @@ export const legalSuffix: Record<string, string> = {
 /** Full company name with the locale-appropriate legal-form suffix. */
 export function getLegalName(locale: string): string {
   return `${siteConfig.name} ${legalSuffix[locale] ?? legalSuffix.de}`;
+}
+
+/** Swiss VAT-number suffix per language (same number, language-specific tag). */
+const vatSuffix: Record<string, string> = {
+  de: "MWST",
+  en: "MWST",
+  es: "IVA",
+  fr: "TVA",
+  it: "IVA",
+  pt: "IVA",
+};
+
+/** VAT number in the locale-appropriate form, or null if not registered. */
+export function getVatNumber(locale: string): string | null {
+  if (!siteConfig.registration.vatRegistered) return null;
+  return `${siteConfig.registration.uid} ${vatSuffix[locale] ?? "MWST"}`;
 }
 
 /** Nav items reference a translation key (Dict.nav / Dict.legal) plus a path. */
