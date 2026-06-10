@@ -392,75 +392,187 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
         </>
       ) : (
         <>
+          <h2>1. Worum geht es in dieser Datenschutzerklärung?</h2>
           <p>
-            Der Schutz Ihrer persönlichen Daten ist mir ein wichtiges Anliegen.
-            Ich bearbeite Ihre Personendaten im Einklang mit dem schweizerischen
-            Datenschutzgesetz (DSG) sowie – soweit anwendbar – der
-            Datenschutz-Grundverordnung (DSGVO).
+            Die {getLegalName(l)} (nachfolgend «wir» oder «uns») bearbeitet
+            Personendaten, die Sie betreffen, wenn Sie diese Website besuchen, mit
+            uns über das Kontaktformular, per E-Mail oder Telefon in Kontakt treten
+            oder anderweitig mit uns zu tun haben. «Personendaten» sind alle
+            Angaben, die sich auf eine bestimmte oder bestimmbare Person beziehen;
+            «bearbeiten» meint jeden Umgang damit (z. B. Erheben, Speichern,
+            Verwenden, Bekanntgeben).
           </p>
-          <h2>1. Verantwortliche Stelle</h2>
-          {responsible}
-          <h2>2. Bearbeitung von Personendaten beim Besuch der Website</h2>
           <p>
-            Beim Aufruf dieser Website werden durch den Hosting-Provider (Vercel)
-            technisch notwendige Daten verarbeitet (z. B. IP-Adresse, Datum und
-            Uhrzeit des Zugriffs, Browsertyp). Diese Daten dienen dem sicheren und
-            stabilen Betrieb der Website und werden nicht mit anderen Datenquellen
-            zusammengeführt.
+            Diese Datenschutzerklärung ist sowohl am schweizerischen
+            Datenschutzgesetz (DSG) als auch – soweit anwendbar – an der
+            EU-Datenschutz-Grundverordnung (DSGVO) ausgerichtet. Ob und inwieweit
+            die DSGVO anwendbar ist, hängt vom Einzelfall ab.
           </p>
-          <h2>3. Kontaktformular</h2>
+
+          <h2>2. Wer ist für die Bearbeitung Ihrer Daten verantwortlich?</h2>
           <p>
-            Wenn Sie mir über das Kontaktformular eine Anfrage zukommen lassen,
-            werden die von Ihnen angegebenen Daten (Name, E-Mail-Adresse und
-            Nachricht) zur Bearbeitung Ihrer Anfrage gespeichert. Die Speicherung
-            erfolgt in einer Datenbank meines Dienstleisters Supabase. Ich gebe
-            diese Daten nicht ohne Ihre Einwilligung an Dritte weiter und verwende
-            sie ausschliesslich zur Beantwortung Ihrer Anfrage.
+            Verantwortlich für die Datenbearbeitung nach dieser Datenschutzerklärung
+            ist:
           </p>
-          <h2>4. Eingesetzte Dienstleister (Auftragsbearbeiter)</h2>
+          <p>
+            {getLegalName(l)}
+            <br />
+            {siteConfig.contact.person}
+            <br />
+            {contact.street}, {contact.postalCode} {contact.city}, {contact.country}
+            <br />
+            E-Mail: <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            <br />
+            Telefon: <a href={contact.phoneHref}>{contact.phone}</a>
+          </p>
+          <p>
+            Bei Fragen zum Datenschutz oder zur Ausübung Ihrer Rechte können Sie
+            sich jederzeit an diese Adresse wenden.
+          </p>
+
+          <h2>3. Welche Personendaten bearbeiten wir?</h2>
+          <p>Je nach Kontakt bearbeiten wir verschiedene Kategorien von Personendaten:</p>
           <ul>
-            <li><strong>Vercel Inc.</strong> – Hosting und Auslieferung der Website.</li>
-            <li><strong>Supabase</strong> – Speicherung von Kontaktanfragen.</li>
-            <li><em>[Weitere Dienste ergänzen, falls verwendet – z. B. Resend für E-Mail-Benachrichtigungen, Analyse-Tools etc.]</em></li>
+            <li>
+              <strong>Kommunikationsdaten:</strong> Wenn Sie uns über das
+              Kontaktformular, per E-Mail oder Telefon kontaktieren, bearbeiten wir
+              die von Ihnen angegebenen Daten – insbesondere Name, E-Mail-Adresse
+              und den Inhalt Ihrer Nachricht – sowie weitere Randdaten der
+              Kommunikation.
+            </li>
+            <li>
+              <strong>Technische Daten / Server-Logfiles:</strong> Beim Besuch der
+              Website übermittelt Ihr Browser aus technischen Gründen automatisch
+              Daten. Dazu gehören insbesondere die IP-Adresse, Datum und Uhrzeit
+              des Zugriffs, die aufgerufene Seite bzw. Datei, die übertragene
+              Datenmenge, Browsertyp und -version, das Betriebssystem sowie die
+              zuvor besuchte Seite (Referrer-URL). Aus diesen Daten können wir in
+              der Regel nicht auf Ihre Person schliessen.
+            </li>
           </ul>
-          <h3>Google Maps</h3>
           <p>
-            Auf der Kontaktseite ist eine Karte von Google Maps (Google Ireland
-            Limited, Irland) eingebunden. Beim Aufruf dieser Seite wird Ihre
-            IP-Adresse an Google übertragen, damit die Karte in Ihrem Browser
-            dargestellt werden kann. Wir haben darauf keinen Einfluss. Weitere
-            Informationen finden Sie in der Datenschutzerklärung von Google:{" "}
-            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.
+            Sie sind nicht verpflichtet, uns Personendaten bekanntzugeben. Bestimmte
+            Angaben sind jedoch erforderlich, damit wir Ihre Anfrage bearbeiten
+            können (z. B. im Kontaktformular).
           </p>
+
+          <h2>4. Zu welchen Zwecken bearbeiten wir Ihre Personendaten?</h2>
+          <p>Wir bearbeiten Personendaten insbesondere zu folgenden Zwecken:</p>
+          <ul>
+            <li>zur Beantwortung und Bearbeitung Ihrer Anfragen sowie zur Kontaktpflege;</li>
+            <li>zur Bereitstellung, zum sicheren und stabilen Betrieb sowie zur Optimierung dieser Website;</li>
+            <li>zur Gewährleistung der IT-Sicherheit und zur Abwehr von Missbrauch (z. B. Auswertung von Log-Daten bei konkretem Verdacht);</li>
+            <li>zur Einhaltung gesetzlicher Pflichten und zur Wahrung unserer berechtigten Interessen (z. B. Durchsetzung oder Abwehr von Rechtsansprüchen).</li>
+          </ul>
+          <p>
+            Wir verwenden Ihre Daten nicht für Werbung, erstellen keine
+            Persönlichkeitsprofile und betreiben kein Tracking.
+          </p>
+
           <h2>5. Cookies</h2>
           <p>
-            Diese Website verwendet derzeit nur technisch notwendige Cookies.
-            Sollten zukünftig Analyse- oder Marketing-Cookies eingesetzt werden,
-            ist dieser Abschnitt entsprechend zu ergänzen und gegebenenfalls ein
-            Cookie-Banner einzubinden. <em>[Vom Kunden zu prüfen.]</em>
+            Diese Website verwendet ausschliesslich technisch notwendige Cookies,
+            die für den Betrieb und die Sicherheit der Website erforderlich sind
+            (z. B. zur Sprachauswahl). Wir setzen keine Analyse-, Tracking- oder
+            Marketing-Cookies ein. Sie können Cookies in Ihren Browsereinstellungen
+            einschränken oder löschen; die Website kann dann allenfalls nicht mehr
+            vollständig funktionieren.
           </p>
-          <h2>6. Ihre Rechte</h2>
+
+          <h2>6. An wen geben wir Daten weiter?</h2>
           <p>
-            Sie haben im Rahmen der gesetzlichen Vorgaben das Recht auf Auskunft,
-            Berichtigung, Löschung und Einschränkung der Bearbeitung Ihrer
-            Personendaten sowie das Recht auf Datenübertragbarkeit. Zur Ausübung
-            dieser Rechte genügt eine Mitteilung an die oben genannte
-            Kontaktadresse.
+            Für den Betrieb der Website und die Bearbeitung Ihrer Anfragen setzen
+            wir sorgfältig ausgewählte Dienstleister ein, die Personendaten in
+            unserem Auftrag und nach unseren Weisungen bearbeiten
+            (Auftragsbearbeiter):
           </p>
-          <h2>7. Aufbewahrung</h2>
+          <ul>
+            <li><strong>Vercel Inc.</strong> – Hosting und Auslieferung der Website (Server-Logfiles).</li>
+            <li><strong>Supabase</strong> – Speicherung der über das Kontaktformular übermittelten Anfragen.</li>
+            <li>
+              <strong>Google (Google Ireland Limited)</strong> – Darstellung der
+              eingebetteten Karte auf der Kontaktseite («Google Maps»). Beim Aufruf
+              der Kontaktseite wird Ihre IP-Adresse an Google übertragen, damit die
+              Karte dargestellt werden kann. Einzelheiten:{" "}
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.
+            </li>
+          </ul>
           <p>
-            Ich bewahre Personendaten nur so lange auf, wie dies für die genannten
-            Zwecke erforderlich ist oder gesetzliche Aufbewahrungsfristen es
-            verlangen.
+            Eine Weitergabe an weitere Empfänger (z. B. Behörden oder Gerichte)
+            erfolgt nur, soweit wir gesetzlich dazu verpflichtet oder berechtigt
+            sind oder Sie eingewilligt haben.
           </p>
-          <h2>8. Änderungen</h2>
+
+          <h2>7. Geben wir Personendaten ins Ausland bekannt?</h2>
           <p>
-            Ich behalte mir vor, diese Datenschutzerklärung anzupassen, damit sie
-            stets den aktuellen rechtlichen Anforderungen entspricht.
+            Einzelne der vorgenannten Dienstleister können Daten auch ausserhalb
+            der Schweiz und des EWR bearbeiten, insbesondere in den USA. Soweit ein
+            Land kein angemessenes Datenschutzniveau gewährleistet, stützen wir die
+            Übermittlung auf geeignete Garantien, insbesondere die
+            Standardvertragsklauseln der Europäischen Kommission bzw. die vom EDÖB
+            anerkannten Vertragsklauseln, oder auf eine andere gesetzlich zulässige
+            Grundlage (z. B. Ihre Einwilligung oder die Vertragsabwicklung).
           </p>
-          <p className="text-sm text-steel-500">
-            Stand: <em>[Datum bei Veröffentlichung ergänzen]</em>
+
+          <h2>8. Wie lange bewahren wir Personendaten auf?</h2>
+          <p>
+            Wir bearbeiten Personendaten nur so lange, wie es für die genannten
+            Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten es
+            verlangen. Kommunikationsdaten aus Anfragen bewahren wir auf, solange
+            dies zur Bearbeitung Ihres Anliegens und allfälliger Anschlussfragen
+            nötig ist. Server-Logfiles werden nur für eine begrenzte Zeit
+            gespeichert. Danach werden die Daten gelöscht oder anonymisiert, sofern
+            keine gesetzlichen oder vertraglichen Pflichten entgegenstehen.
           </p>
+
+          <h2>9. Auf welchen Rechtsgrundlagen beruht die Datenbearbeitung?</h2>
+          <p>
+            Nach schweizerischem Recht dürfen wir Personendaten bearbeiten, sofern
+            dies nach dem DSG zulässig ist. Soweit die DSGVO anwendbar ist, stützen
+            wir die Bearbeitung je nach Fall auf: Ihre Einwilligung (Art. 6 Abs. 1
+            lit. a DSGVO), die Erfüllung eines Vertrags oder vorvertraglicher
+            Massnahmen (Art. 6 Abs. 1 lit. b DSGVO), die Erfüllung rechtlicher
+            Pflichten (Art. 6 Abs. 1 lit. c DSGVO) oder unsere berechtigten
+            Interessen am sicheren Betrieb der Website und an der Beantwortung von
+            Anfragen (Art. 6 Abs. 1 lit. f DSGVO).
+          </p>
+
+          <h2>10. Wie schützen wir Ihre Daten?</h2>
+          <p>
+            Wir treffen angemessene technische und organisatorische
+            Sicherheitsmassnahmen, um Ihre Personendaten vor unberechtigtem
+            Zugriff, Verlust oder Missbrauch zu schützen (z. B. verschlüsselte
+            Übertragung via HTTPS). Ein vollständiger Schutz vor allen Risiken ist
+            allerdings nicht möglich; ein Restrisiko lässt sich nicht ausschliessen.
+          </p>
+
+          <h2>11. Welche Rechte haben Sie?</h2>
+          <p>
+            Im Rahmen des anwendbaren Datenschutzrechts haben Sie insbesondere das
+            Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der
+            Bearbeitung Ihrer Personendaten sowie das Recht auf
+            Datenübertragbarkeit. Soweit wir Daten auf Basis Ihrer Einwilligung
+            bearbeiten, können Sie diese jederzeit mit Wirkung für die Zukunft
+            widerrufen. Zur Ausübung dieser Rechte genügt eine Mitteilung an die
+            unter Ziffer 2 genannte Kontaktadresse; zur Identitätsprüfung können wir
+            einen Nachweis verlangen. Diese Rechte unterliegen gesetzlichen
+            Voraussetzungen und Einschränkungen.
+          </p>
+          <p>
+            Sie haben zudem das Recht, bei der zuständigen Aufsichtsbehörde
+            Beschwerde zu erheben. Zuständige Behörde in der Schweiz ist der
+            Eidgenössische Datenschutz- und Öffentlichkeitsbeauftragte (EDÖB),{" "}
+            <a href="https://www.edoeb.admin.ch" target="_blank" rel="noopener noreferrer">www.edoeb.admin.ch</a>.
+          </p>
+
+          <h2>12. Änderungen</h2>
+          <p>
+            Wir können diese Datenschutzerklärung jederzeit anpassen, damit sie
+            stets den aktuellen rechtlichen Anforderungen und unserer
+            Datenbearbeitung entspricht. Es gilt die jeweils auf dieser Website
+            veröffentlichte Fassung.
+          </p>
+          <p className="text-sm text-steel-500">Stand: Juni 2026</p>
         </>
       )}
     </LegalPage>
