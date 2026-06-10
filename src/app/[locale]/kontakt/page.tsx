@@ -221,16 +221,16 @@ export default function KontaktPage({
               </dl>
 
               <div className="mt-8 overflow-hidden rounded-xl2 border border-steel-200">
-                <div className="relative aspect-[16/10] bg-navy-900">
-                  <div aria-hidden className="h-full w-full bg-grid-navy [background-size:24px_24px]" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center">
-                    <MapPin className="h-7 w-7 text-accent-400" />
-                    <p className="text-sm font-medium text-steel-300">
-                      {contact.street}, {contact.postalCode} {contact.city}
-                    </p>
-                    <p className="max-w-xs text-xs text-steel-500">{t.mapNote}</p>
-                  </div>
-                </div>
+                <iframe
+                  title={`${siteConfig.legalName} – ${contact.street}, ${contact.postalCode} ${contact.city}`}
+                  src={`https://maps.google.com/maps?q=${encodeURIComponent(
+                    `${contact.street}, ${contact.postalCode} ${contact.city}, ${contact.country}`,
+                  )}&z=16&output=embed`}
+                  className="block aspect-[16/10] w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
               </div>
             </div>
 

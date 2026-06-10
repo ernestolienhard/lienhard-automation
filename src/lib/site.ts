@@ -17,7 +17,7 @@ export const siteConfig = {
   contact: {
     person: "Ernesto Lienhard",
     role: "Geschäftsführer · Techniker HF Automation",
-    street: "Feilagerstrasse 71",
+    street: "Freilagerstrasse 71",
     postalCode: "8047",
     city: "Zürich",
     country: "Schweiz",
