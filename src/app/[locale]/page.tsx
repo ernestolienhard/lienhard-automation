@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
@@ -345,15 +346,14 @@ export default function HomePage({ params }: { params: { locale: string } }) {
           </div>
 
           <div className="relative">
-            <div className="aspect-[4/3] overflow-hidden rounded-xl2 border border-steel-200 bg-navy-900">
-              <div aria-hidden className="h-full w-full bg-grid-navy [background-size:28px_28px]" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-accent-600 text-white">
-                  <Globe className="h-7 w-7" />
-                </div>
-                <p className="text-sm font-medium text-steel-300">{t.imgPlaceholder}</p>
-                <p className="max-w-[14rem] text-xs text-steel-500">{t.imgNote}</p>
-              </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl2 border border-steel-200 bg-navy-900 shadow-card">
+              <Image
+                src="/images/ernesto-lienhard.png"
+                alt={siteConfig.contact.person}
+                fill
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                className="object-cover object-[50%_18%]"
+              />
             </div>
           </div>
         </div>

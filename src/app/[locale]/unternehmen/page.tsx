@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
@@ -13,7 +14,6 @@ import {
   ShieldCheck,
   Globe,
   GraduationCap,
-  Users,
   MapPin,
   Check,
   Network,
@@ -330,15 +330,15 @@ export default function UnternehmenPage({ params }: { params: { locale: string }
       <Section tone="muted">
         <div className="grid items-center gap-12 lg:grid-cols-[1fr,1.3fr]">
           <div className="relative">
-            <div className="aspect-[4/5] overflow-hidden rounded-xl2 border border-steel-200 bg-navy-900">
-              <div aria-hidden className="h-full w-full bg-grid-navy [background-size:28px_28px]" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent-600 text-white">
-                  <Users className="h-7 w-7" />
-                </div>
-                <p className="text-sm font-medium text-steel-300">{t.portraitLabel}</p>
-                <p className="max-w-[14rem] text-xs text-steel-500">{t.portraitNote}</p>
-              </div>
+            <div className="relative aspect-[4/5] overflow-hidden rounded-xl2 border border-steel-200 bg-navy-900 shadow-card">
+              <Image
+                src="/images/ernesto-lienhard.png"
+                alt={`${siteConfig.contact.person} – ${t.role}`}
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover object-top"
+                priority
+              />
             </div>
           </div>
 
