@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { siteConfig } from "@/lib/site";
-import { isLocale } from "@/i18n/config";
+import { pageLocale } from "@/i18n/config";
 import { Mail, MapPin, Phone, Clock } from "@/components/ui/icons";
 
 type Content = {
@@ -22,7 +22,7 @@ type Content = {
   formIntro: string;
 };
 
-const C: Record<"de" | "en", Content> = {
+const C: Record<"de" | "en" | "es", Content> = {
   de: {
     metaTitle: "Kontakt",
     metaDesc:
@@ -63,6 +63,26 @@ const C: Record<"de" | "en", Content> = {
     formIntro:
       "Fill in the form – I usually reply within one working day.",
   },
+  es: {
+    metaTitle: "Contacto",
+    metaDesc:
+      "Contacte con Lienhard Automation GmbH en Zúrich. Solicite un proyecto, concierte una consulta o llame directamente: espero su mensaje.",
+    eyebrow: "Contacto",
+    h1: "Póngase en contacto",
+    subtitle:
+      "Descríbame su proyecto o concierte una consulta sin compromiso. Le responderé enseguida.",
+    role: "Director · Técnico HF en automatización",
+    labelAddress: "Dirección",
+    labelPhone: "Teléfono",
+    labelEmail: "Correo electrónico",
+    labelAvailability: "Disponibilidad",
+    availability: "Lu – Vi, con cita previa",
+    mapNote:
+      "Marcador de mapa: aquí se puede insertar un mapa de Google Maps u OpenStreetMap.",
+    formTitle: "Solicitar un proyecto",
+    formIntro:
+      "Rellene el formulario: normalmente respondo en un día laborable.",
+  },
 };
 
 const { contact } = siteConfig;
@@ -72,7 +92,7 @@ export function generateMetadata({
 }: {
   params: { locale: string };
 }): Metadata {
-  const t = params.locale === "en" ? C.en : C.de;
+  const t = C[pageLocale(params.locale)];
   return { title: t.metaTitle, description: t.metaDesc, alternates: { canonical: "/kontakt" } };
 }
 
@@ -81,7 +101,7 @@ export default function KontaktPage({
 }: {
   params: { locale: string };
 }) {
-  const t = isLocale(params.locale) && params.locale === "en" ? C.en : C.de;
+  const t = C[pageLocale(params.locale)];
 
   const details = [
     {

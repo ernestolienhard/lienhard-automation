@@ -12,15 +12,21 @@ import { useLocale } from "@/i18n/useLocale";
 
 type Filter = ProjectCategory | "alle";
 
+const ui = {
+  de: { all: "Alle Projekte", filter: "Projekte filtern" },
+  en: { all: "All projects", filter: "Filter projects" },
+  es: { all: "Todos los proyectos", filter: "Filtrar proyectos" },
+};
+
 export function ReferencesGrid() {
   const locale = useLocale();
-  const en = locale === "en";
+  const t = locale === "en" ? ui.en : locale === "es" ? ui.es : ui.de;
   const projects = getProjects(locale);
   const categoryLabels = getCategoryLabels(locale);
   const [active, setActive] = useState<Filter>("alle");
 
   const filters: { value: Filter; label: string }[] = [
-    { value: "alle", label: en ? "All projects" : "Alle Projekte" },
+    { value: "alle", label: t.all },
     ...(Object.keys(categoryLabels) as ProjectCategory[]).map((c) => ({
       value: c,
       label: categoryLabels[c],
@@ -37,7 +43,7 @@ export function ReferencesGrid() {
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2" role="group" aria-label={en ? "Filter projects" : "Projekte filtern"}>
+      <div className="flex flex-wrap gap-2" role="group" aria-label={t.filter}>
         {available.map((f) => {
           const isActive = active === f.value;
           return (

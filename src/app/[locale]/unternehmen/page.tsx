@@ -5,6 +5,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ContactCta } from "@/components/sections/ContactCta";
 import { getPartners } from "@/content/partners";
 import { getCareer, getAchievements } from "@/content/profile";
+import { pageLocale } from "@/i18n/config";
 import { siteConfig } from "@/lib/site";
 import {
   Cpu,
@@ -117,15 +118,56 @@ const T = {
     partnerTitle: "Stronger together",
     partnerLead: "My well-established network of partner companies in Switzerland, Europe and the USA – for projects of any size.",
   },
+  es: {
+    metaTitle: "Sobre mí",
+    metaDesc: "Sobre mí – Ernesto Lienhard, Técnico HF en automatización. Mi trayectoria, mis fortalezas en el mundo Siemens (STEP 7, TIA Portal, PCS 7, WinCC) y una red internacional de socios.",
+    eyebrow: "Sobre mí",
+    h1: "Sobre mí",
+    subtitle: "Soy su especialista en automatización Siemens en la construcción industrial de máquinas e instalaciones: SIMATIC STEP 7 Classic, TIA Portal y PCS 7, visualización con WinCC Unified y WinCC OA, y conectividad integral mediante OPC UA, PROFINET y PROFIBUS, del asesoramiento a la puesta en marcha.",
+    focusEyebrow: "Áreas de trabajo",
+    focusTitle: "Dónde están mis fortalezas",
+    focusAreas: [
+      { title: "Tecnología de control", text: "Tecnología de control y proceso para instalaciones industriales exigentes." },
+      { title: "Desarrollo de software de PLC", text: "Software de PLC eficaz y mantenible con una estructura clara y una arquitectura coherente." },
+      { title: "Comunicación e interfaces", text: "Conexión en red mediante Modbus RTU/TCP y OPC UA, incl. OPC UA GDS Push." },
+      { title: "Visualización de procesos", text: "Visualización de procesos y control de supervisión, especialmente sólido con WinCC Unified y WinCC OA." },
+      { title: "Migración y modernización", text: "Migración de controladores antiguos (S5 → S7 → TIA Portal) y modernización de WinCC flexible a WinCC Unified." },
+      { title: "Ingeniería de sistemas y formación", text: "Ingeniería de sistemas, así como formación e instrucción de sus empleados." },
+    ],
+    portraitLabel: `Retrato · ${siteConfig.contact.person}`,
+    portraitNote: "Marcador de imagen: a proporcionar por el cliente.",
+    mgmtEyebrow: "Dirección",
+    role: "Técnico HF en automatización",
+    bio1: "Con más de 25 años de experiencia en montaje, automatización y puesta en marcha, dirijo Lienhard Automation con profundidad técnica y visión internacional. Mi fortaleza está en el mundo Siemens: SIMATIC STEP 7 Classic, TIA Portal y PCS 7, programado en FUP, KOP, AWL y SCL, incl. controladores de seguridad.",
+    bio2: "En visualización y control de supervisión soy especialmente sólido con WinCC Unified y WinCC OA; la conexión en red limpia de las instalaciones la realizo mediante OPC UA, Modbus (RTU/TCP), PROFINET y PROFIBUS, del primer asesoramiento a la puesta en marcha in situ.",
+    bio3: "Durante más de diez años trabajé mayoritariamente en el extranjero, en cinco continentes, desde América del Norte y del Sur, pasando por toda Europa y África, hasta Asia (entre otros Japón). Estos valiosos años me aportaron mucho, tanto técnicamente como en el trato con las culturas más diversas: una auténtica ventaja para cualquier proyecto internacional.",
+    werdegangEyebrow: "Trayectoria",
+    werdegangTitle: "El camino profesional",
+    werdegangLead: "De electricista, pasando por la aviación, hasta la automatización industrial: más de 25 años de práctica técnica como base para soluciones fiables.",
+    erfolgeEyebrow: "Logros e hitos",
+    erfolgeTitle: "Lo que he logrado en más de 25 años",
+    erfolgeLead: "Una selección de proyectos implementados con éxito en el país y en el extranjero.",
+    valuesEyebrow: "Valores",
+    valuesTitle: "Aquello en lo que puede confiar",
+    values: [
+      { title: "Independencia del fabricante", text: "Recomendaciones independientes en interés de su instalación, no de un fabricante." },
+      { title: "Precisión", text: "Conceptos limpios, arquitectura de programa coherente, documentación trazable." },
+      { title: "Fiabilidad", text: "Cumplimiento de plazos y soporte más allá de la puesta en marcha." },
+      { title: "Experiencia internacional", text: "Proyectos y puestas en marcha en Europa, América del Norte y del Sur." },
+    ],
+    partnerEyebrow: "Red de socios",
+    partnerTitle: "Más fuertes juntos",
+    partnerLead: "Mi red consolidada de empresas asociadas en Suiza, Europa y EE. UU., para proyectos de cualquier tamaño.",
+  },
 };
 
 export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
-  const t = params.locale === "en" ? T.en : T.de;
+  const t = T[pageLocale(params.locale)];
   return { title: t.metaTitle, description: t.metaDesc, alternates: { canonical: "/unternehmen" } };
 }
 
 export default function UnternehmenPage({ params }: { params: { locale: string } }) {
-  const locale = params.locale === "en" ? "en" : "de";
+  const locale = pageLocale(params.locale);
   const t = T[locale];
   const career = getCareer(locale);
   const achievements = getAchievements(locale);

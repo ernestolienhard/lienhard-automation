@@ -16,10 +16,16 @@ const C = {
     text: "The requested page does not exist or has been moved.",
     home: "Back to home",
   },
+  es: {
+    title: "Página no encontrada",
+    text: "La página solicitada no existe o se ha movido.",
+    home: "Volver al inicio",
+  },
 };
 
 export default function NotFound() {
-  const t = useLocale() === "en" ? C.en : C.de;
+  const locale = useLocale();
+  const t = locale === "en" ? C.en : locale === "es" ? C.es : C.de;
   return (
     <section className="bg-navy-950 text-white">
       <Container className="flex min-h-[60vh] flex-col items-center justify-center py-24 text-center">

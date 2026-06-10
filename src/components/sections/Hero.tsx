@@ -25,10 +25,21 @@ const C = {
     ctaSecondary: "Our services",
     points: ["SIMATIC specialist", "WinCC Unified & WinCC OA", "Over 25 years of experience"],
   },
+  es: {
+    eyebrow: "Su especialista en automatización Siemens",
+    h1a: "Automation. ",
+    h1accent: "Engineering.",
+    h1b: " En todo el mundo.",
+    subtitle:
+      "Especializado en el mundo Siemens: SIMATIC STEP 7 Classic, TIA Portal y PCS 7, visualización con WinCC Unified y WinCC OA, y conectividad integral mediante OPC UA, PROFINET y PROFIBUS. De la programación a la puesta en marcha: con precisión y en todo el mundo.",
+    ctaPrimary: "Solicitar un proyecto",
+    ctaSecondary: "Nuestros servicios",
+    points: ["Especialista en SIMATIC", "WinCC Unified y WinCC OA", "Más de 25 años de experiencia"],
+  },
 };
 
 export function Hero({ locale }: { locale: string }) {
-  const t = locale === "en" ? C.en : C.de;
+  const t = locale === "en" ? C.en : locale === "es" ? C.es : C.de;
   return (
     <section className="relative overflow-hidden bg-navy-950 text-white">
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-navy [background-size:40px_40px]" />

@@ -8,6 +8,7 @@ import { ServiceCard } from "@/components/cards/ServiceCard";
 import { getServices, getAdvantages } from "@/content/services";
 import { getTechnologies } from "@/content/technologies";
 import { getProjects } from "@/content/references";
+import { pageLocale } from "@/i18n/config";
 import { siteConfig } from "@/lib/site";
 import {
   ArrowRight,
@@ -98,10 +99,41 @@ const T = {
     factFocusValue: "PLC engineering & project planning",
     locationValue: "Zurich, Switzerland",
   },
+  es: {
+    servicesEyebrow: "Servicios",
+    servicesTitle: "Automatización de un solo proveedor",
+    servicesLead: "Asesoramiento, planificación, ingeniería e implementación de procesos de control en la construcción industrial de máquinas e instalaciones.",
+    allServices: "Ver todos los servicios",
+    advEyebrow: "Sus ventajas",
+    advTitle: "Por qué Lienhard Automation",
+    advLead: "Fiable, preciso e independiente, más allá de la puesta en marcha.",
+    techEyebrow: "Competencia tecnológica",
+    techTitle: "Tecnología de control, supervisión y comunicación",
+    techLead: "Profunda experiencia Siemens: SIMATIC STEP 7 Classic, TIA Portal y PCS 7, visualización con WinCC Unified y WinCC OA, y comunicación integral mediante OPC UA, Modbus, PROFINET y PROFIBUS.",
+    refEyebrow: "Referencias",
+    refTitle: "Proyectos seleccionados",
+    refLead: "Más de 25 años de experiencia en proyectos en un entorno internacional.",
+    allRefs: "Todas las referencias",
+    aboutEyebrow: "Sobre mí",
+    aboutTitle: "Experiencia que hace funcionar las instalaciones de forma fiable",
+    aboutText: `Soy ${siteConfig.contact.person}, Técnico HF en automatización, con más de 25 años de experiencia en montaje y automatización, de los cuales más de 10 años mayoritariamente en el extranjero, en cinco continentes. Realizo proyectos en Suiza y en todo el mundo, con una sólida red de socios en Europa y América.`,
+    statYears: "Años de experiencia",
+    statPartners: "Empresas asociadas",
+    statContinents: "Continentes",
+    aboutCta: "Sobre mí",
+    imgPlaceholder: "Marcador de imagen · equipo / instalación",
+    imgNote: "Aquí se colocará una foto proporcionada por el cliente.",
+    factLocation: "Ubicación",
+    factArea: "Ámbito de actuación",
+    factAreaValue: "Suiza y todo el mundo",
+    factFocus: "Especialidad",
+    factFocusValue: "Ingeniería de PLC y planificación de proyectos",
+    locationValue: "Zúrich, Suiza",
+  },
 };
 
 export default function HomePage({ params }: { params: { locale: string } }) {
-  const locale = params.locale === "en" ? "en" : "de";
+  const locale = pageLocale(params.locale);
   const t = T[locale];
   const services = getServices(locale);
   const advantages = getAdvantages(locale);

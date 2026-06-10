@@ -54,11 +54,32 @@ const C = {
       message: "Please describe your request (at least 10 characters).",
     } as Record<FieldKey, string>,
   },
+  es: {
+    company: "Empresa (no rellenar)",
+    name: "Nombre",
+    email: "Correo electrónico",
+    message: "Mensaje",
+    messagePlaceholder: "Describa brevemente su proyecto o consulta…",
+    submit: "Enviar mensaje",
+    submitting: "Enviando…",
+    successTitle: "¡Gracias por su consulta!",
+    successText: "He recibido su mensaje y me pondré en contacto con usted lo antes posible.",
+    successAgain: "Enviar otro mensaje",
+    serverError: "No se pudo enviar el mensaje. Inténtelo de nuevo o escríbame directamente por correo electrónico.",
+    consentPre: "Al enviar, acepta el tratamiento de sus datos de acuerdo con mi ",
+    consentLink: "política de privacidad",
+    consentPost: ".",
+    errors: {
+      name: "Introduzca su nombre.",
+      email: "Introduzca una dirección de correo electrónico válida.",
+      message: "Describa su consulta (mín. 10 caracteres).",
+    } as Record<FieldKey, string>,
+  },
 };
 
 export function ContactForm() {
   const locale = useLocale();
-  const t = locale === "en" ? C.en : C.de;
+  const t = locale === "en" ? C.en : locale === "es" ? C.es : C.de;
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
   const [serverError, setServerError] = useState<string | null>(null);

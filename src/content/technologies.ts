@@ -1,6 +1,6 @@
 /**
  * Core competencies – control/process engineering, visualization and
- * industrial communication. Locale-aware (de/en).
+ * industrial communication. Locale-aware (de/en/es).
  */
 
 export type TechCategory = {
@@ -8,7 +8,10 @@ export type TechCategory = {
   items: string[];
 };
 
-const byLocale: Record<"de" | "en", TechCategory[]> = {
+type L = "de" | "en" | "es";
+const pick = (locale: string): L => (locale === "en" ? "en" : locale === "es" ? "es" : "de");
+
+const byLocale: Record<L, TechCategory[]> = {
   de: [
     {
       vendor: "Steuerungs- & Prozessleittechnik",
@@ -49,8 +52,28 @@ const byLocale: Record<"de" | "en", TechCategory[]> = {
       items: ["OPC UA", "Modbus RTU / TCP", "PROFINET", "PROFIBUS"],
     },
   ],
+  es: [
+    {
+      vendor: "Tecnología de control y proceso",
+      items: [
+        "SIMATIC STEP 7 Classic",
+        "SIMATIC PCS 7",
+        "TIA Portal",
+        "Programación en FUP, KOP, AWL y SCL",
+        "Safety / controladores de seguridad",
+      ],
+    },
+    {
+      vendor: "Visualización y SCADA",
+      items: ["WinCC Unified", "WinCC OA", "WinCC", "Visualización de procesos"],
+    },
+    {
+      vendor: "Comunicación e interfaces",
+      items: ["OPC UA", "Modbus RTU / TCP", "PROFINET", "PROFIBUS"],
+    },
+  ],
 };
 
 export function getTechnologies(locale: string): TechCategory[] {
-  return locale === "en" ? byLocale.en : byLocale.de;
+  return byLocale[pick(locale)];
 }

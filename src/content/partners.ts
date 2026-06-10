@@ -1,11 +1,14 @@
 /**
- * Partner network – locale-aware (de/en). Company names are kept; only the
+ * Partner network – locale-aware (de/en/es). Company names are kept; only the
  * country in the location is localized.
  */
 
 export type Partner = { name: string; location: string };
 
-const byLocale: Record<"de" | "en", Partner[]> = {
+type L = "de" | "en" | "es";
+const pick = (locale: string): L => (locale === "en" ? "en" : locale === "es" ? "es" : "de");
+
+const byLocale: Record<L, Partner[]> = {
   de: [
     { name: "Vonaarburg Engineering", location: "Meisterschwanden, Schweiz" },
     { name: "Buchmann Software", location: "Bülach, Schweiz" },
@@ -20,8 +23,15 @@ const byLocale: Record<"de" | "en", Partner[]> = {
     { name: "TECVIL SARL", location: "Neuve Eglise, France" },
     { name: "Eckardt Engineering", location: "Mühlhausen, Germany" },
   ],
+  es: [
+    { name: "Vonaarburg Engineering", location: "Meisterschwanden, Suiza" },
+    { name: "Buchmann Software", location: "Bülach, Suiza" },
+    { name: "TECVIL North America", location: "The Woodlands, Texas, EE. UU." },
+    { name: "TECVIL SARL", location: "Neuve Eglise, Francia" },
+    { name: "Eckardt Engineering", location: "Mühlhausen, Alemania" },
+  ],
 };
 
 export function getPartners(locale: string): Partner[] {
-  return locale === "en" ? byLocale.en : byLocale.de;
+  return byLocale[pick(locale)];
 }

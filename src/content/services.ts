@@ -1,5 +1,5 @@
 /**
- * Service content. Locale-aware (de/en); en falls back to de when not active.
+ * Service content. Locale-aware (de/en/es).
  */
 
 export type Service = {
@@ -11,8 +11,10 @@ export type Service = {
 };
 
 type Advantage = { title: string; description: string };
+type L = "de" | "en" | "es";
+const pick = (locale: string): L => (locale === "en" ? "en" : locale === "es" ? "es" : "de");
 
-const servicesByLocale: Record<"de" | "en", Service[]> = {
+const servicesByLocale: Record<L, Service[]> = {
   de: [
     {
       slug: "sps-engineering",
@@ -75,9 +77,40 @@ const servicesByLocale: Record<"de" | "en", Service[]> = {
       ],
     },
   ],
+  es: [
+    {
+      slug: "sps-engineering",
+      title: "Ingeniería de PLC",
+      tagline: "Tecnología de control independiente del fabricante",
+      description:
+        "Como proveedor de servicios independiente del fabricante, desarrollamos soluciones de software eficaces para todas las tareas de automatización, con una estructura clara y una arquitectura de programa coherente.",
+      features: [
+        "Asesoramiento e ingeniería independientes del fabricante",
+        "Concepto de instalación con arquitectura de programa coherente",
+        "Ingeniería según especificaciones del cliente",
+        "Generación automatizada de software de proyecto",
+        "Puesta en marcha virtual en el proceso en curso",
+        "Soporte, formación y puesta en marcha",
+      ],
+    },
+    {
+      slug: "projektierung",
+      title: "Planificación y dirección de proyectos",
+      tagline: "De la idea a la recepción final",
+      description:
+        "Desarrollamos conceptos de automatización a medida, con foco en una ejecución fluida durante la operación en curso, a lo largo de todas las fases del proyecto.",
+      features: [
+        "Asesoramiento, planificación, ingeniería e implementación",
+        "Conceptos para proyectos de control y automatización en todas las fases",
+        "Ejecución fluida durante la operación en curso",
+        "Planificación y dirección hasta la recepción final",
+        "Puestas en marcha nacionales e internacionales",
+      ],
+    },
+  ],
 };
 
-const advantagesByLocale: Record<"de" | "en", Advantage[]> = {
+const advantagesByLocale: Record<L, Advantage[]> = {
   de: [
     { title: "Produktneutrale Beratung", description: "Unabhängige Empfehlungen – wir wählen die Technik, die zu Ihrer Anlage passt, nicht zu einem Hersteller." },
     { title: "Flexible Terminplanung", description: "Wir richten uns nach Ihrem Betrieb – auch für Arbeiten im laufenden Prozess." },
@@ -94,11 +127,19 @@ const advantagesByLocale: Record<"de" | "en", Advantage[]> = {
     { title: "Service & maintenance", description: "Reliable support beyond commissioning – for maximum availability." },
     { title: "Retrofit", description: "Modernization of existing plants, incl. migration of legacy controllers (S5 → S7 → TIA Portal)." },
   ],
+  es: [
+    { title: "Asesoramiento independiente", description: "Recomendaciones independientes: elegimos la tecnología que conviene a su instalación, no a un fabricante." },
+    { title: "Planificación flexible", description: "Nos adaptamos a su operación, también para trabajos durante el proceso en curso." },
+    { title: "Programación y puesta en marcha", description: "Del concepto, pasando por la programación de PLC, hasta la puesta en marcha exitosa, de un solo proveedor." },
+    { title: "Formación e instrucción", description: "Capacitamos a su equipo para operar la instalación de forma segura y eficiente." },
+    { title: "Servicio y mantenimiento", description: "Soporte fiable más allá de la puesta en marcha, para una máxima disponibilidad." },
+    { title: "Retrofit", description: "Modernización de instalaciones existentes, incl. migración de controladores antiguos (S5 → S7 → TIA Portal)." },
+  ],
 };
 
 export function getServices(locale: string): Service[] {
-  return locale === "en" ? servicesByLocale.en : servicesByLocale.de;
+  return servicesByLocale[pick(locale)];
 }
 export function getAdvantages(locale: string): Advantage[] {
-  return locale === "en" ? advantagesByLocale.en : advantagesByLocale.de;
+  return advantagesByLocale[pick(locale)];
 }

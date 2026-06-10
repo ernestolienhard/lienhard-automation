@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { ContactCta } from "@/components/sections/ContactCta";
 import { ReferencesGrid } from "@/components/sections/ReferencesGrid";
 import { getReferenceHighlights, getCategoryLabels } from "@/content/references";
+import { pageLocale } from "@/i18n/config";
 
 const T = {
   de: {
@@ -34,15 +35,29 @@ const T = {
     ctaTitle: "Your project in good hands",
     ctaLead: "Talk to me about your requirements – I am happy to share further references from your industry.",
   },
+  es: {
+    metaTitle: "Referencias",
+    metaDesc: "Más de 25 años de experiencia internacional en proyectos: plantas de paquetería y logística (DHL, Correos de Suiza), proyectos de EDAR y aguas residuales, instalaciones siderúrgicas e industriales y retrofit, programación de PLC con TIA Portal y WinCC OA.",
+    eyebrow: "Referencias",
+    h1: "Proyectos y referencias",
+    intro: "Tras más de 25 años en el negocio de proyectos en un entorno internacional, miro atrás a numerosos proyectos exitosos y clientes satisfechos, desde depuradoras en Suiza hasta instalaciones industriales en ultramar.",
+    areasEyebrow: "Especialidades",
+    areasTitle: "Áreas de proyecto",
+    overviewEyebrow: "Resumen de proyectos",
+    overviewTitle: "Proyectos seleccionados",
+    overviewLead: "Filtre por área de proyecto. Más referencias a petición.",
+    ctaTitle: "Su proyecto en buenas manos",
+    ctaLead: "Hable conmigo sobre sus necesidades: con gusto comparto más referencias de su sector.",
+  },
 };
 
 export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
-  const t = params.locale === "en" ? T.en : T.de;
+  const t = T[pageLocale(params.locale)];
   return { title: t.metaTitle, description: t.metaDesc, alternates: { canonical: "/referenzen" } };
 }
 
 export default function ReferenzenPage({ params }: { params: { locale: string } }) {
-  const locale = params.locale === "en" ? "en" : "de";
+  const locale = pageLocale(params.locale);
   const t = T[locale];
   const highlights = getReferenceHighlights(locale);
   const categoryLabels = getCategoryLabels(locale);

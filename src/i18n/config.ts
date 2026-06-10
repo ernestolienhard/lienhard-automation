@@ -5,10 +5,15 @@ export const allLocales = ["de", "en", "es", "it", "pt"] as const;
 export type Locale = (typeof allLocales)[number];
 
 // Active locales — only these are routed, generated and shown in the switcher.
-// Add "es", "it", "pt" here to activate the dormant translations.
-export const locales = ["de", "en"] as const;
+// Add "it", "pt" here to activate the dormant translations.
+export const locales = ["de", "en", "es"] as const;
 
 export const defaultLocale: Locale = "de";
+
+/** Resolve a raw param to one of the fully translated page locales. */
+export function pageLocale(value: string): "de" | "en" | "es" {
+  return value === "en" || value === "es" ? value : "de";
+}
 
 /** Display names for the language switcher. */
 export const localeNames: Record<Locale, string> = {

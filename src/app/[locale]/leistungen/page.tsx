@@ -10,6 +10,7 @@ import { ProjectCard } from "@/components/cards/ProjectCard";
 import { getServices } from "@/content/services";
 import { getTechnologies } from "@/content/technologies";
 import { getProjects } from "@/content/references";
+import { pageLocale } from "@/i18n/config";
 import { siteConfig } from "@/lib/site";
 import {
   ArrowRight,
@@ -178,15 +179,78 @@ const T = {
     ctaTitle: "Ready for your next automation project?",
     ctaLead: "Contact me for a vendor-independent, no-obligation consultation – from the idea to commissioning.",
   },
+  es: {
+    metaTitle: "Servicios",
+    metaDesc: "Ingeniería de PLC, planificación y dirección de proyectos, puesta en marcha y retrofit, modernización de WinCC (WinCC Unified) y ciberseguridad: soluciones de automatización independientes del fabricante para la construcción industrial de máquinas e instalaciones.",
+    heroEyebrow: "Servicios",
+    heroH1a: "Todo para su automatización, ",
+    heroH1accent: "de un solo proveedor",
+    heroSubtitle: "Desde el asesoramiento, pasando por la ingeniería de PLC y la planificación de proyectos, hasta la puesta en marcha, la modernización y la ciberseguridad: Lienhard Automation acompaña sus proyectos en la construcción industrial de máquinas e instalaciones, de forma independiente del fabricante, precisa y en todo el mundo.",
+    ctaPrimary: "Solicitar un proyecto",
+    ctaSecondary: "Descubrir servicios",
+    heroPoints: ["Más de 25 años de experiencia", "Especialista en Siemens", "Suiza y todo el mundo"],
+    overviewEyebrow: "Visión general",
+    overviewTitle: "Nuestras áreas de servicio",
+    overviewLead: "Seis áreas que se complementan, incluidos dos temas especializados con foco propio.",
+    bereiche: [
+      { title: "Ingeniería de PLC", text: "Tecnología de control independiente del fabricante con una arquitectura de programa clara y coherente." },
+      { title: "Planificación y dirección de proyectos", text: "Asesoramiento, planificación e implementación a lo largo de todas las fases del proyecto, hasta la recepción final." },
+      { title: "Puesta en marcha", text: "Puesta en marcha virtual en el proceso en curso hasta la recepción final, en el país y en el extranjero." },
+      { title: "Retrofit y mantenimiento", text: "Modernización de instalaciones existentes, migración de controladores antiguos (S5 → S7 → TIA) y servicio." },
+      { title: "Modernización Unified", text: "Modernizar visualizaciones WinCC de WinCC flexible/Classic a WinCC Unified." },
+      { title: "Ciberseguridad", text: "Ciberseguridad industrial junto a socios de seguridad acreditados." },
+    ],
+    more: "Más información",
+    coreEyebrow: "En detalle",
+    coreTitle: "Servicios principales",
+    coreLead: "Mis dos servicios principales, con lo que hay concretamente detrás.",
+    inbTitle: "Puesta en marcha",
+    inbText: "Acompaño su instalación desde la puesta en marcha virtual en el proceso en curso hasta la recepción final exitosa, en el país y en el extranjero.",
+    inbItems: ["Puesta en marcha virtual en el proceso en curso", "Ejecución fluida durante la operación en curso", "Puestas en marcha nacionales e internacionales", "Acompañamiento hasta la recepción final"],
+    retroTitle: "Retrofit y mantenimiento",
+    retroText: "Modernización de instalaciones existentes y migración de controladores antiguos, para más disponibilidad, seguridad y eficiencia.",
+    retroItems: ["Migración de controladores antiguos (S5 → S7 → TIA Portal)", "Ampliaciones de software de instalaciones existentes", "Controladores de seguridad (Safety)", "Servicio y mantenimiento"],
+    techEyebrow: "Competencia tecnológica",
+    techTitle: "Tecnología de control, supervisión y comunicación",
+    techLead: "Profunda experiencia Siemens: SIMATIC STEP 7 Classic, TIA Portal y PCS 7, visualización con WinCC Unified y WinCC OA, y comunicación integral mediante OPC UA, Modbus, PROFINET y PROFIBUS.",
+    phasesEyebrow: "Cómo trabajo",
+    phasesTitle: "Su proyecto, paso a paso",
+    phasesLead: "Un proceso claro desde el primer asesoramiento hasta el soporte continuo.",
+    phases: [
+      { n: "01", title: "Asesoramiento y concepto", text: "Análisis de sus necesidades, recomendación independiente del fabricante y un concepto claro y viable." },
+      { n: "02", title: "Ingeniería y planificación", text: "Software de PLC con arquitectura coherente, visualización y documentación limpia." },
+      { n: "03", title: "Puesta en marcha", text: "Puesta en marcha virtual, pruebas en el proceso en curso y acompañamiento hasta la recepción final, en el país y en el extranjero." },
+      { n: "04", title: "Soporte y formación", text: "Incorporación de su equipo y soporte fiable más allá de la puesta en marcha." },
+    ],
+    aboutEyebrow: "Sobre mí",
+    aboutTitle: "Experiencia que hace funcionar las instalaciones de forma fiable",
+    aboutText: `Soy ${siteConfig.contact.person}, Técnico HF en automatización, con más de 25 años de experiencia en montaje, automatización y puesta en marcha, de los cuales más de 10 años mayoritariamente en el extranjero, en cinco continentes. Como especialista en Siemens, realizo proyectos en Suiza y en todo el mundo, con una sólida red de socios en Europa y América.`,
+    statYears: "Años de experiencia",
+    statPartners: "Empresas asociadas",
+    statContinents: "Continentes",
+    aboutCta: "Sobre mí",
+    aboutBullets: [
+      "Tecnología de control y proceso para instalaciones exigentes.",
+      "Software de PLC eficaz y mantenible con una estructura clara.",
+      "Visualización y control de supervisión con WinCC Unified y WinCC OA.",
+      "Puestas en marcha internacionales en Europa, América del Norte y del Sur.",
+    ],
+    refEyebrow: "Referencias",
+    refTitle: "Proyectos seleccionados",
+    refLead: "Más de 25 años de experiencia en proyectos en un entorno internacional.",
+    allRefs: "Todas las referencias",
+    ctaTitle: "¿Listo para su próximo proyecto de automatización?",
+    ctaLead: "Contácteme para un asesoramiento independiente del fabricante y sin compromiso, de la idea a la puesta en marcha.",
+  },
 };
 
 export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
-  const t = params.locale === "en" ? T.en : T.de;
+  const t = T[pageLocale(params.locale)];
   return { title: t.metaTitle, description: t.metaDesc, alternates: { canonical: "/leistungen" } };
 }
 
 export default function LeistungenPage({ params }: { params: { locale: string } }) {
-  const locale = params.locale === "en" ? "en" : "de";
+  const locale = pageLocale(params.locale);
   const t = T[locale];
   const services = getServices(locale);
   const technologies = getTechnologies(locale);
