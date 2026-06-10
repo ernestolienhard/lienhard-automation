@@ -127,7 +127,7 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
           </p>
           <ul>
             <li><strong>Vercel Inc.:</strong> alojamiento y entrega del sitio web (archivos de registro del servidor).</li>
-            <li><strong>Supabase:</strong> almacenamiento de las consultas enviadas a través del formulario de contacto.</li>
+            <li><strong>Resend (Resend, Inc.):</strong> envío a nosotros, por correo electrónico, de la consulta que envía a través del formulario de contacto.</li>
             <li>
               <strong>Google (Google Ireland Limited):</strong> representación del
               mapa incrustado en la página de contacto («Google Maps»). Al abrir la
@@ -295,7 +295,7 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
           </p>
           <ul>
             <li><strong>Vercel Inc.:</strong> hosting and delivery of the website (server log files).</li>
-            <li><strong>Supabase:</strong> storage of the enquiries submitted via the contact form.</li>
+            <li><strong>Resend (Resend, Inc.):</strong> sending the enquiry you submit via the contact form to us by email.</li>
             <li>
               <strong>Google (Google Ireland Limited):</strong> display of the
               embedded map on the contact page («Google Maps»). When the contact
@@ -463,7 +463,7 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
           </p>
           <ul>
             <li><strong>Vercel Inc. :</strong> hébergement et diffusion du site web (fichiers journaux du serveur).</li>
-            <li><strong>Supabase :</strong> stockage des demandes transmises via le formulaire de contact.</li>
+            <li><strong>Resend (Resend, Inc.) :</strong> envoi par e-mail, vers notre boîte, de la demande que vous transmettez via le formulaire de contact.</li>
             <li>
               <strong>Google (Google Ireland Limited) :</strong> affichage de la
               carte intégrée sur la page de contact («Google Maps»). Lors de
@@ -633,7 +633,7 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
           </p>
           <ul>
             <li><strong>Vercel Inc.:</strong> hosting e distribuzione del sito web (file di log del server).</li>
-            <li><strong>Supabase:</strong> memorizzazione delle richieste inviate tramite il modulo di contatto.</li>
+            <li><strong>Resend (Resend, Inc.):</strong> invio a noi, via e-mail, della richiesta inviata tramite il modulo di contatto.</li>
             <li>
               <strong>Google (Google Ireland Limited):</strong> visualizzazione della
               mappa integrata nella pagina dei contatti («Google Maps»). All'apertura
@@ -801,7 +801,7 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
           </p>
           <ul>
             <li><strong>Vercel Inc.:</strong> alojamento e entrega do site (ficheiros de registo do servidor).</li>
-            <li><strong>Supabase:</strong> armazenamento dos pedidos enviados através do formulário de contacto.</li>
+            <li><strong>Resend (Resend, Inc.):</strong> envio para nós, por e-mail, do pedido que envia através do formulário de contacto.</li>
             <li>
               <strong>Google (Google Ireland Limited):</strong> apresentação do mapa
               integrado na página de contacto («Google Maps»). Ao abrir a página de
@@ -973,7 +973,7 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
           </p>
           <ul>
             <li><strong>Vercel Inc.</strong> – Hosting und Auslieferung der Website (Server-Logfiles).</li>
-            <li><strong>Supabase</strong> – Speicherung der über das Kontaktformular übermittelten Anfragen.</li>
+            <li><strong>Resend (Resend, Inc.):</strong> Versand Ihrer über das Kontaktformular übermittelten Anfrage als E-Mail an uns.</li>
             <li>
               <strong>Google (Google Ireland Limited)</strong> – Darstellung der
               eingebetteten Karte auf der Kontaktseite («Google Maps»). Beim Aufruf
