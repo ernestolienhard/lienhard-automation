@@ -71,6 +71,15 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
             <li><strong>Supabase</strong> – almacenamiento de consultas de contacto.</li>
             <li><em>[Añadir más servicios si se utilizan, p. ej. Resend para notificaciones por correo electrónico, herramientas de análisis, etc.]</em></li>
           </ul>
+          <h3>Google Maps</h3>
+          <p>
+            En la página de contacto se incrusta un mapa de Google Maps (Google
+            Ireland Limited, Irlanda). Al abrir esa página, su dirección IP se
+            transmite a Google para que el mapa pueda mostrarse en su navegador.
+            No tenemos influencia sobre ello. Más información en la política de
+            privacidad de Google:{" "}
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.
+          </p>
           <h2>5. Cookies</h2>
           <p>
             Este sitio web utiliza actualmente solo cookies técnicamente
@@ -131,6 +140,15 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
             <li><strong>Supabase</strong> – storage of contact enquiries.</li>
             <li><em>[Add further services if used – e.g. Resend for email notifications, analytics tools, etc.]</em></li>
           </ul>
+          <h3>Google Maps</h3>
+          <p>
+            The contact page embeds a Google Maps map (Google Ireland Limited,
+            Ireland). When you open that page, your IP address is transmitted to
+            Google so that the map can be displayed in your browser. We have no
+            influence over this. Further information can be found in Google's
+            privacy policy:{" "}
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.
+          </p>
           <h2>5. Cookies</h2>
           <p>
             This website currently uses only technically necessary cookies. If
@@ -193,6 +211,16 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
             <li><strong>Supabase</strong> – stockage des demandes de contact.</li>
             <li><em>[Ajouter d'autres services le cas échéant, p. ex. Resend pour les notifications par e-mail, outils d'analyse, etc.]</em></li>
           </ul>
+          <h3>Google Maps</h3>
+          <p>
+            La page de contact intègre une carte Google Maps (Google Ireland
+            Limited, Irlande). Lors de l'ouverture de cette page, votre adresse IP
+            est transmise à Google afin que la carte puisse s'afficher dans votre
+            navigateur. Nous n'avons aucune influence sur ce point. Vous trouverez
+            de plus amples informations dans la politique de confidentialité de
+            Google :{" "}
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.
+          </p>
           <h2>5. Cookies</h2>
           <p>
             Ce site web n'utilise actuellement que des cookies techniquement
@@ -254,6 +282,16 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
             <li><strong>Supabase</strong> – memorizzazione delle richieste di contatto.</li>
             <li><em>[Aggiungere altri servizi se utilizzati, p. es. Resend per le notifiche e-mail, strumenti di analisi, ecc.]</em></li>
           </ul>
+          <h3>Google Maps</h3>
+          <p>
+            Nella pagina dei contatti è integrata una mappa di Google Maps (Google
+            Ireland Limited, Irlanda). Aprendo questa pagina, il vostro indirizzo
+            IP viene trasmesso a Google affinché la mappa possa essere
+            visualizzata nel vostro browser. Non abbiamo alcuna influenza su
+            questo. Ulteriori informazioni nell'informativa sulla privacy di
+            Google:{" "}
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.
+          </p>
           <h2>5. Cookie</h2>
           <p>
             Questo sito web utilizza attualmente solo cookie tecnicamente
@@ -315,6 +353,15 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
             <li><strong>Supabase</strong> – armazenamento de pedidos de contacto.</li>
             <li><em>[Adicionar outros serviços, se utilizados, p. ex. Resend para notificações por e-mail, ferramentas de análise, etc.]</em></li>
           </ul>
+          <h3>Google Maps</h3>
+          <p>
+            Na página de contacto está integrado um mapa do Google Maps (Google
+            Ireland Limited, Irlanda). Ao abrir essa página, o seu endereço IP é
+            transmitido à Google para que o mapa possa ser apresentado no seu
+            navegador. Não temos qualquer influência sobre isso. Mais informações
+            na política de privacidade da Google:{" "}
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.
+          </p>
           <h2>5. Cookies</h2>
           <p>
             Este site utiliza atualmente apenas cookies tecnicamente necessários.
@@ -376,6 +423,15 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
             <li><strong>Supabase</strong> – Speicherung von Kontaktanfragen.</li>
             <li><em>[Weitere Dienste ergänzen, falls verwendet – z. B. Resend für E-Mail-Benachrichtigungen, Analyse-Tools etc.]</em></li>
           </ul>
+          <h3>Google Maps</h3>
+          <p>
+            Auf der Kontaktseite ist eine Karte von Google Maps (Google Ireland
+            Limited, Irland) eingebunden. Beim Aufruf dieser Seite wird Ihre
+            IP-Adresse an Google übertragen, damit die Karte in Ihrem Browser
+            dargestellt werden kann. Wir haben darauf keinen Einfluss. Weitere
+            Informationen finden Sie in der Datenschutzerklärung von Google:{" "}
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.
+          </p>
           <h2>5. Cookies</h2>
           <p>
             Diese Website verwendet derzeit nur technisch notwendige Cookies.
