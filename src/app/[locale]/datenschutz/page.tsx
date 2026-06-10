@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/layout/LegalPage";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, getLegalName } from "@/lib/site";
 import { pageLocale } from "@/i18n/config";
 
 export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
@@ -8,9 +8,9 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
   const title = l === "en" ? "Privacy" : l === "es" ? "Privacidad" : "Datenschutz";
   const description =
     l === "en"
-      ? "Privacy policy of Lienhard Automation GmbH under the Swiss Data Protection Act (DSG)."
+      ? "Privacy policy of Lienhard Automation LLC under the Swiss Data Protection Act (DSG)."
       : l === "es"
-        ? "Política de privacidad de Lienhard Automation GmbH conforme a la Ley suiza de protección de datos (DSG)."
+        ? "Política de privacidad de Lienhard Automation S.L. conforme a la Ley suiza de protección de datos (DSG)."
         : "Datenschutzerklärung der Lienhard Automation GmbH gemäss schweizerischem Datenschutzgesetz (DSG).";
   return { title, description, alternates: { canonical: "/datenschutz" } };
 }
@@ -27,7 +27,7 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
   const title = titles[l] ?? titles.de;
   const responsible = (
     <p>
-      {siteConfig.legalName}
+      {getLegalName(l)}
       <br />
       {contact.street}, {contact.postalCode} {contact.city}, {contact.country}
       <br />

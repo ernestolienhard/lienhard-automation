@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Inter, Oswald } from "next/font/google";
 import "../globals.css";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, getLegalName } from "@/lib/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { locales, isLocale, type Locale } from "@/i18n/config";
@@ -56,13 +56,14 @@ export function generateMetadata({
   };
   const descriptions: Record<Locale, string> = {
     de: siteConfig.description,
-    en: "Lienhard Automation GmbH develops automation solutions for industrial machine and plant engineering – PLC engineering, project planning and commissioning. In use worldwide.",
-    es: "Lienhard Automation GmbH desarrolla soluciones de automatización para la construcción industrial de máquinas e instalaciones: ingeniería de PLC, planificación de proyectos y puesta en marcha. En uso en todo el mundo.",
-    fr: "Lienhard Automation GmbH développe des solutions d'automatisation pour la construction industrielle de machines et d'installations : ingénierie API, planification de projet et mise en service. Utilisées dans le monde entier.",
-    it: "Lienhard Automation GmbH sviluppa soluzioni di automazione per la costruzione industriale di macchine e impianti: ingegneria PLC, pianificazione di progetto e messa in servizio. In uso in tutto il mondo.",
-    pt: "A Lienhard Automation GmbH desenvolve soluções de automação para a construção industrial de máquinas e instalações: engenharia de PLC, planeamento de projetos e colocação em serviço. Em uso em todo o mundo.",
+    en: "Lienhard Automation LLC develops automation solutions for industrial machine and plant engineering – PLC engineering, project planning and commissioning. In use worldwide.",
+    es: "Lienhard Automation S.L. desarrolla soluciones de automatización para la construcción industrial de máquinas e instalaciones: ingeniería de PLC, planificación de proyectos y puesta en marcha. En uso en todo el mundo.",
+    fr: "Lienhard Automation SARL développe des solutions d'automatisation pour la construction industrielle de machines et d'installations : ingénierie API, planification de projet et mise en service. Utilisées dans le monde entier.",
+    it: "Lienhard Automation SAGL sviluppa soluzioni di automazione per la costruzione industriale di macchine e impianti: ingegneria PLC, pianificazione di progetto e messa in servizio. In uso in tutto il mondo.",
+    pt: "A Lienhard Automation Lda. desenvolve soluções de automação para a construção industrial de máquinas e instalações: engenharia de PLC, planeamento de projetos e colocação em serviço. Em uso em todo o mundo.",
   };
-  const brandTitle = `${siteConfig.legalName} – Automation. Engineering. ${suffix[locale]}`;
+  const legalNameLoc = getLegalName(locale);
+  const brandTitle = `${legalNameLoc} – Automation. Engineering. ${suffix[locale]}`;
   const description = descriptions[locale];
 
   return {
@@ -86,8 +87,8 @@ export function generateMetadata({
       "Zürich",
       "Schweiz",
     ],
-    authors: [{ name: siteConfig.legalName }],
-    creator: siteConfig.legalName,
+    authors: [{ name: legalNameLoc }],
+    creator: legalNameLoc,
     alternates: {
       canonical: `/${locale}`,
       languages,
@@ -96,11 +97,11 @@ export function generateMetadata({
       type: "website",
       locale: ogLocale[locale],
       url: `${siteConfig.url}/${locale}`,
-      siteName: siteConfig.legalName,
+      siteName: legalNameLoc,
       title: brandTitle,
       description,
       images: [
-        { url: "/og-image.png", width: 1200, height: 630, alt: siteConfig.legalName },
+        { url: "/og-image.png", width: 1200, height: 630, alt: legalNameLoc },
       ],
     },
     twitter: {

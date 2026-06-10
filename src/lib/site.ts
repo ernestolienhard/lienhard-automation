@@ -27,6 +27,25 @@ export const siteConfig = {
   },
 } as const;
 
+/**
+ * Localized legal-form suffix for the company name. The registered entity is a
+ * Swiss GmbH; de/fr/it are its official Swiss-language forms, en/es/pt are the
+ * common equivalents.
+ */
+export const legalSuffix: Record<string, string> = {
+  de: "GmbH",
+  en: "LLC",
+  es: "S.L.",
+  fr: "SARL",
+  it: "SAGL",
+  pt: "Lda.",
+};
+
+/** Full company name with the locale-appropriate legal-form suffix. */
+export function getLegalName(locale: string): string {
+  return `${siteConfig.name} ${legalSuffix[locale] ?? legalSuffix.de}`;
+}
+
 /** Nav items reference a translation key (Dict.nav / Dict.legal) plus a path. */
 export type NavItem = { key: string; href: string };
 

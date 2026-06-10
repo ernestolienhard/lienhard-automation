@@ -29,7 +29,7 @@ const careerByLocale: Record<Locale, CareerEntry[]> = {
     { period: "2003–2004", title: "International commissioning", org: "Romaco", text: "Commissioning and software assignments in Europe, the USA, Mexico and Jordan." },
     { period: "2005–2011", title: "International grid & radiator lines", org: "Schlatter AG", text: "Software development and commissioning of welding, grid and radiator lines worldwide – including Turkey, Latvia, Brazil and Mexico." },
     { period: "Further education", title: "Technician HF Automation", text: "Further education with a sound technical basis for well-considered, reliable automation solutions." },
-    { period: "since 2013", title: "Self-employed – Lienhard Automation GmbH", org: "own projects & international assignments", text: "Own automation projects (incl. WWTP/wastewater and WinCC modernization) as well as – partly in parallel – international assignments, including for Tecvil and Siemens Logistics AG (DHL, Swiss Post)." },
+    { period: "since 2013", title: "Self-employed – Lienhard Automation LLC", org: "own projects & international assignments", text: "Own automation projects (incl. WWTP/wastewater and WinCC modernization) as well as – partly in parallel – international assignments, including for Tecvil and Siemens Logistics AG (DHL, Swiss Post)." },
     { period: "2025–2026", title: "Professional Bachelor in Business Administration", text: "Part-time further education in business administration – for the entrepreneurial management and development of my own company." },
   ],
   es: [
@@ -39,7 +39,7 @@ const careerByLocale: Record<Locale, CareerEntry[]> = {
     { period: "2003–2004", title: "Puestas en marcha internacionales", org: "Romaco", text: "Puestas en marcha y trabajos de software en Europa, EE. UU., México y Jordania." },
     { period: "2005–2011", title: "Líneas internacionales de mallas y radiadores", org: "Schlatter AG", text: "Desarrollo de software y puesta en marcha de líneas de soldadura, mallas y radiadores en todo el mundo, entre otros en Turquía, Letonia, Brasil y México." },
     { period: "Formación continua", title: "Técnico HF en automatización", text: "Formación continua con una sólida base técnica para soluciones de automatización bien pensadas y fiables." },
-    { period: "desde 2013", title: "Autónomo – Lienhard Automation GmbH", org: "proyectos propios y encargos internacionales", text: "Proyectos de automatización propios (entre otros EDAR/aguas residuales y modernización de WinCC) así como, en parte en paralelo, encargos internacionales, entre otros para Tecvil y Siemens Logistics AG (DHL, Correos de Suiza)." },
+    { period: "desde 2013", title: "Autónomo – Lienhard Automation S.L.", org: "proyectos propios y encargos internacionales", text: "Proyectos de automatización propios (entre otros EDAR/aguas residuales y modernización de WinCC) así como, en parte en paralelo, encargos internacionales, entre otros para Tecvil y Siemens Logistics AG (DHL, Correos de Suiza)." },
     { period: "2025–2026", title: "Professional Bachelor in Business Administration", text: "Formación continua a tiempo parcial en administración de empresas, para la dirección empresarial y el desarrollo de la propia empresa." },
   ],
   fr: [
@@ -49,7 +49,7 @@ const careerByLocale: Record<Locale, CareerEntry[]> = {
     { period: "2003–2004", title: "Mises en service internationales", org: "Romaco", text: "Mises en service et missions logicielles en Europe, aux États-Unis, au Mexique et en Jordanie." },
     { period: "2005–2011", title: "Lignes internationales de treillis et de radiateurs", org: "Schlatter AG", text: "Développement logiciel et mise en service de lignes de soudage, de treillis et de radiateurs dans le monde entier, notamment en Turquie, en Lettonie, au Brésil et au Mexique." },
     { period: "Formation continue", title: "Technicien HF en automatisation", text: "Formation continue avec une solide base technique pour des solutions d'automatisation réfléchies et fiables." },
-    { period: "depuis 2013", title: "Indépendant – Lienhard Automation GmbH", org: "projets propres et mandats internationaux", text: "Projets d'automatisation propres (notamment STEP/eaux usées et modernisation WinCC) ainsi que, en partie en parallèle, des mandats internationaux, notamment pour Tecvil et Siemens Logistics AG (DHL, La Poste suisse)." },
+    { period: "depuis 2013", title: "Indépendant – Lienhard Automation SARL", org: "projets propres et mandats internationaux", text: "Projets d'automatisation propres (notamment STEP/eaux usées et modernisation WinCC) ainsi que, en partie en parallèle, des mandats internationaux, notamment pour Tecvil et Siemens Logistics AG (DHL, La Poste suisse)." },
     { period: "2025–2026", title: "Professional Bachelor in Business Administration", text: "Formation continue en cours d'emploi en gestion d'entreprise, pour la direction entrepreneuriale et le développement de sa propre entreprise." },
   ],
   it: [
@@ -59,7 +59,7 @@ const careerByLocale: Record<Locale, CareerEntry[]> = {
     { period: "2003–2004", title: "Messe in servizio internazionali", org: "Romaco", text: "Messe in servizio e interventi software in Europa, USA, Messico e Giordania." },
     { period: "2005–2011", title: "Linee internazionali di reti e radiatori", org: "Schlatter AG", text: "Sviluppo software e messa in servizio di linee di saldatura, reti e radiatori in tutto il mondo, tra cui Turchia, Lettonia, Brasile e Messico." },
     { period: "Formazione continua", title: "Tecnico HF in automazione", text: "Formazione continua con una solida base tecnica per soluzioni di automazione ben studiate e affidabili." },
-    { period: "dal 2013", title: "Lavoratore autonomo – Lienhard Automation GmbH", org: "progetti propri e incarichi internazionali", text: "Progetti di automazione propri (tra cui IDA/acque reflue e modernizzazione WinCC) nonché, in parte in parallelo, incarichi internazionali, tra cui per Tecvil e Siemens Logistics AG (DHL, Posta svizzera)." },
+    { period: "dal 2013", title: "Lavoratore autonomo – Lienhard Automation SAGL", org: "progetti propri e incarichi internazionali", text: "Progetti di automazione propri (tra cui IDA/acque reflue e modernizzazione WinCC) nonché, in parte in parallelo, incarichi internazionali, tra cui per Tecvil e Siemens Logistics AG (DHL, Posta svizzera)." },
     { period: "2025–2026", title: "Professional Bachelor in Business Administration", text: "Formazione continua in economia aziendale, parallela al lavoro, per la gestione imprenditoriale e lo sviluppo della propria azienda." },
   ],
   pt: [
@@ -69,7 +69,7 @@ const careerByLocale: Record<Locale, CareerEntry[]> = {
     { period: "2003–2004", title: "Colocações em serviço internacionais", org: "Romaco", text: "Colocações em serviço e trabalhos de software na Europa, EUA, México e Jordânia." },
     { period: "2005–2011", title: "Linhas internacionais de redes e radiadores", org: "Schlatter AG", text: "Desenvolvimento de software e colocação em serviço de linhas de soldadura, redes e radiadores em todo o mundo, incluindo Turquia, Letónia, Brasil e México." },
     { period: "Formação contínua", title: "Técnico HF em automação", text: "Formação contínua com uma sólida base técnica para soluções de automação bem pensadas e fiáveis." },
-    { period: "desde 2013", title: "Trabalhador independente – Lienhard Automation GmbH", org: "projetos próprios e mandatos internacionais", text: "Projetos de automação próprios (entre outros ETAR/águas residuais e modernização de WinCC) bem como, em parte em paralelo, mandatos internacionais, entre outros para a Tecvil e a Siemens Logistics AG (DHL, Correios da Suíça)." },
+    { period: "desde 2013", title: "Trabalhador independente – Lienhard Automation Lda.", org: "projetos próprios e mandatos internacionais", text: "Projetos de automação próprios (entre outros ETAR/águas residuais e modernização de WinCC) bem como, em parte em paralelo, mandatos internacionais, entre outros para a Tecvil e a Siemens Logistics AG (DHL, Correios da Suíça)." },
     { period: "2025–2026", title: "Professional Bachelor in Business Administration", text: "Formação contínua em gestão de empresas, em regime pós-laboral, para a gestão empresarial e o desenvolvimento da própria empresa." },
   ],
 };

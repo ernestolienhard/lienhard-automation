@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { legalNav, mainNav, siteConfig } from "@/lib/site";
+import { legalNav, mainNav, siteConfig, getLegalName } from "@/lib/site";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "./Logo";
 import { Mail, MapPin, Phone } from "@/components/ui/icons";
@@ -74,7 +74,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent-400" />
                 <span>
-                  {siteConfig.legalName}
+                  {getLegalName(locale)}
                   <br />
                   {contact.street}
                   <br />
@@ -105,7 +105,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-navy-800 pt-6 text-xs text-steel-500 sm:flex-row sm:items-center">
           <p>
-            © {founded}–{year} {siteConfig.legalName}. {dict.footer.rightsReserved}
+            © {founded}–{year} {getLegalName(locale)}. {dict.footer.rightsReserved}
           </p>
           <p>
             {dict.footer.madeIn} · {siteConfig.tagline}

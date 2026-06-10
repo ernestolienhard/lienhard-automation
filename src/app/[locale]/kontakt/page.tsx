@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, getLegalName } from "@/lib/site";
 import { pageLocale, type Locale } from "@/i18n/config";
 import { Mail, MapPin, Phone, Clock } from "@/components/ui/icons";
 
@@ -46,7 +46,7 @@ const C: Record<Locale, Content> = {
   en: {
     metaTitle: "Contact",
     metaDesc:
-      "Contact Lienhard Automation GmbH in Zurich. Request a project, arrange a consultation or call directly – I look forward to your message.",
+      "Contact Lienhard Automation LLC in Zurich. Request a project, arrange a consultation or call directly – I look forward to your message.",
     eyebrow: "Contact",
     h1: "Get in touch",
     subtitle:
@@ -66,7 +66,7 @@ const C: Record<Locale, Content> = {
   es: {
     metaTitle: "Contacto",
     metaDesc:
-      "Contacte con Lienhard Automation GmbH en Zúrich. Solicite un proyecto, concierte una consulta o llame directamente: espero su mensaje.",
+      "Contacte con Lienhard Automation S.L. en Zúrich. Solicite un proyecto, concierte una consulta o llame directamente: espero su mensaje.",
     eyebrow: "Contacto",
     h1: "Póngase en contacto",
     subtitle:
@@ -86,7 +86,7 @@ const C: Record<Locale, Content> = {
   fr: {
     metaTitle: "Contact",
     metaDesc:
-      "Contactez Lienhard Automation GmbH à Zurich. Demandez un projet, convenez d'un conseil ou appelez directement : j'attends votre message.",
+      "Contactez Lienhard Automation SARL à Zurich. Demandez un projet, convenez d'un conseil ou appelez directement : j'attends votre message.",
     eyebrow: "Contact",
     h1: "Prendre contact",
     subtitle:
@@ -106,7 +106,7 @@ const C: Record<Locale, Content> = {
   it: {
     metaTitle: "Contatto",
     metaDesc:
-      "Contattate Lienhard Automation GmbH a Zurigo. Richiedete un progetto, fissate una consulenza o chiamate direttamente: attendo il vostro messaggio.",
+      "Contattate Lienhard Automation SAGL a Zurigo. Richiedete un progetto, fissate una consulenza o chiamate direttamente: attendo il vostro messaggio.",
     eyebrow: "Contatto",
     h1: "Mettiti in contatto",
     subtitle:
@@ -126,7 +126,7 @@ const C: Record<Locale, Content> = {
   pt: {
     metaTitle: "Contacto",
     metaDesc:
-      "Contacte a Lienhard Automation GmbH em Zurique. Solicite um projeto, marque uma consulta ou ligue diretamente: aguardo a sua mensagem.",
+      "Contacte a Lienhard Automation Lda. em Zurique. Solicite um projeto, marque uma consulta ou ligue diretamente: aguardo a sua mensagem.",
     eyebrow: "Contacto",
     h1: "Entre em contacto",
     subtitle:
@@ -161,14 +161,16 @@ export default function KontaktPage({
 }: {
   params: { locale: string };
 }) {
-  const t = C[pageLocale(params.locale)];
+  const locale = pageLocale(params.locale);
+  const t = C[locale];
+  const legalName = getLegalName(locale);
 
   const details = [
     {
       icon: <MapPin className="h-5 w-5" />,
       label: t.labelAddress,
       lines: [
-        siteConfig.legalName,
+        legalName,
         contact.street,
         `${contact.postalCode} ${contact.city}, ${contact.country}`,
       ],
@@ -222,7 +224,7 @@ export default function KontaktPage({
 
               <div className="mt-8 overflow-hidden rounded-xl2 border border-steel-200">
                 <iframe
-                  title={`${siteConfig.legalName} – ${contact.street}, ${contact.postalCode} ${contact.city}`}
+                  title={`${legalName} – ${contact.street}, ${contact.postalCode} ${contact.city}`}
                   src={`https://maps.google.com/maps?q=${encodeURIComponent(
                     `${contact.street}, ${contact.postalCode} ${contact.city}, ${contact.country}`,
                   )}&z=16&output=embed`}

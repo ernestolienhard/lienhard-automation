@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/layout/LegalPage";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, getLegalName } from "@/lib/site";
 import { pageLocale } from "@/i18n/config";
 
 export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
@@ -8,9 +8,9 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
   const title = l === "en" ? "Imprint" : l === "es" ? "Aviso legal" : "Impressum";
   const description =
     l === "en"
-      ? "Imprint and provider identification of Lienhard Automation GmbH."
+      ? "Imprint and provider identification of Lienhard Automation LLC."
       : l === "es"
-        ? "Aviso legal e identificación del prestador de Lienhard Automation GmbH."
+        ? "Aviso legal e identificación del prestador de Lienhard Automation S.L."
         : "Impressum und Anbieterkennzeichnung der Lienhard Automation GmbH.";
   return { title, description, alternates: { canonical: "/impressum" }, robots: { index: true, follow: true } };
 }
@@ -26,7 +26,7 @@ export default function ImpressumPage({ params }: { params: { locale: string } }
 
   const address = (
     <p>
-      {siteConfig.legalName}
+      {getLegalName(l)}
       <br />
       {contact.street}
       <br />
