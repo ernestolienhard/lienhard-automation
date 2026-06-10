@@ -40,7 +40,7 @@ export default function DatenschutzPage({ params }: { params: { locale: string }
   );
 
   return (
-    <LegalPage title={title} locale={params.locale}>
+    <LegalPage title={title}>
       {es ? (
         <>
           <h2>1. ¿De qué trata esta política de privacidad?</h2>

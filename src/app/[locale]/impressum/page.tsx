@@ -50,7 +50,7 @@ export default function ImpressumPage({ params }: { params: { locale: string } }
   );
 
   return (
-    <LegalPage title={title} locale={params.locale}>
+    <LegalPage title={title}>
       {es ? (
         <>
           <h2>Datos del prestador</h2>
