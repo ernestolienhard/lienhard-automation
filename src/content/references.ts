@@ -21,15 +21,22 @@ export type Project = {
   title: string;
   location: string;
   category: ProjectCategory;
+  /** Optional secondary categories – the project also appears under these filters. */
+  also?: ProjectCategory[];
   technologies: string[];
   description: string;
 };
 
-type Base = { year: string; location: string; category: ProjectCategory };
+type Base = {
+  year: string;
+  location: string;
+  category: ProjectCategory;
+  also?: ProjectCategory[];
+};
 type Txt = { title: string; description: string; technologies: string[] };
 
 const base: Base[] = [
-  { year: "2024–2026", location: "Kanton Zürich", category: "infrastruktur" },
+  { year: "2024–2026", location: "Kanton Zürich", category: "infrastruktur", also: ["kommunikation"] },
   { year: "2019–2021", location: "Zürich Mülligen", category: "logistik" },
   { year: "2016–2018", location: "Basel", category: "logistik" },
   { year: "2013–2016", location: "Zermatt VS", category: "abwasser" },

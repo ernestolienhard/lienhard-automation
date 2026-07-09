@@ -37,12 +37,19 @@ export function ReferencesGrid() {
   ];
 
   const available = useMemo(() => {
-    const used = new Set(projects.map((p) => p.category));
+    const used = new Set<ProjectCategory>();
+    projects.forEach((p) => {
+      used.add(p.category);
+      p.also?.forEach((c) => used.add(c));
+    });
     return filters.filter((f) => f.value === "alle" || used.has(f.value as ProjectCategory));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale]);
 
-  const visible = active === "alle" ? projects : projects.filter((p) => p.category === active);
+  const visible =
+    active === "alle"
+      ? projects
+      : projects.filter((p) => p.category === active || p.also?.includes(active));
 
   return (
     <div>
