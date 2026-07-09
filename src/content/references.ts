@@ -12,7 +12,9 @@ export type ProjectCategory =
   | "logistik"
   | "abwasser"
   | "stahl"
-  | "retrofit";
+  | "retrofit"
+  | "kies"
+  | "kommunikation";
 
 export type Project = {
   year: string;
@@ -64,6 +66,14 @@ const base: Base[] = [
   { year: "2005–2011", location: "Deutschland", category: "retrofit" },
   { year: "2014", location: "Kehl, Deutschland", category: "retrofit" },
   { year: "2014", location: "Warren, USA", category: "retrofit" },
+  { year: "2025", location: "Birr AG", category: "kies" },
+  { year: "2025–2026", location: "Schafisheim AG", category: "kies" },
+  { year: "2025", location: "Schweiz", category: "retrofit" },
+  { year: "2026", location: "Schweiz", category: "infrastruktur" },
+  { year: "2025", location: "ARA Rorbas ZH", category: "kommunikation" },
+  { year: "2024", location: "ARA Lenzerheide GR", category: "abwasser" },
+  { year: "2024", location: "Dietikon ZH", category: "infrastruktur" },
+  { year: "2026", location: "ARA Lucens VD", category: "abwasser" },
 ];
 
 const txt: Record<Locale, Txt[]> = {
@@ -105,6 +115,14 @@ const txt: Record<Locale, Txt[]> = {
     { title: "Gitteranlage MG320 BDW – Umbau S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Umbau der Gitteranlage MG320 von S5- auf S7-Steuerung." },
     { title: "Umbau MG320 S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Umbau einer MG320 von S5- auf S7-Steuerung." },
     { title: "Software-Erweiterung Kaltziehanlage", technologies: ["Siemens S7"], description: "Software-Erweiterung einer Kaltziehanlage." },
+    { title: "Kieswerk Birr – Visualisierung WinCC Unified", technologies: ["WinCC Unified", "PC Runtime", "Visualisierung"], description: "Neue Anlagenvisualisierung für das Kieswerk Birr, umgesetzt auf WinCC Unified PC Runtime." },
+    { title: "KIBAG Kies Schafisheim – Visualisierung WinCC Unified", technologies: ["WinCC Unified", "PC Runtime", "Visualisierung"], description: "Anlagenvisualisierung für das Kieswerk der KIBAG Kies Schafisheim AG, umgesetzt auf WinCC Unified PC Runtime." },
+    { title: "WinCC Unified Modernisierung – Advanced → Unified", technologies: ["WinCC Unified", "WinCC Advanced", "Migration"], description: "Modernisierung einer bestehenden Visualisierung durch Migration von WinCC Advanced auf WinCC Unified." },
+    { title: "KIBAG Waschplatz – Fahrzeugwaschanlage", technologies: ["WinCC Unified", "Comfort Panel", "Automatisierung"], description: "Steuerung und Visualisierung eines Fahrzeug-Waschplatzes der KIBAG auf einem WinCC Unified Comfort Panel." },
+    { title: "ARA Rorbas – DALI-Beleuchtungssteuerung", technologies: ["DALI", "Beleuchtung", "Kommunikation"], description: "Umsetzung der Beleuchtungsansteuerung der ARA Rorbas ZH über den DALI-Bus. Realisiert im Auftrag von Rittmeyer." },
+    { title: "ARA Lenzerheide – Biologie & Lüftung", technologies: ["Siemens S7", "WinCC OA", "HLK"], description: "Programmierung der Steuerung für Biologie und Lüftung der Kläranlage Lenzerheide." },
+    { title: "EKZ Flusskraftwerk Dietikon – Reinigungsrechen", technologies: ["Siemens S7", "Automatisierung"], description: "Steuerung des Reinigungsrechens für das Flusskraftwerk Dietikon der EKZ." },
+    { title: "ARA Lucens – Pumpstationen & Aussenbauwerke", technologies: ["Siemens S7", "WinCC OA"], description: "Software für vier Aussenbauwerke (Pumpstationen) der ARA Lucens sowie Visualisierung auf WinCC OA. Realisiert im Auftrag von Rittmeyer." },
   ],
   en: [
     { title: "EKZ – public lighting, Canton of Zurich", technologies: ["WinCC OA", "TIA Portal", "S7-1500", "OPC UA", "OPC UA GDS Push"], description: "Central, secure lighting control for the electricity utility of the Canton of Zurich (EKZ): around 3,000 PLCs (SIMATIC S7-1500) in more than 2,500 transformer stations, controlled with WinCC OA SCADA and programmed in TIA Portal. Encrypted OPC UA communication incl. OPC UA GDS Push for central certificate management. Realized with Siemens Schweiz DI AG." },
@@ -144,6 +162,14 @@ const txt: Record<Locale, Txt[]> = {
     { title: "Grid line MG320 BDW – S5 → S7 conversion", technologies: ["Siemens S5", "Siemens S7"], description: "Conversion of the MG320 grid line from S5 to S7 control." },
     { title: "MG320 conversion S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversion of an MG320 from S5 to S7 control." },
     { title: "Software extension – cold-drawing plant", technologies: ["Siemens S7"], description: "Software extension of a cold-drawing plant." },
+    { title: "Kieswerk Birr gravel works – WinCC Unified visualization", technologies: ["WinCC Unified", "PC Runtime", "Visualization"], description: "New plant visualization for the Kieswerk Birr gravel works, implemented on WinCC Unified PC Runtime." },
+    { title: "KIBAG Kies Schafisheim – WinCC Unified visualization", technologies: ["WinCC Unified", "PC Runtime", "Visualization"], description: "Plant visualization for the gravel works of KIBAG Kies Schafisheim AG, implemented on WinCC Unified PC Runtime." },
+    { title: "WinCC Unified modernization – Advanced → Unified", technologies: ["WinCC Unified", "WinCC Advanced", "Migration"], description: "Modernization of an existing visualization by migrating from WinCC Advanced to WinCC Unified." },
+    { title: "KIBAG vehicle wash bay", technologies: ["WinCC Unified", "Comfort Panel", "Automation"], description: "Control and visualization of a KIBAG vehicle wash bay on a WinCC Unified Comfort Panel." },
+    { title: "ARA Rorbas – DALI lighting control", technologies: ["DALI", "Lighting", "Communication"], description: "Implementation of the lighting control for the ARA Rorbas ZH wastewater plant via the DALI bus. Realized on behalf of Rittmeyer." },
+    { title: "ARA Lenzerheide – biology & ventilation", technologies: ["Siemens S7", "WinCC OA", "HVAC"], description: "Programming of the control system for biology and ventilation of the Lenzerheide wastewater plant." },
+    { title: "EKZ Dietikon run-of-river power plant – trash rake", technologies: ["Siemens S7", "Automation"], description: "Control of the trash rake for the EKZ Dietikon run-of-river power plant." },
+    { title: "ARA Lucens – pumping stations & outlying structures", technologies: ["Siemens S7", "WinCC OA"], description: "Software for four outlying structures (pumping stations) of the ARA Lucens wastewater plant plus visualization on WinCC OA. Realized on behalf of Rittmeyer." },
   ],
   es: [
     { title: "EKZ – Alumbrado público, cantón de Zúrich", technologies: ["WinCC OA", "TIA Portal", "S7-1500", "OPC UA", "OPC UA GDS Push"], description: "Control de iluminación central y seguro para la compañía eléctrica del cantón de Zúrich (EKZ): unos 3000 PLC (SIMATIC S7-1500) en más de 2500 estaciones transformadoras, controlados con WinCC OA SCADA y programados en TIA Portal. Comunicación OPC UA cifrada, incl. OPC UA GDS Push para la gestión central de certificados. Realizado con Siemens Schweiz DI AG." },
@@ -183,6 +209,14 @@ const txt: Record<Locale, Txt[]> = {
     { title: "Línea de mallas MG320 BDW – conversión S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversión de la línea de mallas MG320 de control S5 a S7." },
     { title: "Conversión MG320 S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversión de una MG320 de control S5 a S7." },
     { title: "Ampliación de software – planta de estirado en frío", technologies: ["Siemens S7"], description: "Ampliación de software de una planta de estirado en frío." },
+    { title: "Planta de grava Birr – visualización WinCC Unified", technologies: ["WinCC Unified", "PC Runtime", "Visualización"], description: "Nueva visualización de la planta de grava de Birr, implementada en WinCC Unified PC Runtime." },
+    { title: "KIBAG Kies Schafisheim – visualización WinCC Unified", technologies: ["WinCC Unified", "PC Runtime", "Visualización"], description: "Visualización de la planta de grava de KIBAG Kies Schafisheim AG, implementada en WinCC Unified PC Runtime." },
+    { title: "Modernización WinCC Unified – Advanced → Unified", technologies: ["WinCC Unified", "WinCC Advanced", "Migración"], description: "Modernización de una visualización existente mediante la migración de WinCC Advanced a WinCC Unified." },
+    { title: "KIBAG – área de lavado de vehículos", technologies: ["WinCC Unified", "Comfort Panel", "Automatización"], description: "Control y visualización de un área de lavado de vehículos de KIBAG en un WinCC Unified Comfort Panel." },
+    { title: "ARA Rorbas – control de iluminación DALI", technologies: ["DALI", "Iluminación", "Comunicación"], description: "Implementación del control de iluminación de la depuradora ARA Rorbas ZH mediante el bus DALI. Realizado por encargo de Rittmeyer." },
+    { title: "ARA Lenzerheide – biología y ventilación", technologies: ["Siemens S7", "WinCC OA", "HVAC"], description: "Programación del control para la biología y la ventilación de la depuradora de Lenzerheide." },
+    { title: "Central hidroeléctrica EKZ Dietikon – reja de limpieza", technologies: ["Siemens S7", "Automatización"], description: "Control de la reja de limpieza para la central hidroeléctrica de EKZ en Dietikon." },
+    { title: "ARA Lucens – estaciones de bombeo y obras exteriores", technologies: ["Siemens S7", "WinCC OA"], description: "Software para cuatro obras exteriores (estaciones de bombeo) de la depuradora ARA Lucens y visualización en WinCC OA. Realizado por encargo de Rittmeyer." },
   ],
   fr: [
     { title: "EKZ – Éclairage public, canton de Zurich", technologies: ["WinCC OA", "TIA Portal", "S7-1500", "OPC UA", "OPC UA GDS Push"], description: "Commande d'éclairage centrale et sécurisée pour le fournisseur d'électricité du canton de Zurich (EKZ) : environ 3000 API (SIMATIC S7-1500) dans plus de 2500 postes de transformation, pilotés avec WinCC OA SCADA et programmés dans TIA Portal. Communication OPC UA chiffrée, y compris OPC UA GDS Push pour la gestion centrale des certificats. Réalisé avec Siemens Schweiz DI AG." },
@@ -222,6 +256,14 @@ const txt: Record<Locale, Txt[]> = {
     { title: "Ligne de treillis MG320 BDW – conversion S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversion de la ligne de treillis MG320 de la commande S5 vers S7." },
     { title: "Conversion MG320 S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversion d'une MG320 de la commande S5 vers S7." },
     { title: "Extension logicielle – ligne d'étirage à froid", technologies: ["Siemens S7"], description: "Extension logicielle d'une ligne d'étirage à froid." },
+    { title: "Gravière de Birr – visualisation WinCC Unified", technologies: ["WinCC Unified", "PC Runtime", "Visualisation"], description: "Nouvelle visualisation de l'installation pour la gravière de Birr, réalisée sur WinCC Unified PC Runtime." },
+    { title: "KIBAG Kies Schafisheim – visualisation WinCC Unified", technologies: ["WinCC Unified", "PC Runtime", "Visualisation"], description: "Visualisation de l'installation pour la gravière de KIBAG Kies Schafisheim AG, réalisée sur WinCC Unified PC Runtime." },
+    { title: "Modernisation WinCC Unified – Advanced → Unified", technologies: ["WinCC Unified", "WinCC Advanced", "Migration"], description: "Modernisation d'une visualisation existante par migration de WinCC Advanced vers WinCC Unified." },
+    { title: "KIBAG – aire de lavage de véhicules", technologies: ["WinCC Unified", "Comfort Panel", "Automatisation"], description: "Commande et visualisation d'une aire de lavage de véhicules de KIBAG sur un WinCC Unified Comfort Panel." },
+    { title: "STEP Rorbas – commande d'éclairage DALI", technologies: ["DALI", "Éclairage", "Communication"], description: "Réalisation de la commande d'éclairage de la station d'épuration de Rorbas ZH via le bus DALI. Réalisé pour le compte de Rittmeyer." },
+    { title: "STEP Lenzerheide – biologie et ventilation", technologies: ["Siemens S7", "WinCC OA", "CVC"], description: "Programmation de la commande pour la biologie et la ventilation de la station d'épuration de Lenzerheide." },
+    { title: "Centrale au fil de l'eau EKZ Dietikon – dégrilleur", technologies: ["Siemens S7", "Automatisation"], description: "Commande du dégrilleur pour la centrale au fil de l'eau d'EKZ à Dietikon." },
+    { title: "STEP Lucens – stations de pompage et ouvrages extérieurs", technologies: ["Siemens S7", "WinCC OA"], description: "Logiciel pour quatre ouvrages extérieurs (stations de pompage) de la station d'épuration de Lucens ainsi que visualisation sur WinCC OA. Réalisé pour le compte de Rittmeyer." },
   ],
   it: [
     { title: "EKZ – Illuminazione pubblica, Cantone di Zurigo", technologies: ["WinCC OA", "TIA Portal", "S7-1500", "OPC UA", "OPC UA GDS Push"], description: "Comando di illuminazione centrale e sicuro per l'azienda elettrica del Cantone di Zurigo (EKZ): circa 3000 PLC (SIMATIC S7-1500) in oltre 2500 cabine di trasformazione, comandati con WinCC OA SCADA e programmati in TIA Portal. Comunicazione OPC UA cifrata, incl. OPC UA GDS Push per la gestione centralizzata dei certificati. Realizzato con Siemens Schweiz DI AG." },
@@ -261,6 +303,14 @@ const txt: Record<Locale, Txt[]> = {
     { title: "Linea di reti MG320 BDW – conversione S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversione della linea di reti MG320 dal comando S5 a S7." },
     { title: "Conversione MG320 S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversione di una MG320 dal comando S5 a S7." },
     { title: "Estensione software – linea di trafilatura a freddo", technologies: ["Siemens S7"], description: "Estensione software di una linea di trafilatura a freddo." },
+    { title: "Cava di ghiaia Birr – visualizzazione WinCC Unified", technologies: ["WinCC Unified", "PC Runtime", "Visualizzazione"], description: "Nuova visualizzazione dell'impianto per la cava di ghiaia di Birr, realizzata su WinCC Unified PC Runtime." },
+    { title: "KIBAG Kies Schafisheim – visualizzazione WinCC Unified", technologies: ["WinCC Unified", "PC Runtime", "Visualizzazione"], description: "Visualizzazione dell'impianto per la cava di ghiaia di KIBAG Kies Schafisheim AG, realizzata su WinCC Unified PC Runtime." },
+    { title: "Modernizzazione WinCC Unified – Advanced → Unified", technologies: ["WinCC Unified", "WinCC Advanced", "Migrazione"], description: "Modernizzazione di una visualizzazione esistente mediante migrazione da WinCC Advanced a WinCC Unified." },
+    { title: "KIBAG – area di lavaggio veicoli", technologies: ["WinCC Unified", "Comfort Panel", "Automazione"], description: "Comando e visualizzazione di un'area di lavaggio veicoli di KIBAG su un WinCC Unified Comfort Panel." },
+    { title: "IDA Rorbas – comando di illuminazione DALI", technologies: ["DALI", "Illuminazione", "Comunicazione"], description: "Realizzazione del comando di illuminazione dell'impianto di depurazione di Rorbas ZH tramite il bus DALI. Realizzato per conto di Rittmeyer." },
+    { title: "IDA Lenzerheide – biologia e ventilazione", technologies: ["Siemens S7", "WinCC OA", "HVAC"], description: "Programmazione del comando per la biologia e la ventilazione dell'impianto di depurazione di Lenzerheide." },
+    { title: "Centrale ad acqua fluente EKZ Dietikon – griglia di pulizia", technologies: ["Siemens S7", "Automazione"], description: "Comando della griglia di pulizia per la centrale ad acqua fluente di EKZ a Dietikon." },
+    { title: "IDA Lucens – stazioni di pompaggio e opere esterne", technologies: ["Siemens S7", "WinCC OA"], description: "Software per quattro opere esterne (stazioni di pompaggio) dell'impianto di depurazione di Lucens e visualizzazione su WinCC OA. Realizzato per conto di Rittmeyer." },
   ],
   pt: [
     { title: "EKZ – Iluminação pública, cantão de Zurique", technologies: ["WinCC OA", "TIA Portal", "S7-1500", "OPC UA", "OPC UA GDS Push"], description: "Comando de iluminação central e seguro para a empresa de eletricidade do cantão de Zurique (EKZ): cerca de 3000 PLC (SIMATIC S7-1500) em mais de 2500 postos de transformação, comandados com WinCC OA SCADA e programados em TIA Portal. Comunicação OPC UA cifrada, incl. OPC UA GDS Push para a gestão central de certificados. Realizado com Siemens Schweiz DI AG." },
@@ -300,6 +350,14 @@ const txt: Record<Locale, Txt[]> = {
     { title: "Linha de redes MG320 BDW – conversão S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversão da linha de redes MG320 do comando S5 para S7." },
     { title: "Conversão MG320 S5 → S7", technologies: ["Siemens S5", "Siemens S7"], description: "Conversão de uma MG320 do comando S5 para S7." },
     { title: "Ampliação de software – linha de trefilagem a frio", technologies: ["Siemens S7"], description: "Ampliação de software de uma linha de trefilagem a frio." },
+    { title: "Cascalheira Birr – visualização WinCC Unified", technologies: ["WinCC Unified", "PC Runtime", "Visualização"], description: "Nova visualização da instalação para a cascalheira de Birr, implementada em WinCC Unified PC Runtime." },
+    { title: "KIBAG Kies Schafisheim – visualização WinCC Unified", technologies: ["WinCC Unified", "PC Runtime", "Visualização"], description: "Visualização da instalação para a cascalheira da KIBAG Kies Schafisheim AG, implementada em WinCC Unified PC Runtime." },
+    { title: "Modernização WinCC Unified – Advanced → Unified", technologies: ["WinCC Unified", "WinCC Advanced", "Migração"], description: "Modernização de uma visualização existente através da migração de WinCC Advanced para WinCC Unified." },
+    { title: "KIBAG – zona de lavagem de veículos", technologies: ["WinCC Unified", "Comfort Panel", "Automação"], description: "Comando e visualização de uma zona de lavagem de veículos da KIBAG num WinCC Unified Comfort Panel." },
+    { title: "ETAR Rorbas – controlo de iluminação DALI", technologies: ["DALI", "Iluminação", "Comunicação"], description: "Implementação do controlo de iluminação da estação de tratamento de Rorbas ZH através do bus DALI. Realizado por conta da Rittmeyer." },
+    { title: "ETAR Lenzerheide – biologia e ventilação", technologies: ["Siemens S7", "WinCC OA", "AVAC"], description: "Programação do comando para a biologia e a ventilação da estação de tratamento de Lenzerheide." },
+    { title: "Central a fio de água EKZ Dietikon – grade de limpeza", technologies: ["Siemens S7", "Automação"], description: "Comando da grade de limpeza para a central a fio de água da EKZ em Dietikon." },
+    { title: "ETAR Lucens – estações de bombagem e obras exteriores", technologies: ["Siemens S7", "WinCC OA"], description: "Software para quatro obras exteriores (estações de bombagem) da estação de tratamento de Lucens e visualização em WinCC OA. Realizado por conta da Rittmeyer." },
   ],
 };
 
@@ -310,6 +368,8 @@ const categoryLabelsByLocale: Record<Locale, Record<ProjectCategory, string>> = 
     abwasser: "Abwasser & ARA",
     stahl: "Stahl- & Industrieanlagen",
     retrofit: "Retrofit & Migration",
+    kies: "Kies & Aufbereitung",
+    kommunikation: "Kommunikation",
   },
   en: {
     infrastruktur: "Infrastructure & energy",
@@ -317,6 +377,8 @@ const categoryLabelsByLocale: Record<Locale, Record<ProjectCategory, string>> = 
     abwasser: "Wastewater & WWTP",
     stahl: "Steel & industrial plants",
     retrofit: "Retrofit & migration",
+    kies: "Gravel & processing",
+    kommunikation: "Communication",
   },
   es: {
     infrastruktur: "Infraestructura y energía",
@@ -324,6 +386,8 @@ const categoryLabelsByLocale: Record<Locale, Record<ProjectCategory, string>> = 
     abwasser: "Aguas residuales y EDAR",
     stahl: "Instalaciones siderúrgicas e industriales",
     retrofit: "Retrofit y migración",
+    kies: "Grava y tratamiento",
+    kommunikation: "Comunicación",
   },
   fr: {
     infrastruktur: "Infrastructure et énergie",
@@ -331,6 +395,8 @@ const categoryLabelsByLocale: Record<Locale, Record<ProjectCategory, string>> = 
     abwasser: "Eaux usées et STEP",
     stahl: "Installations sidérurgiques et industrielles",
     retrofit: "Rétrofit et migration",
+    kies: "Gravier et traitement",
+    kommunikation: "Communication",
   },
   it: {
     infrastruktur: "Infrastruttura ed energia",
@@ -338,6 +404,8 @@ const categoryLabelsByLocale: Record<Locale, Record<ProjectCategory, string>> = 
     abwasser: "Acque reflue e IDA",
     stahl: "Impianti siderurgici e industriali",
     retrofit: "Retrofit e migrazione",
+    kies: "Ghiaia e trattamento",
+    kommunikation: "Comunicazione",
   },
   pt: {
     infrastruktur: "Infraestrutura e energia",
@@ -345,6 +413,8 @@ const categoryLabelsByLocale: Record<Locale, Record<ProjectCategory, string>> = 
     abwasser: "Águas residuais e ETAR",
     stahl: "Instalações siderúrgicas e industriais",
     retrofit: "Retrofit e migração",
+    kies: "Cascalho e processamento",
+    kommunikation: "Comunicação",
   },
 };
 
@@ -354,42 +424,54 @@ const highlightsByLocale: Record<Locale, { category: ProjectCategory; descriptio
     { category: "logistik", description: "Software-Entwicklung für Paket- und Mischsendungs-Sortieranlagen – u. a. für DHL Express und die Schweizerische Post." },
     { category: "abwasser", description: "ARA-Projekte, Regenbecken, Abwasserwärmerückgewinnung und Sicherheitssteuerungen in der ganzen Schweiz." },
     { category: "stahl", description: "Internationale Inbetriebnahmen von Stahl- und Industrieanlagen in Europa und Amerika." },
-    { category: "retrofit", description: "Modernisierung bestehender Anlagen und Migration von Altsteuerungen (S5 → S7 → TIA)." },
+    { category: "retrofit", description: "Modernisierung bestehender Anlagen und Migration von Altsteuerungen (S5 → S7 → TIA) sowie von WinCC Advanced auf WinCC Unified." },
+    { category: "kies", description: "Anlagenvisualisierung für Kieswerke auf WinCC Unified – u. a. Kieswerk Birr und KIBAG Kies Schafisheim." },
+    { category: "kommunikation", description: "Bus- und Kommunikationslösungen wie die DALI-Beleuchtungssteuerung der ARA Rorbas." },
   ],
   en: [
     { category: "infrastruktur", description: "Critical infrastructure and energy: public lighting (EKZ) and data centres (Equinix) – with WinCC OA, TIA Portal, PCS 7 and OPC UA." },
     { category: "logistik", description: "Software development for parcel and mixed-mail sorting plants – including for DHL Express and Swiss Post." },
     { category: "abwasser", description: "Wastewater plant projects, stormwater tanks, wastewater heat recovery and safety controllers throughout Switzerland." },
     { category: "stahl", description: "International commissioning of steel and industrial plants in Europe and the Americas." },
-    { category: "retrofit", description: "Modernization of existing plants and migration of legacy controllers (S5 → S7 → TIA)." },
+    { category: "retrofit", description: "Modernization of existing plants and migration of legacy controllers (S5 → S7 → TIA) and from WinCC Advanced to WinCC Unified." },
+    { category: "kies", description: "Plant visualization for gravel works on WinCC Unified – including Kieswerk Birr and KIBAG Kies Schafisheim." },
+    { category: "kommunikation", description: "Bus and communication solutions such as the DALI lighting control at ARA Rorbas." },
   ],
   es: [
     { category: "infrastruktur", description: "Infraestructura crítica y energía: alumbrado público (EKZ) y centros de datos (Equinix), con WinCC OA, TIA Portal, PCS 7 y OPC UA." },
     { category: "logistik", description: "Desarrollo de software para plantas de clasificación de paquetes y envíos mixtos, entre otros para DHL Express y Correos de Suiza." },
     { category: "abwasser", description: "Proyectos de EDAR, tanques de tormenta, recuperación de calor de aguas residuales y controles de seguridad en toda Suiza." },
     { category: "stahl", description: "Puestas en marcha internacionales de instalaciones siderúrgicas e industriales en Europa y América." },
-    { category: "retrofit", description: "Modernización de instalaciones existentes y migración de controladores antiguos (S5 → S7 → TIA)." },
+    { category: "retrofit", description: "Modernización de instalaciones existentes y migración de controladores antiguos (S5 → S7 → TIA) y de WinCC Advanced a WinCC Unified." },
+    { category: "kies", description: "Visualización de plantas para plantas de grava con WinCC Unified, entre otras Kieswerk Birr y KIBAG Kies Schafisheim." },
+    { category: "kommunikation", description: "Soluciones de bus y comunicación como el control de iluminación DALI de la EDAR Rorbas." },
   ],
   fr: [
     { category: "infrastruktur", description: "Infrastructure critique et énergie : éclairage public (EKZ) et centres de données (Equinix), avec WinCC OA, TIA Portal, PCS 7 et OPC UA." },
     { category: "logistik", description: "Développement logiciel pour des installations de tri de colis et d'envois mixtes, notamment pour DHL Express et La Poste suisse." },
     { category: "abwasser", description: "Projets de STEP, bassins d'orage, récupération de chaleur des eaux usées et commandes de sécurité dans toute la Suisse." },
     { category: "stahl", description: "Mises en service internationales d'installations sidérurgiques et industrielles en Europe et en Amérique." },
-    { category: "retrofit", description: "Modernisation d'installations existantes et migration d'anciennes commandes (S5 → S7 → TIA)." },
+    { category: "retrofit", description: "Modernisation d'installations existantes et migration d'anciennes commandes (S5 → S7 → TIA) ainsi que de WinCC Advanced vers WinCC Unified." },
+    { category: "kies", description: "Visualisation d'installations pour graviers avec WinCC Unified, dont Kieswerk Birr et KIBAG Kies Schafisheim." },
+    { category: "kommunikation", description: "Solutions de bus et de communication comme la commande d'éclairage DALI de la STEP Rorbas." },
   ],
   it: [
     { category: "infrastruktur", description: "Infrastruttura critica ed energia: illuminazione pubblica (EKZ) e data center (Equinix), con WinCC OA, TIA Portal, PCS 7 e OPC UA." },
     { category: "logistik", description: "Sviluppo software per impianti di smistamento di pacchi e invii misti, tra cui per DHL Express e la Posta svizzera." },
     { category: "abwasser", description: "Progetti di IDA, bacini di pioggia, recupero di calore dalle acque reflue e controlli di sicurezza in tutta la Svizzera." },
     { category: "stahl", description: "Messe in servizio internazionali di impianti siderurgici e industriali in Europa e in America." },
-    { category: "retrofit", description: "Modernizzazione di impianti esistenti e migrazione di vecchi controllori (S5 → S7 → TIA)." },
+    { category: "retrofit", description: "Modernizzazione di impianti esistenti e migrazione di vecchi controllori (S5 → S7 → TIA) e da WinCC Advanced a WinCC Unified." },
+    { category: "kies", description: "Visualizzazione di impianti per la ghiaia con WinCC Unified, tra cui Kieswerk Birr e KIBAG Kies Schafisheim." },
+    { category: "kommunikation", description: "Soluzioni bus e di comunicazione come il comando di illuminazione DALI dell'IDA Rorbas." },
   ],
   pt: [
     { category: "infrastruktur", description: "Infraestrutura crítica e energia: iluminação pública (EKZ) e centros de dados (Equinix), com WinCC OA, TIA Portal, PCS 7 e OPC UA." },
     { category: "logistik", description: "Desenvolvimento de software para instalações de triagem de encomendas e envios mistos, entre outros para a DHL Express e os Correios da Suíça." },
     { category: "abwasser", description: "Projetos de ETAR, bacias de tempestade, recuperação de calor de águas residuais e controlos de segurança em toda a Suíça." },
     { category: "stahl", description: "Colocações em serviço internacionais de instalações siderúrgicas e industriais na Europa e na América." },
-    { category: "retrofit", description: "Modernização de instalações existentes e migração de controladores antigos (S5 → S7 → TIA)." },
+    { category: "retrofit", description: "Modernização de instalações existentes e migração de controladores antigos (S5 → S7 → TIA) e de WinCC Advanced para WinCC Unified." },
+    { category: "kies", description: "Visualização de instalações para instalações de cascalho com WinCC Unified, incluindo Kieswerk Birr e KIBAG Kies Schafisheim." },
+    { category: "kommunikation", description: "Soluções de bus e comunicação como o controlo de iluminação DALI da ETAR Rorbas." },
   ],
 };
 
