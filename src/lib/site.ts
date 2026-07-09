@@ -75,8 +75,8 @@ export const mainNav: NavItem[] = [
   { key: "leistungen", href: "/leistungen" },
   { key: "unifiedModernisierung", href: "/unified-modernisierung" },
   { key: "sinemaRc", href: "/sinema-rc" },
-  { key: "unternehmen", href: "/unternehmen" },
   { key: "referenzen", href: "/referenzen" },
+  { key: "unternehmen", href: "/unternehmen" },
   { key: "kontakt", href: "/kontakt" },
 ];
 
