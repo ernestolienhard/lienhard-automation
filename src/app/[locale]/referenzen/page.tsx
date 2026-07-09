@@ -3,7 +3,6 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { ContactCta } from "@/components/sections/ContactCta";
 import { ReferencesGrid } from "@/components/sections/ReferencesGrid";
-import { getReferenceHighlights, getCategoryLabels } from "@/content/references";
 import { pageLocale } from "@/i18n/config";
 
 const T = {
@@ -101,8 +100,6 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
 export default function ReferenzenPage({ params }: { params: { locale: string } }) {
   const locale = pageLocale(params.locale);
   const t = T[locale];
-  const highlights = getReferenceHighlights(locale);
-  const categoryLabels = getCategoryLabels(locale);
 
   return (
     <>
@@ -115,18 +112,6 @@ export default function ReferenzenPage({ params }: { params: { locale: string } 
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-steel-300">{t.intro}</p>
         </Container>
       </section>
-
-      <Section tone="muted">
-        <SectionHeading eyebrow={t.areasEyebrow} title={t.areasTitle} />
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {highlights.map((h) => (
-            <div key={h.category} className="h-full rounded-xl2 border border-steel-200 bg-white p-6 shadow-card">
-              <h3 className="font-bold text-navy-900">{categoryLabels[h.category]}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-steel-600">{h.description}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
 
       <Section tone="light">
         <SectionHeading eyebrow={t.overviewEyebrow} title={t.overviewTitle} lead={t.overviewLead} />
