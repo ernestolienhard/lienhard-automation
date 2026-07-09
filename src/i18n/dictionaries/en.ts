@@ -4,7 +4,6 @@ const en: Dict = {
   nav: {
     leistungen: "Services",
     unifiedModernisierung: "Unified Modernization",
-    cybersecurity: "Cybersecurity",
     sinemaRc: "SINEMA RC",
     unternehmen: "About me",
     referenzen: "References",

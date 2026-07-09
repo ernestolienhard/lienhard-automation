@@ -169,7 +169,3 @@ export const relatedLinks: {
     url: "https://support.industry.siemens.com/cs/document/109768002",
   },
 ];
-
-export const securityNote = {
-  text: "Zum Schutz von Anlagen, Systemen und Netzwerken vor Cyber-Bedrohungen ist ein ganzheitliches, modernes IT-Security-Konzept notwendig. Diese Anforderungen berücksichtige ich bei jeder Modernisierung.",
-};

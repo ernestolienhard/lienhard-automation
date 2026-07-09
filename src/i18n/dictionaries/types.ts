@@ -7,7 +7,6 @@ export type Dict = {
   nav: {
     leistungen: string;
     unifiedModernisierung: string;
-    cybersecurity: string;
     sinemaRc: string;
     unternehmen: string;
     referenzen: string;

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Fragment } from "react";
-import { LocaleLink as Link } from "@/components/ui/LocaleLink";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
@@ -18,7 +17,6 @@ import {
   GraduationCap,
   Layers,
   Cpu,
-  ShieldCheck,
   ExternalLink,
 } from "@/components/ui/icons";
 
@@ -55,8 +53,6 @@ type Content = {
   toolsTitle: string;
   toolsP1: React.ReactNode;
   attribution: string;
-  securityText: string;
-  securityLink: string;
   relatedTitles: string[];
   ctaTitle: string;
   ctaLead: string;
@@ -140,9 +136,6 @@ const C: Record<Locale, Content> = {
     ),
     attribution:
       "SIMATIC, WinCC, WinCC flexible, WinCC Unified, Data2Unified und TIA Portal sind Marken der Siemens AG. Lienhard Automation ist unabhängiger Dienstleister und kein Vertragshändler von Siemens.",
-    securityText:
-      "Zum Schutz von Anlagen, Systemen und Netzwerken vor Cyber-Bedrohungen ist ein ganzheitliches, modernes IT-Security-Konzept notwendig. Diese Anforderungen berücksichtige ich bei jeder Modernisierung.",
-    securityLink: "Mehr zu unserem Cybersecurity-Bereich",
     relatedTitles: [
       "Data2Unified – TIA-Portal-Add-in (Siemens)",
       "WinCC Unified Modernization Checker",
@@ -228,9 +221,6 @@ const C: Record<Locale, Content> = {
     ),
     attribution:
       "SIMATIC, WinCC, WinCC flexible, WinCC Unified, Data2Unified and TIA Portal are trademarks of Siemens AG. Lienhard Automation is an independent service provider, not a Siemens dealer.",
-    securityText:
-      "Protecting plants, systems and networks against cyber threats requires a holistic, modern IT security concept. I take these requirements into account in every modernization.",
-    securityLink: "More about our cybersecurity area",
     relatedTitles: [
       "Data2Unified – TIA Portal add-in (Siemens)",
       "WinCC Unified Modernization Checker",
@@ -316,9 +306,6 @@ const C: Record<Locale, Content> = {
     ),
     attribution:
       "SIMATIC, WinCC, WinCC flexible, WinCC Unified, Data2Unified y TIA Portal son marcas de Siemens AG. Lienhard Automation es un proveedor de servicios independiente, no un distribuidor de Siemens.",
-    securityText:
-      "Proteger instalaciones, sistemas y redes frente a las ciberamenazas requiere un concepto de seguridad informática integral y moderno. Tengo en cuenta estos requisitos en cada modernización.",
-    securityLink: "Más sobre nuestra área de ciberseguridad",
     relatedTitles: [
       "Data2Unified – add-in de TIA Portal (Siemens)",
       "WinCC Unified Modernization Checker",
@@ -403,9 +390,6 @@ const C: Record<Locale, Content> = {
     ),
     attribution:
       "SIMATIC, WinCC, WinCC flexible, WinCC Unified, Data2Unified et TIA Portal sont des marques de Siemens AG. Lienhard Automation est un prestataire indépendant, pas un revendeur Siemens.",
-    securityText:
-      "Protéger les installations, les systèmes et les réseaux contre les cybermenaces nécessite un concept de sécurité informatique global et moderne. Je tiens compte de ces exigences dans chaque modernisation.",
-    securityLink: "En savoir plus sur notre domaine cybersécurité",
     relatedTitles: [
       "Data2Unified – add-in TIA Portal (Siemens)",
       "WinCC Unified Modernization Checker",
@@ -491,9 +475,6 @@ const C: Record<Locale, Content> = {
     ),
     attribution:
       "SIMATIC, WinCC, WinCC flexible, WinCC Unified, Data2Unified e TIA Portal sono marchi di Siemens AG. Lienhard Automation è un fornitore di servizi indipendente, non un rivenditore Siemens.",
-    securityText:
-      "Proteggere impianti, sistemi e reti dalle minacce informatiche richiede un concetto di sicurezza IT olistico e moderno. Tengo conto di questi requisiti in ogni modernizzazione.",
-    securityLink: "Scopri di più sulla nostra area cybersecurity",
     relatedTitles: [
       "Data2Unified – add-in per TIA Portal (Siemens)",
       "WinCC Unified Modernization Checker",
@@ -578,9 +559,6 @@ const C: Record<Locale, Content> = {
     ),
     attribution:
       "SIMATIC, WinCC, WinCC flexible, WinCC Unified, Data2Unified e TIA Portal são marcas da Siemens AG. A Lienhard Automation é um prestador de serviços independente, não um revendedor da Siemens.",
-    securityText:
-      "Proteger instalações, sistemas e redes contra ciberameaças exige um conceito de segurança informática holístico e moderno. Tenho em conta estes requisitos em cada modernização.",
-    securityLink: "Saiba mais sobre a nossa área de cibersegurança",
     relatedTitles: [
       "Data2Unified – add-in para TIA Portal (Siemens)",
       "WinCC Unified Modernization Checker",
@@ -776,22 +754,6 @@ export default function UnifiedModernisierungPage({
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="mt-10 flex flex-col gap-5 rounded-xl2 border border-steel-200 bg-steel-50 p-7 sm:flex-row sm:items-start">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white text-accent-600 shadow-sm">
-            <ShieldCheck className="h-5 w-5" />
-          </div>
-          <div>
-            <h3 className="font-bold text-navy-900">Security</h3>
-            <p className="mt-2 text-sm leading-relaxed text-steel-600">
-              {t.securityText}{" "}
-              <Link href="/cybersecurity" className="underline hover:text-accent-600">
-                {t.securityLink}
-              </Link>
-              .
-            </p>
-          </div>
         </div>
       </Section>
 
