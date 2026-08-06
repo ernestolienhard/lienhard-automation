@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Inter, Oswald } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 import { siteConfig, getLegalName } from "@/lib/site";
 import { Header } from "@/components/layout/Header";
@@ -156,6 +157,7 @@ export default function LocaleLayout({
         <Header dict={dict} />
         <main id="main">{children}</main>
         <Footer locale={locale} dict={dict} />
+        <Analytics />
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger
